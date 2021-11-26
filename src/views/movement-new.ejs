@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Home</title>
+
+	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						Jasef Huachambe <br><small class="roboto-condensed-light">Web Developer</small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="home"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Administración <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="cashier-new"><i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva Caja</a>
+								</li>
+								<li>
+									<a href="category-new"><i class="fas fa-tags fa-fw"></i> &nbsp; Nueva Categoría</a>
+								</li>
+								<li>
+									<a href="provider-new"><i class="fas fa-shipping-fast fa-fw"></i> &nbsp; Nuevo Proveedor</a>
+								</li>
+								<li>
+									<a href="user-new"><i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo Usuario</a>
+								</li>
+								<li>
+									<a href="client-new"><i class="fas fa-child fa-fw"></i> &nbsp; Nuevo Cliente</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="product-new"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo Producto</a>
+								</li>
+								<li>
+									<a href="product-list"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos en almacen</a>
+								</li>
+								<li>
+									<a href="product-sold"><i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido</a>
+								</li>
+								<li>
+									<a href="product-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Productos</a>
+								</li>
+							</ul>
+						</li>
+							<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="shop-new"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra</a>
+								</li>
+								<li>
+									<a href="shop-list"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras realizadas</a>
+								</li>
+								<li>
+									<a href="shop-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Compra</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Ventas <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="sale-new"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta</a> 
+								</li>
+								<li>
+									<a href="sale-list.ejs"><i class="fas fa-coins fa-fw"></i> &nbsp; Lista de Ventas </a>
+								</li>
+								<li>
+									<a href="sale-search-date"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por fecha</a>
+								</li>
+								<li>
+									<a href="sale-search-code"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por código</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-wallet fa-fw""></i> &nbsp; Movimientos en caja <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="movement-new"><i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento </a> 
+								</li>
+								<li>
+									<a href="movement-list"><i class="fas fa-money-check-alt fa-fw"></i> &nbsp; Movimientos realizados</a>
+								</li>
+								<li>
+									<a href="movement-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar movimientos</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-truck-loading fa-fw""></i> &nbsp; Devoluciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="return-list"><i class="fas fa-people-carry fa-fw"></i> &nbsp; Devoluciones realizadas</a> 
+								</li>
+								<li>
+									<a href="return-search"><i class="fas fa-dolly-flatbed fa-fw"></i> &nbsp; Buscar devoluciones</a>
+								</li>
+							</ul>
+						</li>		
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="far fa-file-pdf fa-fw""></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="report-sales"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reportes de venta </a> 
+								</li>
+								<li>
+									<a href="report-inventory"><i class="fas fa-box-open fa-fw"></i> &nbsp; Reportes de inventario </a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-cogs fa-fw""></i> &nbsp; Configuraciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="company"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Datos de la empresa </a> 
+								</li>
+								<li>
+									<a href="user-update"><i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar cuenta</a>
+								</li>
+							</ul>
+						</li>							
+
+
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+		<section class="full-box page-content scroll">
+			<nav class="full-box navbar-info">
+				<a href="#" class="float-left show-nav-lateral">
+					<i class="fas fa-bars"></i>
+				</a>
+				<a href="http://systems.designlopers.com/SVI/user-update/dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09/">
+					<i class="fas fa-user-cog"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+			<div class="full-box page-header">
+				<h3 class="text-left text-uppercase">
+					<i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento
+				</h3>
+				<p class="text-justify">
+					En el módulo MOVIMIENTOS usted puede realizar, buscar y ver todos los movimientos de efectivo realizados en
+					las cajas de ventas. Los movimientos de <strong>“Entrada de efectivo”</strong> son aquellos donde se ingresa
+					dinero a las cajas de ventas. Los movimientos de <strong>“Retiro de efectivo”</strong> son aquellos donde se
+					extrae el dinero de las cajas de ventas.
+				</p>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+					<li>
+						<a class="active" href="movement-new">
+							<i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento
+						</a>
+					</li>
+					<li>
+						<a href="movement-list">
+							<i class="fas fa-money-check-alt fa-fw"></i> &nbsp; Movimientos realizados
+						</a>
+					</li>
+					<li>
+						<a href="movement-search">
+							<i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar movimientos
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="container-fluid">
+				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/movimientoAjax.php"
+					method="POST" data-form="save" autocomplete="off">
+					<input type="hidden" name="modulo_movimiento" value="registrar">
+					<fieldset>
+						<legend><i class="fas fa-info-circle"></i> &nbsp; Información del movimiento</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="movimiento_tipo" class="bmd-label-floating">Caja &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="movimiento_caja_reg">
+											<option value="" selected="">Seleccione una opción</option>
+											<option value="1">Caja No.1 (Caja principal - $550864.89 USD)</option>
+											<option value="2">Caja No.2 (Andres Quiroz - $5000.00 USD)</option>
+											<option value="3">Caja No.3 (qwerty - $440.50 USD)</option>
+											<option value="5">Caja No.7 (Caja Secundaria - $12026998.51 USD)</option>
+											<option value="6">Caja No.4201 (Erik - $4450.00 USD)</option>
+											<option value="7">Caja No.5 (caja de ventas 0005 - $8770.32 USD)</option>
+											<option value="8">Caja No.56 (paracetamol - $10509.91 USD)</option>
+											<option value="9">Caja No.132 (003pedro - $269821.31 USD)</option>
+											<option value="10">Caja No.9 (REYMONr - $100000.00 USD)</option>
+											<option value="11">Caja No.10 (ejemplo - $10050.00 USD)</option>
+											<option value="12">Caja No.21 (2004032 - $0.00 USD)</option>
+											<option value="13">Caja No.9187 (jesus - $39.00 USD)</option>
+											<option value="14">Caja No.56654 (holiiiiii - $554454505443754.00 USD)</option>
+											<option value="16">Caja No.16 (1605 - $3016.40 USD)</option>
+											<option value="17">Caja No.101 (CAJA 101 - $0.00 USD)</option>
+											<option value="18">Caja No.1997 (1997 - $68683.12 USD)</option>
+											<option value="19">Caja No.1010 (nuevo - $199950.00 USD)</option>
+											<option value="20">Caja No.1000 (HELAMIMOS - $349900.00 USD)</option>
+											<option value="21">Caja No.7253 (Chicus - $5000.00 USD)</option>
+											<option value="22">Caja No.90 (nueva - $400.00 USD)</option>
+											<option value="23">Caja No.243 (2246 - $250.00 USD)</option>
+											<option value="25">Caja No.25 (Romero Caja - $150.00 USD)</option>
+											<option value="26">Caja No.2020 (ZONA1 - $145830189.52 USD)</option>
+											<option value="27">Caja No.32021 (JV VENTAS MAYORISTA - $0.00 USD)</option>
+											<option value="28">Caja No.1111 (jolllll - $0.00 USD)</option>
+											<option value="29">Caja No.123 (test - $200.00 USD)</option>
+											<option value="30">Caja No.12 (caja 01 - $1540.00 USD)</option>
+											<option value="31">Caja No.105 (iver - $20.00 USD)</option>
+											<option value="32">Caja No.12122 (4545 - $100.00 USD)</option>
+											<option value="33">Caja No.12312 (asd - $0.00 USD)</option>
+											<option value="34">Caja No.1542 (1542 - $500.00 USD)</option>
+											<option value="35">Caja No.778 (Seg - $1000.00 USD)</option>
+											<option value="36">Caja No.60 (3312 - $7500.00 USD)</option>
+											<option value="37">Caja No.55 (Pedro Saint - $5000.00 USD)</option>
+											<option value="38">Caja No.1223 (123 - $0.00 USD)</option>
+											<option value="39">Caja No.100 (5645 - $800000.00 USD)</option>
+											<option value="41">Caja No.1001 (1eut42 - $100.00 USD)</option>
+											<option value="42">Caja No.999 (abcd - $10.00 USD)</option>
+											<option value="43">Caja No.1222 (cajajefa - $1000.00 USD)</option>
+											<option value="44">Caja No.232 (321312 - $1.00 USD)</option>
+											<option value="45">Caja No.4578 (Multiservicios Rojas - $0.00 USD)</option>
+											<option value="46">Caja No.1833 (hola - $8700.00 USD)</option>
+											<option value="47">Caja No.1234 (1010 - $2000.00 USD)</option>
+											<option value="49">Caja No.51710 (051710sp - $0.00 USD)</option>
+											<option value="50">Caja No.99 (caja 9 - $1000.00 USD)</option>
+											<option value="51">Caja No.12453 (njdsfsdfn - $0.00 USD)</option>
+											<option value="52">Caja No.256 (MARC - $0.00 USD)</option>
+											<option value="54">Caja No.77 (caja kul - $-115.00 USD)</option>
+											<option value="56">Caja No.50 (cccc - $0.00 USD)</option>
+											<option value="57">Caja No.33 (jgh - $0.01 USD)</option>
+											<option value="58">Caja No.303 (0738 - $0.00 USD)</option>
+											<option value="59">Caja No.1231 (Juana la cubana - $100000.00 USD)</option>
+											<option value="60">Caja No.41353 (esta muy bueno el software te lo compraría pero soy pobre :c -
+												$1000.00 USD)</option>
+											<option value="61">Caja No.19 (ADMINISTRADOR - $105342.16 USD)</option>
+											<option value="62">Caja No.234 (ooo - $25.00 USD)</option>
+											<option value="63">Caja No.11111 (nicolas - $1000.00 USD)</option>
+											<option value="64">Caja No.10000 (CAJA B - $15.00 USD)</option>
+											<option value="66">Caja No.67 (Ttt - $150.00 USD)</option>
+											<option value="67">Caja No.71984 (123456 - $400.00 USD)</option>
+											<option value="68">Caja No.500 (fr500 - $104358.65 USD)</option>
+											<option value="70">Caja No.1011 (Caja Restaurante - $0.00 USD)</option>
+											<option value="71">Caja No.1252 (caja 12 - $0.00 USD)</option>
+											<option value="72">Caja No.85 (a551 - $4.00 USD)</option>
+											<option value="73">Caja No.1099 (1098 - $300.00 USD)</option>
+											<option value="74">Caja No.9999 (Diego - $4000.00 USD)</option>
+											<option value="75">Caja No.17 (MainCash#17 - $976840.35 USD)</option>
+											<option value="76">Caja No.1280 (caja0011 - $111445.84 USD)</option>
+											<option value="77">Caja No.23455 (xcvxcvxcv - $150.00 USD)</option>
+											<option value="78">Caja No.1885 (Ema Store - $200.00 USD)</option>
+											<option value="79">Caja No.21231 (123123 - $100.00 USD)</option>
+											<option value="80">Caja No.189 (Bdjdj - $8483.00 USD)</option>
+											<option value="81">Caja No.10222 (Loz - $471.89 USD)</option>
+											<option value="82">Caja No.1995 (1995 - $15000.00 USD)</option>
+											<option value="83">Caja No.2000 (ANTHONY PALOMINO COTIPA - $4320.00 USD)</option>
+											<option value="84">Caja No.12888 (SWCAJA - $0.00 USD)</option>
+											<option value="85">Caja No.578 (78954 - $78944.00 USD)</option>
+											<option value="86">Caja No.200 (caja200 - $0.00 USD)</option>
+											<option value="87">Caja No.12345 (Angie - $64100.00 USD)</option>
+											<option value="88">Caja No.6666 (FDFS DFDFDF - $334.00 USD)</option>
+											<option value="89">Caja No.12321 (CAJA MAYORES - $300.00 USD)</option>
+											<option value="90">Caja No.34545 (ukhjn - $30000.00 USD)</option>
+											<option value="91">Caja No.381 (NINA CENTRAL - $0.00 USD)</option>
+											<option value="92">Caja No.23 (Caja 23 - $2000.00 USD)</option>
+											<option value="93">Caja No.2021 (Lateral Rapida - $5000.00 USD)</option>
+											<option value="94">Caja No.122 (Santiago - $500.00 USD)</option>
+											<option value="95">Caja No.12340 (Luis - $50.00 USD)</option>
+											<option value="96">Caja No.9090 (001 - $210.00 USD)</option>
+											<option value="97">Caja No.20 (CAJA YOHAN - $10000.00 USD)</option>
+											<option value="98">Caja No.22 (Gabriel02 - $500.00 USD)</option>
+											<option value="99">Caja No.208 (Bananfruit - $0.00 USD)</option>
+											<option value="100">Caja No.2022 (bananFruit periodo 2021 - $0.00 USD)</option>
+											<option value="101">Caja No.707 (caja jorge - $90000.00 USD)</option>
+											<option value="102">Caja No.23211 (32160000 - $50.00 USD)</option>
+											<option value="103">Caja No.23443 (24ew - $2.00 USD)</option>
+											<option value="104">Caja No.65615 (Entradas - $4000.00 USD)</option>
+											<option value="105">Caja No.12356 (Ashura - $1000.00 USD)</option>
+											<option value="106">Caja No.2907 (Lenin Rios - $100.00 USD)</option>
+											<option value="107">Caja No.2222 (Caja Auxiliar - $500.00 USD)</option>
+											<option value="108">Caja No.789 (Caja Express - $10001000.00 USD)</option>
+											<option value="109">Caja No.45242 (caja premiun - $9099000.00 USD)</option>
+											<option value="110">Caja No.12344 (53bttt - $6.00 USD)</option>
+											<option value="111">Caja No.13323 (323323232 - $2323232.00 USD)</option>
+											<option value="112">Caja No.2323 (2323 - $23230.00 USD)</option>
+											<option value="113">Caja No.5000 (dddd - $0.00 USD)</option>
+											<option value="114">Caja No.12343 (Carlos - $1356.25 USD)</option>
+											<option value="115">Caja No.40 (00001 - $1000.00 USD)</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="movimiento_tipo" class="bmd-label-floating">Tipo de movimiento &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="movimiento_tipo_reg" id="movimiento_tipo">
+											<option value="" selected="">Seleccione una opción</option>
+											<option value="Retiro de efectivo">Retiro de efectivo</option>
+											<option value="Entrada de efectivo">Entrada de efectivo</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="movimiento_cantidad" class="bmd-label-floating">Cantidad de efectivo &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="movimiento_cantidad_reg"
+											value="0.00" id="movimiento_cantidad" maxlength="25">
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-group bmd-form-group">
+										<label for="movimiento_motivo" class="bmd-label-floating">Motivo del movimiento &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{5,70}" class="form-control"
+											name="movimiento_motivo_reg" id="movimiento_motivo" maxlength="70">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<p class="text-center" style="margin-top: 40px;">
+						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp;
+							LIMPIAR</button>
+						&nbsp; &nbsp;
+						<button type="submit" class="btn btn-raised btn-info btn-sm"><i class="far fa-save"></i> &nbsp;
+							GUARDAR</button>
+					</p>
+					<p class="text-center">
+						<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+							obligatorios</small>
+					</p>
+				</form>
+			</div>
+		</section>
+
+
+
+	</main>
+
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="js/bootstrap-material-design.min.js"></script>
+	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

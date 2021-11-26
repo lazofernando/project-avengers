@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Home</title>
+
+	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						Jasef Huachambe <br><small class="roboto-condensed-light">Web Developer</small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="home"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Administración <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="cashier-new"><i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva Caja</a>
+								</li>
+								<li>
+									<a href="category-new"><i class="fas fa-tags fa-fw"></i> &nbsp; Nueva Categoría</a>
+								</li>
+								<li>
+									<a href="provider-new"><i class="fas fa-shipping-fast fa-fw"></i> &nbsp; Nuevo Proveedor</a>
+								</li>
+								<li>
+									<a href="user-new"><i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo Usuario</a>
+								</li>
+								<li>
+									<a href="client-new"><i class="fas fa-child fa-fw"></i> &nbsp; Nuevo Cliente</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="product-new"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo Producto</a>
+								</li>
+								<li>
+									<a href="product-list"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos en almacen</a>
+								</li>
+								<li>
+									<a href="product-sold"><i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido</a>
+								</li>
+								<li>
+									<a href="product-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Productos</a>
+								</li>
+							</ul>
+						</li>
+							<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="shop-new"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra</a>
+								</li>
+								<li>
+									<a href="shop-list"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras realizadas</a>
+								</li>
+								<li>
+									<a href="shop-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Compra</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Ventas <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="sale-new"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta</a> 
+								</li>
+								<li>
+									<a href="sale-list.ejs"><i class="fas fa-coins fa-fw"></i> &nbsp; Lista de Ventas </a>
+								</li>
+								<li>
+									<a href="sale-search-date"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por fecha</a>
+								</li>
+								<li>
+									<a href="sale-search-code"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por código</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-wallet fa-fw""></i> &nbsp; Movimientos en caja <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="movement-new"><i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento </a> 
+								</li>
+								<li>
+									<a href="movement-list"><i class="fas fa-money-check-alt fa-fw"></i> &nbsp; Movimientos realizados</a>
+								</li>
+								<li>
+									<a href="movement-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar movimientos</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-truck-loading fa-fw""></i> &nbsp; Devoluciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="return-list"><i class="fas fa-people-carry fa-fw"></i> &nbsp; Devoluciones realizadas</a> 
+								</li>
+								<li>
+									<a href="return-search"><i class="fas fa-dolly-flatbed fa-fw"></i> &nbsp; Buscar devoluciones</a>
+								</li>
+							</ul>
+						</li>		
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="far fa-file-pdf fa-fw""></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="report-sales"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reportes de venta </a> 
+								</li>
+								<li>
+									<a href="report-inventory"><i class="fas fa-box-open fa-fw"></i> &nbsp; Reportes de inventario </a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-cogs fa-fw""></i> &nbsp; Configuraciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="company"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Datos de la empresa </a> 
+								</li>
+								<li>
+									<a href="user-update"><i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar cuenta</a>
+								</li>
+							</ul>
+						</li>							
+
+
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+		<section class="full-box page-content scroll">
+			<nav class="full-box navbar-info">
+				<a href="#" class="float-left show-nav-lateral">
+					<i class="fas fa-bars"></i>
+				</a>
+				<a href="http://systems.designlopers.com/SVI/user-update/dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09/">
+					<i class="fas fa-user-cog"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+			<div class="full-box page-header">
+				<h3 class="text-left text-uppercase">
+					<i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar producto
+				</h3>
+				<p class="text-justify">
+					En el módulo PRODUCTOS podrá agregar nuevos productos al sistema, actualizar datos de los productos, eliminar
+					o actualizar la imagen de los productos, imprimir códigos de barras o SKU de cada producto, buscar productos
+					en el sistema, ver todos los productos en almacén, ver los productos más vendido y filtrar productos por
+					categoría.
+				</p>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+					<li>
+						<a href="product-new">
+							<i class="fas fa-box fa-fw"></i> &nbsp; Nuevo producto
+						</a>
+					</li>
+					<li>
+						<a href="product-list">
+							<i class="fas fa-boxes fa-fw"></i> &nbsp; Productos en almacen
+						</a>
+					</li>
+					<li>
+						<a href="product-sold">
+							<i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido
+						</a>
+					</li>
+					<li>
+						<a href="product-search">
+							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar productos
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="container-fluid">
+				<p class="text-right"><a href="product-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
+						&nbsp; Regresar atrás</a></p>
+				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/productoAjax.php"
+					method="POST" data-form="update" autocomplete="off">
+					<h3 class="text-center text-info">ACEITES PARA BABYS</h3>
+					<hr>
+					<input type="hidden" name="producto_id_up" value="TGltaXJWTHRoMjVjQ0I5L1M0TWYzUT09">
+					<input type="hidden" name="modulo_producto" value="actualizar">
+					<fieldset>
+						<legend><i class="fas fa-barcode"></i> &nbsp; Código y SKU</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_codigo" class="bmd-label-floating">Código de barras &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9- ]{1,70}" class="form-control" name="producto_codigo_up"
+											value="1111111111" id="producto_codigo" maxlength="70" readonly="">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_sku" class="bmd-label-floating">SKU</label>
+										<input type="text" pattern="[a-zA-Z0-9- ]{1,70}" class="form-control" name="producto_sku_up"
+											value="1111111111" id="producto_sku" maxlength="70">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<p class="text-center">
+										<label for="producto_codigo">Código de barras</label><br>
+										<svg id="codigo_barras" width="200px" height="142px" x="0px" y="0px" viewBox="0 0 200 142"
+											xmlns="http://www.w3.org/2000/svg" version="1.1" style="transform: translate(0px, 0px);">
+											<rect x="0" y="0" width="200" height="142" style="fill:#ffffff;"></rect>
+											<g transform="translate(10, 10)" style="fill:#000000;">
+												<rect x="0" y="0" width="4" height="100"></rect>
+												<rect x="6" y="0" width="2" height="100"></rect>
+												<rect x="12" y="0" width="6" height="100"></rect>
+												<rect x="22" y="0" width="4" height="100"></rect>
+												<rect x="32" y="0" width="2" height="100"></rect>
+												<rect x="38" y="0" width="2" height="100"></rect>
+												<rect x="44" y="0" width="4" height="100"></rect>
+												<rect x="54" y="0" width="2" height="100"></rect>
+												<rect x="60" y="0" width="2" height="100"></rect>
+												<rect x="66" y="0" width="4" height="100"></rect>
+												<rect x="76" y="0" width="2" height="100"></rect>
+												<rect x="82" y="0" width="2" height="100"></rect>
+												<rect x="88" y="0" width="4" height="100"></rect>
+												<rect x="98" y="0" width="2" height="100"></rect>
+												<rect x="104" y="0" width="2" height="100"></rect>
+												<rect x="110" y="0" width="4" height="100"></rect>
+												<rect x="120" y="0" width="2" height="100"></rect>
+												<rect x="126" y="0" width="2" height="100"></rect>
+												<rect x="132" y="0" width="2" height="100"></rect>
+												<rect x="136" y="0" width="2" height="100"></rect>
+												<rect x="146" y="0" width="4" height="100"></rect>
+												<rect x="154" y="0" width="4" height="100"></rect>
+												<rect x="164" y="0" width="6" height="100"></rect>
+												<rect x="172" y="0" width="2" height="100"></rect>
+												<rect x="176" y="0" width="4" height="100"></rect><text style="font: 20px monospace"
+													text-anchor="middle" x="90" y="122">1111111111</text>
+											</g>
+										</svg>
+										<br><button type="button" onclick="modal_print_barcode('1111111111')"
+											class="btn btn-outline-info"><i class="fas fa-print"></i> &nbsp; Imprimir</button>
+									</p>
+								</div>
+								<div class="col-12 col-md-6">
+									<p class="text-center">
+										<label for="producto_sku">SKU</label><br>
+										<svg id="codigo_sku" width="200px" height="142px" x="0px" y="0px" viewBox="0 0 200 142"
+											xmlns="http://www.w3.org/2000/svg" version="1.1" style="transform: translate(0px, 0px);">
+											<rect x="0" y="0" width="200" height="142" style="fill:#ffffff;"></rect>
+											<g transform="translate(10, 10)" style="fill:#000000;">
+												<rect x="0" y="0" width="4" height="100"></rect>
+												<rect x="6" y="0" width="2" height="100"></rect>
+												<rect x="12" y="0" width="6" height="100"></rect>
+												<rect x="22" y="0" width="4" height="100"></rect>
+												<rect x="32" y="0" width="2" height="100"></rect>
+												<rect x="38" y="0" width="2" height="100"></rect>
+												<rect x="44" y="0" width="4" height="100"></rect>
+												<rect x="54" y="0" width="2" height="100"></rect>
+												<rect x="60" y="0" width="2" height="100"></rect>
+												<rect x="66" y="0" width="4" height="100"></rect>
+												<rect x="76" y="0" width="2" height="100"></rect>
+												<rect x="82" y="0" width="2" height="100"></rect>
+												<rect x="88" y="0" width="4" height="100"></rect>
+												<rect x="98" y="0" width="2" height="100"></rect>
+												<rect x="104" y="0" width="2" height="100"></rect>
+												<rect x="110" y="0" width="4" height="100"></rect>
+												<rect x="120" y="0" width="2" height="100"></rect>
+												<rect x="126" y="0" width="2" height="100"></rect>
+												<rect x="132" y="0" width="2" height="100"></rect>
+												<rect x="136" y="0" width="2" height="100"></rect>
+												<rect x="146" y="0" width="4" height="100"></rect>
+												<rect x="154" y="0" width="4" height="100"></rect>
+												<rect x="164" y="0" width="6" height="100"></rect>
+												<rect x="172" y="0" width="2" height="100"></rect>
+												<rect x="176" y="0" width="4" height="100"></rect><text style="font: 20px monospace"
+													text-anchor="middle" x="90" y="122">1111111111</text>
+											</g>
+										</svg>
+										<br><button type="button" onclick="modal_print_barcode('1111111111')"
+											class="btn btn-outline-info"><i class="fas fa-print"></i> &nbsp; Imprimir</button>
+									</p>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-box"></i> &nbsp; Información del producto</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_nombre" class="bmd-label-floating">Nombre &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\- ]{1,97}" class="form-control"
+											name="producto_nombre_up" value="ACEITES PARA BABYS" id="producto_nombre" maxlength="97">
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_stock_total" class="bmd-label-floating">Stock o existencias &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="producto_stock_total_up"
+											value="520136" id="producto_stock_total" maxlength="20">
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_stock_minimo" class="bmd-label-floating">Stock mínimo &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9]{1,9}" class="form-control" name="producto_stock_minimo_up"
+											value="500" id="producto_stock_minimo" maxlength="9">
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_unidad" class="bmd-label-floating">Presentación del producto &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="producto_unidad_up" id="producto_unidad">
+											<option value="Unidad" selected="">1 - Unidad (Actual)</option>
+											<option value="Libra">2 - Libra</option>
+											<option value="Kilogramo">3 - Kilogramo</option>
+											<option value="Caja">4 - Caja</option>
+											<option value="Paquete">5 - Paquete</option>
+											<option value="Lata">6 - Lata</option>
+											<option value="Galon">7 - Galon</option>
+											<option value="Botella">8 - Botella</option>
+											<option value="Tira">9 - Tira</option>
+											<option value="Sobre">10 - Sobre</option>
+											<option value="Bolsa">11 - Bolsa</option>
+											<option value="Saco">12 - Saco</option>
+											<option value="Tarjeta">13 - Tarjeta</option>
+											<option value="Otro">14 - Otro</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_precio_compra" class="bmd-label-floating">Precio de compra (Con impuesto
+											incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="producto_precio_compra_up"
+											value="500.00" id="producto_precio_compra" maxlength="25">
+									</div>
+								</div>
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_precio_venta" class="bmd-label-floating">Precio de venta (Con impuesto
+											incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="producto_precio_venta_up"
+											value="600.00" id="producto_precio_venta" maxlength="25">
+									</div>
+								</div>
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_precio_venta_mayoreo" class="bmd-label-floating">Precio de venta por mayoreo
+											(Con impuesto incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control"
+											name="producto_precio_venta_mayoreo_up" value="500.00" id="producto_precio_venta_mayoreo"
+											maxlength="25">
+									</div>
+								</div>
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_descuento" class="bmd-label-floating">Descuento (%) en venta &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9]{1,2}" class="form-control" name="producto_descuento_up" value="0"
+											id="producto_descuento" maxlength="2">
+									</div>
+								</div>
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_marca" class="bmd-label-floating">Marca</label>
+										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}"
+											class="form-control input-barcode" name="producto_marca_up" value="ACEROS" id="producto_marca"
+											maxlength="30">
+									</div>
+								</div>
+								<div class="col-12 col-md-6 col-lg-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_modelo" class="bmd-label-floating">Modelo</label>
+										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}"
+											class="form-control input-barcode" name="producto_modelo_up" value="02" id="producto_modelo"
+											maxlength="30">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-calendar-alt"></i> &nbsp; Vencimiento del producto</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<div class="radio">
+											<label>
+												<input type="radio" name="producto_vencimiento_up" value="Si"><span class="bmd-radio"></span>
+												<i class="far fa-check-circle fa-fw"></i> &nbsp; Si vence
+											</label>
+										</div>
+										<div class="radio">
+											<label>
+												<input type="radio" name="producto_vencimiento_up" value="No" checked=""><span
+													class="bmd-radio"></span>
+												<i class="far fa-times-circle fa-fw"></i> &nbsp; No vence
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_fecha_vencimiento" class="bmd-label-static">Fecha de vencimiento
+											(día/mes/año)</label>
+										<input type="date" class="form-control" name="producto_fecha_vencimiento_up"
+											id="producto_fecha_vencimiento" maxlength="30" value="2021-07-15">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-history"></i> &nbsp; Garantía de fabrica</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_garantia_unidad" class="bmd-label-floating">Unidad de tiempo &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[0-9]{1,2}" class="form-control input-barcode"
+											name="producto_garantia_unidad_up" id="producto_garantia_unidad" maxlength="2" value="0">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_garantia_tiempo" class="bmd-label-floating">Tiempo de garantía &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="producto_garantia_tiempo_up" id="producto_garantia_tiempo">
+											<option value="N/A" selected="">1 - N/A (Actual)</option>
+											<option value="Dias">2 - Dias</option>
+											<option value="Semanas">3 - Semanas</option>
+											<option value="Mes">4 - Mes</option>
+											<option value="Meses">5 - Meses</option>
+											<option value="Año">6 - Año</option>
+											<option value="Años">7 - Años</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-truck-loading"></i> &nbsp; Proveedor, categoría &amp; estado</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_proveedor" class="bmd-label-floating">Proveedor &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="producto_proveedor_up" id="producto_proveedor">
+											<option value="3" selected="">2 - Truper (Actual)</option>
+											<option value="4">3 - Ferrepat</option>
+											<option value="6">5 - YAPPA riobanba</option>
+											<option value="7">6 - Distribuidora marca</option>
+											<option value="10">8 - Farmacia 24</option>
+											<option value="11">9 - Microsoft</option>
+											<option value="13">10 - mario hidalgoa</option>
+											<option value="14">11 - PAN GENESIS</option>
+											<option value="16">12 - test</option>
+											<option value="17">13 - INTCOMEX</option>
+											<option value="18">14 - Farmacia vida</option>
+											<option value="21">15 - Grupo Fibel</option>
+											<option value="23">16 - Hhhhhh</option>
+											<option value="24">17 - Framacia enrique</option>
+											<option value="25">18 - FERIA BARRIO LINDO</option>
+											<option value="26">19 - SPIRIT</option>
+											<option value="29">21 - jose lus</option>
+											<option value="32">22 - prueba</option>
+											<option value="33">23 - Farmacia Sana sana</option>
+											<option value="34">24 - joshe</option>
+											<option value="35">25 - pepito12888</option>
+											<option value="36">26 - jose</option>
+											<option value="37">27 - inventores SA</option>
+											<option value="38">28 - Jorge Flores</option>
+											<option value="39">29 - Agricultor 1</option>
+											<option value="40">30 - Noveltyc</option>
+											<option value="41">31 - Trasporte ejemplo</option>
+											<option value="42">32 - Montesdeoca Salazar Luis German</option>
+											<option value="43">33 - TRANSCOSTACAÑARI S.A.</option>
+											<option value="44">34 - TRANSPORTE BASTIDAS RUIZ DELIVERYCOM S.A.</option>
+											<option value="45">35 - NPD GLOBAL SUPPLIERS S.A.</option>
+											<option value="46">36 - VETANRO LOGISTICS S.A. VETLOGISA</option>
+											<option value="47">37 - Torres Romero Gina Patricia</option>
+											<option value="48">38 - Suriaga Vasquez Jorge Alfredo</option>
+											<option value="49">39 - Negolevel S.A.</option>
+											<option value="50">40 - Bresson S.A.</option>
+											<option value="51">41 - CROPARSA S.A.</option>
+											<option value="52">42 - VILLEGAS FREIRE LAURA ESTHELA</option>
+											<option value="53">43 - CAJAMARCA LOPEZ GUIDO PATRICIO</option>
+											<option value="54">44 - Luzuriaga Iñiguez Milton Diogenes</option>
+											<option value="55">45 - GLOBALPACIFIC</option>
+											<option value="56">46 - Llerena Carrera Carlos Alberto</option>
+											<option value="57">47 - VIVERO DE CACAO ORBE</option>
+											<option value="58">48 - CARTOPEL S.A.I</option>
+											<option value="59">49 - ROMERO GUAMAN NESTOR ROBERTO</option>
+											<option value="60">50 - PAREDES CEDILLO CLARA ELENA</option>
+											<option value="61">51 - STARCARGO CIA. LTDA</option>
+											<option value="63">52 - VERA VILLAGOMEZ RUBEN LIZARDO</option>
+											<option value="64">53 - MARDIEMPRE S.A.</option>
+											<option value="65">54 - MANCHENO MASSON MIGUEL HERNAN</option>
+											<option value="66">55 - PEREZ AREVALO JORGE OMAR</option>
+											<option value="67">56 - PAZMIÑO JOSE VICENTE</option>
+											<option value="68">57 - IBO S.A.</option>
+											<option value="69">58 - SOLUFIT S.A.</option>
+											<option value="70">59 - BIZARGORRI S.A.</option>
+											<option value="71">60 - RUBIANES FREIRE SILVIA RUTH</option>
+											<option value="72">61 - OXALIS S.A.</option>
+											<option value="73">62 - MARIA FERNANDA GOMEZ ZAMORA</option>
+											<option value="74">63 - CITIKOLD SA</option>
+											<option value="75">64 - CAÑARTE AGUA CARLOS FRANKLIN</option>
+											<option value="77">65 - MYCORGANIC S.A.</option>
+											<option value="78">66 - AGROCOMERCIO EL TRIUNFO</option>
+											<option value="79">67 - TRANSCOCHANCAY S.A.</option>
+											<option value="80">68 - PESANTEZ SANMARTIN LIDIA PATRICIA</option>
+											<option value="82">69 - ROMERO HERNANDEZ DIONISIO</option>
+											<option value="83">70 - TRANSPORTE Y MAQUINARIAS RIVECH</option>
+											<option value="84">71 - AGRODRIP SA</option>
+											<option value="85">72 - juan denos</option>
+											<option value="86">73 - Papelplast</option>
+											<option value="87">74 - Tumacho SAC</option>
+											<option value="88">75 - Juanchoxo C.A</option>
+											<option value="89">76 - JAJAJ</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_categoria" class="bmd-label-floating">Categoría &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="producto_categoria_up" id="producto_categoria">
+											<option value="1">1 - Tabletas</option>
+											<option value="2">2 - belleza</option>
+											<option value="3">3 - Hogar y Jardin</option>
+											<option value="4">4 - Insumos médicos</option>
+											<option value="5">5 - MERCADO</option>
+											<option value="6">6 - Tornillos</option>
+											<option value="7">7 - Decoracion</option>
+											<option value="8">8 - Chocolates</option>
+											<option value="10">10 - Nueva</option>
+											<option value="12">11 - ropa</option>
+											<option value="13">12 - ssds</option>
+											<option value="14">13 - Snack</option>
+											<option value="15" selected="">14 - Bebes (Actual)</option>
+											<option value="16">15 - Repuwstos</option>
+											<option value="20">17 - Peliculas Disney</option>
+											<option value="21">18 - bebidasalll</option>
+											<option value="25">20 - Vitaminas</option>
+											<option value="26">21 - deditos</option>
+											<option value="27">22 - ROPA DE DAMA</option>
+											<option value="30">23 - Ventiladores</option>
+											<option value="32">24 - Cuidado personal</option>
+											<option value="33">25 - Parlante Computo</option>
+											<option value="34">26 - SELFIE</option>
+											<option value="36">27 - sdvsfsfvwsvf90870vasv</option>
+											<option value="37">28 - Regalos</option>
+											<option value="39">30 - Hamburguesas Sencillas</option>
+											<option value="40">31 - Medida fruta</option>
+											<option value="41">32 - Calibres</option>
+											<option value="42">33 - Trasporte</option>
+											<option value="44">34 - perfumeria</option>
+											<option value="45">35 - mano</option>
+											<option value="46">36 - pasta</option>
+											<option value="47">37 - tronco</option>
+											<option value="48">38 - CITY</option>
+											<option value="49">39 - Jabon</option>
+											<option value="50">40 - SSSS</option>
+											<option value="51">41 - Botas Botines</option>
+											<option value="52">42 - CALZADO</option>
+											<option value="53">43 - ddfsdfsdfadf</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="producto_estado" class="bmd-label-floating">Estado del producto</label>
+										<select class="form-control" name="producto_estado_up" id="producto_estado">
+											<option value="Habilitado">1 - Habilitado</option>
+											<option value="Deshabilitado" selected="">2 - Deshabilitado (Actual)</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<p class="text-center" style="margin-top: 40px;">
+						<button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync"></i> &nbsp;
+							ACTUALIZAR</button>
+					</p>
+					<p class="text-center">
+						<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+							obligatorios</small>
+					</p>
+				</form>
+			</div>
+
+			<!-- Modal print barcode -->
+			<div class="modal fade" id="ModalPrintBarcode" tabindex="-1" role="dialog" aria-labelledby="ModalPrintBarcode"
+				aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="ModalPrintBarcode">Imprimir código</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-12 col-md-6">
+										<div class="form-group bmd-form-group">
+											<label for="modal_producto_codigo" class="bmd-label-static">Código</label>
+											<input type="text" class="form-control" value="" id="modal_producto_codigo" readonly="">
+										</div>
+									</div>
+									<div class="col-12 col-md-6">
+										<div class="form-group bmd-form-group is-filled">
+											<label for="modal_producto_cantidad" class="bmd-label-static">Cantidad a imprimir</label>
+											<input type="text" class="form-control" value="1" id="modal_producto_cantidad">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="far fa-times-circle"></i>
+								&nbsp; Cancelar</button>
+							<button type="button" class="btn btn-info" onclick="print_barcode()"><i class="fas fa-print"></i> &nbsp;
+								Imprimir</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- JsBarcode v3.6.0  -->
+			<script src="http://systems.designlopers.com/SVI/vistas/js/JsBarcode.all.min.js"></script>
+
+			<script>
+				JsBarcode("#codigo_barras", "1111111111", {
+					format: "CODE128",
+					textAlign: "center",
+					textPosition: "bottom"
+				});
+				JsBarcode("#codigo_sku", "1111111111", {
+					format: "CODE128",
+					textAlign: "center",
+					textPosition: "bottom"
+				});
+
+				/*----------  Mostrar modal para imprimir codigos  ----------*/
+				function modal_print_barcode(codigo) {
+					document.querySelector('#modal_producto_codigo').value = codigo;
+					document.querySelector('#modal_producto_cantidad').value = 1;
+					$('#ModalPrintBarcode').modal('show');
+				}
+
+				/*----------  Funcion imprimir codigos  ----------*/
+				function print_barcode() {
+					let codigo_barras = document.querySelector('#modal_producto_codigo').value;
+					codigo_barras = codigo_barras.trim();
+
+					let cantidad = document.querySelector('#modal_producto_cantidad').value;
+					cantidad = cantidad.trim();
+
+					if (cantidad > 0 && codigo_barras != "") {
+						$('#ModalPrintBarcode').modal('hide');
+						window.open('http://systems.designlopers.com/SVI/pdf/barcode.php?barcode=' + codigo_barras + "&cant=" + cantidad, 'Imprimir', 'width=800,height=720,top=0,left=100,menubar=YES,toolbar=YES');
+					} else {
+						Swal.fire({
+							title: 'Ocurrió un error inesperado',
+							text: 'Debe de introducir una cantidad mayor a 0 y un código valido',
+							type: 'error',
+							confirmButtonText: 'Aceptar'
+						});
+					}
+
+				}
+			</script>
+		</section>
+
+	</main>
+
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="js/bootstrap-material-design.min.js"></script>
+	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

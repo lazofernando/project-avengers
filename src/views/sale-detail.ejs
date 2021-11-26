@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Home</title>
+
+	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						Jasef Huachambe <br><small class="roboto-condensed-light">Web Developer</small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="home"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Administración <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="cashier-new"><i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva Caja</a>
+								</li>
+								<li>
+									<a href="category-new"><i class="fas fa-tags fa-fw"></i> &nbsp; Nueva Categoría</a>
+								</li>
+								<li>
+									<a href="provider-new"><i class="fas fa-shipping-fast fa-fw"></i> &nbsp; Nuevo Proveedor</a>
+								</li>
+								<li>
+									<a href="user-new"><i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo Usuario</a>
+								</li>
+								<li>
+									<a href="client-new"><i class="fas fa-child fa-fw"></i> &nbsp; Nuevo Cliente</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="product-new"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo Producto</a>
+								</li>
+								<li>
+									<a href="product-list"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos en almacen</a>
+								</li>
+								<li>
+									<a href="product-sold"><i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido</a>
+								</li>
+								<li>
+									<a href="product-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Productos</a>
+								</li>
+							</ul>
+						</li>
+							<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="shop-new"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra</a>
+								</li>
+								<li>
+									<a href="shop-list"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras realizadas</a>
+								</li>
+								<li>
+									<a href="shop-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Compra</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Ventas <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="sale-new"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta</a> 
+								</li>
+								<li>
+									<a href="sale-list.ejs"><i class="fas fa-coins fa-fw"></i> &nbsp; Lista de Ventas </a>
+								</li>
+								<li>
+									<a href="sale-search-date"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por fecha</a>
+								</li>
+								<li>
+									<a href="sale-search-code"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por código</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-wallet fa-fw""></i> &nbsp; Movimientos en caja <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="movement-new"><i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento </a> 
+								</li>
+								<li>
+									<a href="movement-list"><i class="fas fa-money-check-alt fa-fw"></i> &nbsp; Movimientos realizados</a>
+								</li>
+								<li>
+									<a href="movement-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar movimientos</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-truck-loading fa-fw""></i> &nbsp; Devoluciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="return-list"><i class="fas fa-people-carry fa-fw"></i> &nbsp; Devoluciones realizadas</a> 
+								</li>
+								<li>
+									<a href="return-search"><i class="fas fa-dolly-flatbed fa-fw"></i> &nbsp; Buscar devoluciones</a>
+								</li>
+							</ul>
+						</li>		
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="far fa-file-pdf fa-fw""></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="report-sales"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reportes de venta </a> 
+								</li>
+								<li>
+									<a href="report-inventory"><i class="fas fa-box-open fa-fw"></i> &nbsp; Reportes de inventario </a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-cogs fa-fw""></i> &nbsp; Configuraciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="company"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Datos de la empresa </a> 
+								</li>
+								<li>
+									<a href="user-update"><i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar cuenta</a>
+								</li>
+							</ul>
+						</li>							
+
+
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+
+		<section class="full-box page-content scroll">
+			<nav class="full-box navbar-info">
+				<a href="#" class="float-left show-nav-lateral">
+					<i class="fas fa-bars"></i>
+				</a>
+				<a href="http://systems.designlopers.com/SVI/user-update/dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09/">
+					<i class="fas fa-user-cog"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+			<div class="full-box page-header">
+				<h3 class="text-left text-uppercase">
+					<i class="fas fa-cart-plus fa-fw"></i> &nbsp; Detalles de venta
+				</h3>
+				<p class="text-justify">
+					En el módulo VENTAS podrá realizar ventas de productos, puede usar lector de código de barras o hacerlo de
+					forma manual digitando el código del producto (debe de configurar estas opciones en ajustes de su cuenta).
+					También puede ver las ventas realizadas y buscar ventas en el sistema.
+				</p>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+					<li>
+						<a href="http://systems.designlopers.com/SVI/sale-new/">
+							<i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta
+						</a>
+					</li>
+					<li>
+						<a href="http://systems.designlopers.com/SVI/sale-list/">
+							<i class="fas fa-coins fa-fw"></i> &nbsp; Ventas realizadas
+						</a>
+					</li>
+					<li>
+						<a href="http://systems.designlopers.com/SVI/sale-search-date/">
+							<i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar venta (Fecha)
+						</a>
+					</li>
+					<li>
+						<a href="http://systems.designlopers.com/SVI/sale-search-code/">
+							<i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar venta (Código)
+						</a>
+					</li>
+				</ul>
+			</div>	
+
+			<div class="container-fluid form-neon">
+				<p class="text-right"><a href="sale-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
+						&nbsp; Regresar atrás</a></p>
+				<h4 class="text-center">Datos de venta</h4>
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-12 col-lg-4">
+							<p class="text-center text-uppercase font-weight-bold bg-dark" style="color: #FFF;">Datos venta</p>
+							<ul class="list-group">
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Tipo de venta
+									<span>Credito</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Fecha
+									<span>13-11-2021 04:23 pm</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Nro. de factura
+									<span>736</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Código de venta
+									<span>C3Y7R8V2J8-714</span>
+								</li>
+							</ul>
+						</div>
+						<div class="col-12 col-lg-4">
+							<p class="text-center text-uppercase font-weight-bold bg-dark" style="color: #FFF;">Caja &amp; usuarios
+							</p>
+							<ul class="list-group">
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Caja
+									<span>1 (Caja principal)</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Vendedor
+									<span>Miguel Angel Batres</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Cliente
+									<span>georgina ticay</span>
+								</li>
+							</ul>
+						</div>
+						<div class="col-12 col-lg-4">
+							<p class="text-center text-uppercase font-weight-bold bg-dark" style="color: #FFF;">Totales &amp; estado
+							</p>
+							<ul class="list-group">
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Total
+									<span>$18,750.00 USD</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Pagado
+									<span>$10,000.00 USD</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Cambio
+									<span>$0.00 USD</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Estado
+									<span class="badge badge-warning">Pendiente ($8,750.00 USD)</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Costos de venta
+									<span>$10,000.00 USD</span>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center">
+									Utilidad (Ganancias)
+									<span>$8,750.00 USD</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<h4 class="text-center">Detalles de venta</h4>
+				<div class="container-fluid">
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered">
+							<thead class="bg-info">
+								<tr class="text-center text-uppercase">
+									<th scope="col">#</th>
+									<th scope="col">Descripción</th>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Subtotal</th>
+									<th scope="col">IVA 12%</th>
+									<th scope="col">Total</th>
+									<th scope="col">Dev.</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr class="text-center text-uppercase">
+									<th scope="row">1</th>
+									<td>vibrador</td>
+									<td>250</td>
+									<td>$75.00 USD</td>
+									<td>$16,741.07 USD</td>
+									<td>$2,008.93 USD</td>
+									<td>$18,750.00 USD</td>
+									<td>
+										<button type="button" class="btn btn-primary" data-toggle="popover" data-trigger="hover" title=""
+											data-content="vibrador" onclick="devolucion_producto('242','vibrador')"
+											data-original-title="Realizar devolución">
+											<i class="fas fa-dolly fa-fw"></i>
+										</button>
+									</td>
+								</tr>
+
+								<tr class="text-center text-uppercase font-weight-bold">
+									<td colspan="3"></td>
+									<td></td>
+									<td></td>
+									<td>Total</td>
+									<td>$18,750.00 USD</td>
+									<td></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+
+				<hr style="margin: 70px 0; ">
+
+				<h4 class="text-center">Pagos realizados</h4>
+				<div class="container-fluid">
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered">
+							<thead class="bg-primary">
+								<tr class="text-center text-uppercase">
+									<th scope="col">#</th>
+									<th scope="col">Fecha</th>
+									<th scope="col">Monto</th>
+									<th scope="col">Vendedor</th>
+									<th scope="col">Caja</th>
+								</tr>
+							</thead>
+							<tbody>
+
+								<tr class="text-center text-uppercase">
+									<th scope="row">1</th>
+									<td>13-11-2021</td>
+									<td>$10,000.00 USD</td>
+									<td>Miguel Angel Batres</td>
+									<td>Caja #1 - Caja principal</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="text-center">
+						<button type="button" class="btn btn-primary btn-raised" href="#" data-toggle="modal"
+							data-target="#ModalAddPayment"><i class="fas fa-money-bill-wave fa-fw"></i> &nbsp; Agregar un nuevo
+							pago</button>
+					</p>
+				</div>
+
+				<hr style="margin: 70px 0; ">
+
+				<h4 class="text-center">Devoluciones realizadas</h4>
+				<div class="container-fluid" id="return-sale">
+					<div class="table-responsive">
+						<table class="table table-hover table-bordered">
+							<thead class="bg-success">
+								<tr class="text-center text-uppercase">
+									<th scope="col">#</th>
+									<th scope="col">Fecha</th>
+									<th scope="col">Producto</th>
+									<th scope="col">Cantidad</th>
+									<th scope="col">Precio</th>
+									<th scope="col">Total</th>
+									<th scope="col">Vendedor</th>
+									<th scope="col">Caja</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="text-center text-uppercase">
+									<td colspan="8">No hay datos para mostrar</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<p class="text-center">
+					<a href="#" class="btn btn-outline-info print-barcode" data-id="#return-sale"><i class="fas fa-print"></i>
+						&nbsp; Imprimir</a>
+				</p>
+
+				<!-- Modal AddPayment -->
+				<div class="modal fade" id="ModalAddPayment" tabindex="-1" role="dialog" aria-labelledby="ModalAddPayment"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<form class="modal-content FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/ventaAjax.php"
+							method="POST" data-form="save" autocomplete="off">
+							<div class="modal-header">
+								<h5 class="modal-title" id="ModalAddPayment">Realizar pago de venta Nro.736 (C3Y7R8V2J8-714)</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<input type="hidden" name="modulo_venta" value="agregar_pago">
+								<input type="hidden" name="pago_codigo_reg" value="C3Y7R8V2J8-714">
+								<input type="hidden" id="pago_total_pendiente" value="8750.00">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-12">
+											<div class="form-group bmd-form-group is-filled">
+												<label for="pago_caja" class="bmd-label-static">Caja</label>
+												<input type="text" class="form-control" value="Caja Nro.1 (Caja principal)" id="pago_caja"
+													readonly="">
+											</div>
+										</div>
+										<div class="col-12 col-md-4">
+											<div class="form-group bmd-form-group is-filled">
+												<label for="pago_pendiente" class="bmd-label-static">Pendiente</label>
+												<input type="text" class="form-control" value="8750.00" id="pago_pendiente" readonly="">
+											</div>
+										</div>
+										<div class="col-12 col-md-4">
+											<div class="form-group bmd-form-group">
+												<label for="pago_monto" class="bmd-label-static">Monto</label>
+												<input type="text" class="form-control" id="pago_monto" name="pago_monto_reg"
+													pattern="[0-9.]{1,25}" maxlength="25">
+											</div>
+										</div>
+										<div class="col-12 col-md-4">
+											<div class="form-group bmd-form-group is-filled">
+												<label for="pago_cambio" class="bmd-label-static">Cambio</label>
+												<input type="text" class="form-control" value="0.00" id="pago_cambio" readonly="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="far fa-times-circle"></i>
+									&nbsp; Cancelar</button>
+								<button type="submit" class="btn btn-info"><i class="fas fa-money-bill-wave fa-fw"></i> &nbsp; Agregar
+									pago</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<!-- Modal devolucion -->
+				<div class="modal fade" id="ModalReturn" tabindex="-1" role="dialog" aria-labelledby="ModalReturn"
+					aria-hidden="true">
+					<div class="modal-dialog" role="document">
+						<form class="modal-content FormularioAjax"
+							action="http://systems.designlopers.com/SVI/ajax/devolucionAjax.php" method="POST" data-form="save"
+							autocomplete="off">
+							<div class="modal-header">
+								<h5 class="modal-title" id="ModalReturn">Realizar devolución (<span id="devolucion_descripcion"></span>)
+								</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<input type="hidden" name="modulo_devolucion" value="venta">
+								<input type="hidden" name="codigo_venta" id="codigo_venta" value="C3Y7R8V2J8-714">
+								<input type="hidden" name="id_producto" id="id_producto" value="">
+								<div class="container-fluid">
+									<div class="row">
+										<div class="col-12 col-md-6">
+											<div class="form-group bmd-form-group is-filled">
+												<label for="devolucion_caja" class="bmd-label-static">Caja</label>
+												<input type="text" class="form-control" value="Caja Nro.1 (Caja principal)" id="devolucion_caja"
+													readonly="">
+											</div>
+										</div>
+										<div class="col-12 col-md-6">
+											<div class="form-group bmd-form-group">
+												<label for="devolucion_cantidad" class="bmd-label-static">Cantidad a devolver</label>
+												<input type="text" class="form-control" id="devolucion_cantidad" name="devolucion_cantidad"
+													pattern="[0-9]{1,9}" maxlength="9">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-danger" data-dismiss="modal"><i class="far fa-times-circle"></i>
+									&nbsp; Cancelar</button>
+								<button type="submit" class="btn btn-info"><i class="fas fa-dolly fa-fw"></i> &nbsp; Realizar
+									devolución</button>
+							</div>
+						</form>
+					</div>
+				</div>
+
+				<script>
+					/*----------  Calcular cambio  ----------*/
+					let pago_abono_input = document.querySelector("#pago_monto");
+
+					pago_abono_input.addEventListener('keyup', function (event) {
+						event.preventDefault();
+
+						let abono = document.querySelector('#pago_monto').value;
+						abono = abono.trim();
+						abono = parseFloat(abono);
+
+						let total = document.querySelector('#pago_total_pendiente').value;
+						total = total.trim();
+						total = parseFloat(total);
+
+						if (abono >= total) {
+							cambio = abono - total;
+							cambio = parseFloat(cambio).toFixed(2);
+							document.querySelector('#pago_cambio').value = cambio;
+						} else {
+							document.querySelector('#pago_cambio').value = "0.00";
+						}
+					});
+
+
+					/*----------  Hacer devolucion  ----------*/
+					function devolucion_producto(producto, descripcion) {
+						producto.trim();
+						descripcion.trim();
+
+						document.querySelector('#id_producto').value = producto;
+						document.querySelector('#devolucion_descripcion').innerHTML = descripcion;
+
+						$('#ModalReturn').modal('show');
+					}
+				</script>
+			</div>
+		</section>
+	</main>
+
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="js/bootstrap-material-design.min.js"></script>
+	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

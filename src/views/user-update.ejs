@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Home</title>
+
+	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						Jasef Huachambe <br><small class="roboto-condensed-light">Web Developer</small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="home"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Administración <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="cashier-new"><i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva Caja</a>
+								</li>
+								<li>
+									<a href="category-new"><i class="fas fa-tags fa-fw"></i> &nbsp; Nueva Categoría</a>
+								</li>
+								<li>
+									<a href="provider-new"><i class="fas fa-shipping-fast fa-fw"></i> &nbsp; Nuevo Proveedor</a>
+								</li>
+								<li>
+									<a href="user-new"><i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo Usuario</a>
+								</li>
+								<li>
+									<a href="client-new"><i class="fas fa-child fa-fw"></i> &nbsp; Nuevo Cliente</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="product-new"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo Producto</a>
+								</li>
+								<li>
+									<a href="product-list"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos en almacen</a>
+								</li>
+								<li>
+									<a href="product-sold"><i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido</a>
+								</li>
+								<li>
+									<a href="product-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Productos</a>
+								</li>
+							</ul>
+						</li>
+							<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="shop-new"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra</a>
+								</li>
+								<li>
+									<a href="shop-list"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras realizadas</a>
+								</li>
+								<li>
+									<a href="shop-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Compra</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Ventas <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="sale-new"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta</a> 
+								</li>
+								<li>
+									<a href="sale-list.ejs"><i class="fas fa-coins fa-fw"></i> &nbsp; Lista de Ventas </a>
+								</li>
+								<li>
+									<a href="sale-search-date"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por fecha</a>
+								</li>
+								<li>
+									<a href="sale-search-code"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por código</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-wallet fa-fw""></i> &nbsp; Movimientos en caja <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="movement-new"><i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento </a> 
+								</li>
+								<li>
+									<a href="movement-list"><i class="fas fa-money-check-alt fa-fw"></i> &nbsp; Movimientos realizados</a>
+								</li>
+								<li>
+									<a href="movement-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar movimientos</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-truck-loading fa-fw""></i> &nbsp; Devoluciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="return-list"><i class="fas fa-people-carry fa-fw"></i> &nbsp; Devoluciones realizadas</a> 
+								</li>
+								<li>
+									<a href="return-search"><i class="fas fa-dolly-flatbed fa-fw"></i> &nbsp; Buscar devoluciones</a>
+								</li>
+							</ul>
+						</li>		
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="far fa-file-pdf fa-fw""></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="report-sales"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reportes de venta </a> 
+								</li>
+								<li>
+									<a href="report-inventory"><i class="fas fa-box-open fa-fw"></i> &nbsp; Reportes de inventario </a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-cogs fa-fw""></i> &nbsp; Configuraciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="company"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Datos de la empresa </a> 
+								</li>
+								<li>
+									<a href="user-update"><i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar cuenta</a>
+								</li>
+							</ul>
+						</li>							
+
+
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+
+		<section class="full-box page-content scroll">
+			<nav class="full-box navbar-info">
+				<a href="#" class="float-left show-nav-lateral">
+					<i class="fas fa-bars"></i>
+				</a>
+				<a href="http://systems.designlopers.com/SVI/user-update/dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09/">
+					<i class="fas fa-user-cog"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+			<div class="full-box page-header">
+				<h3 class="text-left text-uppercase">
+					<i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar cuenta
+				</h3>
+				<p class="text-justify">
+					En el módulo USUARIO podrá registrar nuevos usuarios en el sistema ya sea un administrador o un cajero,
+					también podrá ver la lista de usuarios registrados, buscar usuarios en el sistema, actualizar datos de otros
+					usuarios y los suyos.
+				</p>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+					<li>
+						<a href="user-new">
+							<i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo usuario
+						</a>
+					</li>
+					<li>
+						<a href="user-list">
+							<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios
+						</a>
+					</li>
+					<li>
+						<a href="user-search">
+							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario
+						</a>
+					</li>
+				</ul>
+			</div>	
+
+			<div class="container-fluid">
+				<p class="text-right"><a href="user-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
+						&nbsp; Regresar atrás</a></p>
+				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/usuarioAjax.php"
+					method="POST" data-form="update" autocomplete="off">
+					<input type="hidden" name="usuario_id_up" value="bTN4NVFnVno1cmlRUzlrd3UxT3ViUT09">
+					<input type="hidden" name="modulo_usuario" value="actualizar">
+					<fieldset>
+						<legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_tipo_documento" class="bmd-label-floating">Tipo de documento &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="usuario_tipo_documento_up" id="usuario_tipo_documento">
+											<option value="DUI">1 - DUI</option>
+											<option value="DNI">2 - DNI</option>
+											<option value="Cedula" selected="">3 - Cedula (Actual)</option>
+											<option value="Licencia">4 - Licencia</option>
+											<option value="Pasaporte">5 - Pasaporte</option>
+											<option value="Otro">6 - Otro</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control"
+											name="usuario_numero_documento_up" value="3735931" id="usuario_numero_documento" maxlength="30">
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_cargo" class="bmd-label-floating">Cargo &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="usuario_cargo_up" id="usuario_cargo">
+											<option value="Administrador" selected="">1 - Administrador (Actual)</option>
+											<option value="Cajero">2 - Cajero</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_nombre" class="bmd-label-floating">Nombres &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
+											name="usuario_nombre_up" value="Alejandra" id="usuario_nombre" maxlength="35">
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_apellido" class="bmd-label-floating">Apellidos &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
+											name="usuario_apellido_up" value="Lopez" id="usuario_apellido" maxlength="35">
+									</div>
+								</div>
+								<div class="col-12 col-md-4">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_telefono" class="bmd-label-floating">Teléfono</label>
+										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="usuario_telefono_up"
+											value="+595981662123" id="usuario_telefono" maxlength="20">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<legend><i class="fas fa-user-friends"></i> &nbsp; Genero</legend>
+									<div class="form-group bmd-form-group is-filled">
+										<div class="radio">
+											<label>
+												<input type="radio" name="usuario_genero_up" value="Masculino" checked=""><span
+													class="bmd-radio"></span>
+												<i class="fas fa-male fa-fw"></i> &nbsp; Masculino
+											</label>
+										</div>
+										<div class="radio">
+											<label>
+												<input type="radio" name="usuario_genero_up" value="Femenino"><span class="bmd-radio"></span>
+												<i class="fas fa-female fa-fw"></i> &nbsp; Femenino
+											</label>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<legend><i class="fas fa-barcode"></i> &nbsp; Configuración de lector de código de barras</legend>
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-12 col-md-6">
+												<div class="form-group bmd-form-group is-filled">
+													<div class="radio">
+														<label>
+															<input type="radio" name="usuario_lector_up" value="Habilitado"><span
+																class="bmd-radio"></span>
+															<i class="far fa-check-circle fa-fw"></i> &nbsp; Usar lector
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" name="usuario_lector_up" value="Deshabilitado" checked=""><span
+																class="bmd-radio"></span>
+															<i class="far fa-times-circle fa-fw"></i> &nbsp; No usar lector
+														</label>
+													</div>
+												</div>
+											</div>
+											<div class="col-12 col-md-6">
+												<div class="form-group bmd-form-group is-filled">
+													<div class="radio">
+														<label>
+															<input type="radio" name="usuario_tipo_codigo_up" value="Barras"><span
+																class="bmd-radio"></span>
+															<i class="fas fa-barcode fa-fw"></i> &nbsp; Código barras
+														</label>
+													</div>
+													<div class="radio">
+														<label>
+															<input type="radio" name="usuario_tipo_codigo_up" value="SKU" checked=""><span
+																class="bmd-radio"></span>
+															<i class="fas fa-barcode fa-fw"></i> &nbsp; Código SKU
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-cash-register"></i> &nbsp; Caja de ventas</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12">
+									<div class="form-group bmd-form-group is-filled">
+										<select class="form-control" name="usuario_caja_up">
+											<option value="1">Caja No.1 - Caja principal</option>
+											<option value="5">Caja No.7 - Caja Secundaria</option>
+											<option value="6">Caja No.4201 - Erik</option>
+											<option value="7">Caja No.5 - caja de ventas 0005</option>
+											<option value="8">Caja No.56 - paracetamol</option>
+											<option value="9">Caja No.132 - 003pedro</option>
+											<option value="11">Caja No.10 - ejemplo</option>
+											<option value="12">Caja No.21 - 2004032</option>
+											<option value="13">Caja No.9187 - jesus</option>
+											<option value="14">Caja No.56654 - holiiiiii</option>
+											<option value="16">Caja No.16 - 1605</option>
+											<option value="17">Caja No.101 - CAJA 101</option>
+											<option value="18">Caja No.1997 - 1997</option>
+											<option value="19">Caja No.1010 - nuevo</option>
+											<option value="20">Caja No.1000 - HELAMIMOS</option>
+											<option value="21">Caja No.7253 - Chicus</option>
+											<option value="23">Caja No.243 - 2246</option>
+											<option value="26">Caja No.2020 - ZONA1</option>
+											<option value="27">Caja No.32021 - JV VENTAS MAYORISTA</option>
+											<option value="28">Caja No.1111 - jolllll</option>
+											<option value="29">Caja No.123 - test</option>
+											<option value="30">Caja No.12 - caja 01</option>
+											<option value="31">Caja No.105 - iver</option>
+											<option value="32">Caja No.12122 - 4545</option>
+											<option value="34">Caja No.1542 - 1542</option>
+											<option value="35">Caja No.778 - Seg</option>
+											<option value="36">Caja No.60 - 3312</option>
+											<option value="37">Caja No.55 - Pedro Saint</option>
+											<option value="38">Caja No.1223 - 123</option>
+											<option value="39">Caja No.100 - 5645</option>
+											<option value="41">Caja No.1001 - 1eut42</option>
+											<option value="42">Caja No.999 - abcd</option>
+											<option value="43">Caja No.1222 - cajajefa</option>
+											<option value="45">Caja No.4578 - Multiservicios Rojas</option>
+											<option value="46">Caja No.1833 - hola</option>
+											<option value="47">Caja No.1234 - 1010</option>
+											<option value="49">Caja No.51710 - 051710sp</option>
+											<option value="50" selected="">Caja No.99 - caja 9 (Actual)</option>
+											<option value="51">Caja No.12453 - njdsfsdfn</option>
+											<option value="52">Caja No.256 - MARC</option>
+											<option value="54">Caja No.77 - caja kul</option>
+											<option value="56">Caja No.50 - cccc</option>
+											<option value="59">Caja No.1231 - Juana la cubana</option>
+											<option value="60">Caja No.41353 - esta muy bueno el software te lo compraría pero soy pobre :c
+											</option>
+											<option value="61">Caja No.19 - ADMINISTRADOR</option>
+											<option value="62">Caja No.234 - ooo</option>
+											<option value="63">Caja No.11111 - nicolas</option>
+											<option value="64">Caja No.10000 - CAJA B</option>
+											<option value="66">Caja No.67 - Ttt</option>
+											<option value="67">Caja No.71984 - 123456</option>
+											<option value="68">Caja No.500 - fr500</option>
+											<option value="70">Caja No.1011 - Caja Restaurante</option>
+											<option value="71">Caja No.1252 - caja 12</option>
+											<option value="72">Caja No.85 - a551</option>
+											<option value="73">Caja No.1099 - 1098</option>
+											<option value="74">Caja No.9999 - Diego</option>
+											<option value="75">Caja No.17 - MainCash#17</option>
+											<option value="76">Caja No.1280 - caja0011</option>
+											<option value="77">Caja No.23455 - xcvxcvxcv</option>
+											<option value="78">Caja No.1885 - Ema Store</option>
+											<option value="79">Caja No.21231 - 123123</option>
+											<option value="80">Caja No.189 - Bdjdj</option>
+											<option value="81">Caja No.10222 - Loz</option>
+											<option value="82">Caja No.1995 - 1995</option>
+											<option value="83">Caja No.2000 - ANTHONY PALOMINO COTIPA</option>
+											<option value="84">Caja No.12888 - SWCAJA</option>
+											<option value="86">Caja No.200 - caja200</option>
+											<option value="87">Caja No.12345 - Angie</option>
+											<option value="88">Caja No.6666 - FDFS DFDFDF</option>
+											<option value="89">Caja No.12321 - CAJA MAYORES</option>
+											<option value="91">Caja No.381 - NINA CENTRAL</option>
+											<option value="92">Caja No.23 - Caja 23</option>
+											<option value="93">Caja No.2021 - Lateral Rapida</option>
+											<option value="94">Caja No.122 - Santiago</option>
+											<option value="95">Caja No.12340 - Luis</option>
+											<option value="96">Caja No.9090 - 001</option>
+											<option value="97">Caja No.20 - CAJA YOHAN</option>
+											<option value="98">Caja No.22 - Gabriel02</option>
+											<option value="99">Caja No.208 - Bananfruit</option>
+											<option value="100">Caja No.2022 - bananFruit periodo 2021</option>
+											<option value="101">Caja No.707 - caja jorge</option>
+											<option value="102">Caja No.23211 - 32160000</option>
+											<option value="104">Caja No.65615 - Entradas</option>
+											<option value="105">Caja No.12356 - Ashura</option>
+											<option value="106">Caja No.2907 - Lenin Rios</option>
+											<option value="107">Caja No.2222 - Caja Auxiliar</option>
+											<option value="108">Caja No.789 - Caja Express</option>
+											<option value="109">Caja No.45242 - caja premiun</option>
+											<option value="111">Caja No.13323 - 323323232</option>
+											<option value="112">Caja No.2323 - 2323</option>
+											<option value="113">Caja No.5000 - dddd</option>
+											<option value="114">Caja No.12343 - Carlos</option>
+											<option value="115">Caja No.40 - 00001</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-user-lock"></i> &nbsp; Información de la cuenta</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_usuario" class="bmd-label-floating">Nombre de usuario &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="usuario_usuario_up"
+											value="Alejandra" id="usuario_usuario" maxlength="25">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_email" class="bmd-label-floating">Email</label>
+										<input type="email" class="form-control" name="usuario_email_up" value="altamirapy@gmail.com"
+											id="usuario_email" maxlength="50">
+									</div>
+								</div>
+								<div class="col-12">
+									<p class="text-center">Si desea actualizar su contraseña en el sistema debe de introducir una nueva
+										contraseña y repetirla</p>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="usuario_clave_1" class="bmd-label-floating">Nueva contraseña</label>
+										<input type="password" class="form-control" name="usuario_clave_1_up" id="usuario_clave_1"
+											pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="usuario_clave_2" class="bmd-label-floating">Repetir nueva contraseña</label>
+										<input type="password" class="form-control" name="usuario_clave_2_up" id="usuario_clave_2"
+											pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="usuario_estado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="usuario_estado_up" id="usuario_estado">
+											<option value="Activa">1 - Activa</option>
+											<option value="Deshabilitada" selected="">2 - Deshabilitada (Actual)</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<div class="container-fluid">
+							<legend><i class="fas fa-portrait"></i> &nbsp; Avatar</legend>
+							<div class="row">
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Male_2.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_2.png"
+													alt="Avatar_Male_2.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Male_1.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_1.png"
+													alt="Avatar_Male_1.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_default_male.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_male.png"
+													alt="Avatar_default_male.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Female_5.png" checked=""><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_5.png"
+													alt="Avatar_Female_5.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_default_female.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_female.png"
+													alt="Avatar_default_female.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Female_1.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_1.png"
+													alt="Avatar_Female_1.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Male_3.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_3.png"
+													alt="Avatar_Male_3.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Female_4.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_4.png"
+													alt="Avatar_Female_4.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Male_4.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_4.png"
+													alt="Avatar_Male_4.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Male_5.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_5.png"
+													alt="Avatar_Male_5.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Female_3.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_3.png"
+													alt="Avatar_Female_3.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_foto_up" value="Avatar_Female_2.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_2.png"
+													alt="Avatar_Female_2.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<p class="text-center">Para poder actualizar los datos en el sistema debe de introducir su nombre de usuario
+							y su contraseña actual</p>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="administrador_usuario" class="bmd-label-floating">Usuario &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="administrador_usuario"
+											value="Administrador" id="administrador_usuario" maxlength="25">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="administrador_clave" class="bmd-label-floating">Contraseña &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="password" class="form-control" name="administrador_clave" value="Administrador"
+											id="administrador_clave" pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<p class="text-center" style="margin-top: 40px;">
+						<button type="submit" class="btn btn-raised btn-success btn-sm"><i class="fas fa-sync"></i> &nbsp;
+							ACTUALIZAR</button>
+					</p>
+					<p class="text-center">
+						<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+							obligatorios</small>
+					</p>
+				</form>
+			</div>
+		</section>
+
+	</main>
+
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="js/bootstrap-material-design.min.js"></script>
+	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

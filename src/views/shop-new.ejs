@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Home</title>
+
+	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<section class="full-box nav-lateral">
+			<div class="full-box nav-lateral-bg show-nav-lateral"></div>
+			<div class="full-box nav-lateral-content">
+				<figure class="full-box nav-lateral-avatar">
+					<i class="far fa-times-circle show-nav-lateral"></i>
+					<img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+					<figcaption class="roboto-medium text-center">
+						Jasef Huachambe <br><small class="roboto-condensed-light">Web Developer</small>
+					</figcaption>
+				</figure>
+				<div class="full-box nav-lateral-bar"></div>
+				<nav class="full-box nav-lateral-menu">
+					<ul>
+						<li>
+							<a href="home"><i class="fab fa-dashcube fa-fw"></i> &nbsp; Dashboard</a>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-users fa-fw"></i> &nbsp; Administración <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="cashier-new"><i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva Caja</a>
+								</li>
+								<li>
+									<a href="category-new"><i class="fas fa-tags fa-fw"></i> &nbsp; Nueva Categoría</a>
+								</li>
+								<li>
+									<a href="provider-new"><i class="fas fa-shipping-fast fa-fw"></i> &nbsp; Nuevo Proveedor</a>
+								</li>
+								<li>
+									<a href="user-new"><i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo Usuario</a>
+								</li>
+								<li>
+									<a href="client-new"><i class="fas fa-child fa-fw"></i> &nbsp; Nuevo Cliente</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="product-new"><i class="fas fa-box fa-fw"></i> &nbsp; Nuevo Producto</a>
+								</li>
+								<li>
+									<a href="product-list"><i class="fas fa-pallet fa-fw"></i> &nbsp; Productos en almacen</a>
+								</li>
+								<li>
+									<a href="product-sold"><i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido</a>
+								</li>
+								<li>
+									<a href="product-search"><i class="fas fa-search fa-fw"></i> &nbsp; Buscar Productos</a>
+								</li>
+							</ul>
+						</li>
+							<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="shop-new"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra</a>
+								</li>
+								<li>
+									<a href="shop-list"><i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras realizadas</a>
+								</li>
+								<li>
+									<a href="shop-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar Compra</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas  fa-user-secret fa-fw"></i> &nbsp; Ventas <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="sale-new"><i class="fas fa-cart-plus fa-fw"></i> &nbsp; Nueva venta</a> 
+								</li>
+								<li>
+									<a href="sale-list.ejs"><i class="fas fa-coins fa-fw"></i> &nbsp; Lista de Ventas </a>
+								</li>
+								<li>
+									<a href="sale-search-date"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por fecha</a>
+								</li>
+								<li>
+									<a href="sale-search-code"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar ventas por código</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-wallet fa-fw""></i> &nbsp; Movimientos en caja <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="movement-new"><i class="far fa-money-bill-alt fa-fw"></i> &nbsp; Nuevo movimiento </a> 
+								</li>
+								<li>
+									<a href="movement-list"><i class="fas fa-money-check-alt fa-fw"></i> &nbsp; Movimientos realizados</a>
+								</li>
+								<li>
+									<a href="movement-search"><i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar movimientos</a>
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-truck-loading fa-fw""></i> &nbsp; Devoluciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="return-list"><i class="fas fa-people-carry fa-fw"></i> &nbsp; Devoluciones realizadas</a> 
+								</li>
+								<li>
+									<a href="return-search"><i class="fas fa-dolly-flatbed fa-fw"></i> &nbsp; Buscar devoluciones</a>
+								</li>
+							</ul>
+						</li>		
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="far fa-file-pdf fa-fw""></i> &nbsp; Reportes <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="report-sales"><i class="fas fa-hand-holding-usd fa-fw"></i> &nbsp; Reportes de venta </a> 
+								</li>
+								<li>
+									<a href="report-inventory"><i class="fas fa-box-open fa-fw"></i> &nbsp; Reportes de inventario </a>
+								</li>
+							</ul>
+						</li>
+
+
+						<li>
+							<a href="#" class="nav-btn-submenu"><i class="fas fa-cogs fa-fw""></i> &nbsp; Configuraciones <i class="fas fa-chevron-down"></i></a>
+							<ul>
+								<li>
+									<a href="company"><i class="fas fa-store-alt fa-fw"></i> &nbsp; Datos de la empresa </a> 
+								</li>
+								<li>
+									<a href="user-update"><i class="fas fa-sync fa-fw"></i> &nbsp; Actualizar cuenta</a>
+								</li>
+							</ul>
+						</li>							
+
+
+					</ul>
+				</nav>
+			</div>
+		</section>
+
+		<!-- Page content -->
+
+		<section class="full-box page-content scroll">
+			<nav class="full-box navbar-info">
+				<a href="#" class="float-left show-nav-lateral">
+					<i class="fas fa-bars"></i>
+				</a>
+				<a href="http://systems.designlopers.com/SVI/user-update/dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09/">
+					<i class="fas fa-user-cog"></i>
+				</a>
+				<a href="#" class="btn-exit-system">
+					<i class="fas fa-power-off"></i>
+				</a>
+			</nav>
+			<div class="full-box page-header">
+				<h3 class="text-left text-uppercase">
+					<i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra
+				</h3>
+				<p class="text-justify">
+					En el módulo COMPRAS usted podrá registrar compras de productos ya sea nuevos o ya registrados en sistema.
+					También puede ver la lista de todas las compras realizadas, buscar compras y ver información más detallada de
+					cada compra.
+				</p>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+					<li>
+						<a class="active" href="shop-new">
+							<i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Nueva compra
+						</a>
+					</li>
+					<li>
+						<a href="shop-list">
+							<i class="fas fa-file-invoice-dollar fa-fw"></i> &nbsp; Compras realizadas
+						</a>
+					</li>
+					<li>
+						<a href="shop-search">
+							<i class="fas fa-search-dollar fa-fw"></i> &nbsp; Buscar compra
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="container-fluid">
+				<div class="form-neon">
+					<div class="container-fluid">
+						<div class="row">
+							<div class="col-12 col-lg-9">
+								<p class="text-center">
+									Ingrese el código de barras del producto y luego haga clic en <strong>“Verificar producto”</strong>
+									para cargar los datos en caso el producto ya este registrado, en caso contrario se cargará el
+									formulario para registrar un nuevo producto.
+								</p>
+								<div class="container-fluid">
+									<div class="row align-items-center">
+										<div class="col-12 col-md-8">
+											<div class="form-group bmd-form-group">
+												<label for="barcode-input" class="bmd-label-floating">Código de barras</label>
+												<input type="text" pattern="[a-zA-Z0-9- ]{1,70}" class="form-control input-barcode"
+													id="barcode-input" maxlength="70">
+											</div>
+										</div>
+										<div class="col-12 col-md-4">
+											<button type="button" class="btn btn-primary" onclick="buscar_producto()"><i
+													class="far fa-check-circle"></i> &nbsp; Verificar producto</button>
+										</div>
+									</div>
+								</div>
+								<hr>
+								<div class="table-responsive">
+									<table class="table table-hover table-bordered">
+										<thead class="bg-info">
+											<tr class="text-center">
+												<th scope="col">#</th>
+												<th scope="col">Código de barra</th>
+												<th scope="col">Producto</th>
+												<th scope="col">Cantidad</th>
+												<th scope="col">Precio</th>
+												<th scope="col">Subtotal</th>
+												<th scope="col">Remover</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr class="text-center">
+												<th colspan="8">No hay productos agregados</th>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="col-12 col-lg-3">
+								<h3 class="text-center text-uppercase">Datos de la compra</h3>
+								<hr>
+								<form>
+									<div class="form-group bmd-form-group is-filled">
+										<label for="compra_fecha" class="bmd-label-static">Fecha &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="date" class="form-control input-barcode" name="compra_fecha_reg" id="compra_fecha"
+											value="2021-11-26">
+									</div>
+									<div class="form-group bmd-form-group is-filled">
+										<label for="compra_proveedor" class="bmd-label-floating">Proveedor &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="compra_proveedor_reg" id="compra_proveedor">
+											<option value="" selected="">Seleccione una opción</option>
+											<option value="3">1 - Truper</option>
+											<option value="4">2 - Ferrepat</option>
+											<option value="6">3 - YAPPA riobanba</option>
+											<option value="7">4 - Distribuidora marca</option>
+											<option value="10">5 - Farmacia 24</option>
+											<option value="11">6 - Microsoft</option>
+											<option value="13">7 - mario hidalgoa</option>
+											<option value="14">8 - PAN GENESIS</option>
+											<option value="16">9 - test</option>
+											<option value="17">10 - INTCOMEX</option>
+											<option value="18">11 - Farmacia vida</option>
+											<option value="21">12 - Grupo Fibel</option>
+											<option value="23">13 - Hhhhhh</option>
+											<option value="24">14 - Framacia enrique</option>
+											<option value="25">15 - FERIA BARRIO LINDO</option>
+											<option value="26">16 - SPIRIT</option>
+											<option value="29">17 - jose lus</option>
+											<option value="32">18 - prueba</option>
+											<option value="33">19 - Farmacia Sana sana</option>
+											<option value="34">20 - joshe</option>
+											<option value="35">21 - pepito12888</option>
+											<option value="36">22 - jose</option>
+											<option value="37">23 - inventores SA</option>
+											<option value="38">24 - Jorge Flores</option>
+											<option value="39">25 - Agricultor 1</option>
+											<option value="40">26 - Noveltyc</option>
+											<option value="41">27 - Trasporte ejemplo</option>
+											<option value="42">28 - Montesdeoca Salazar Luis German</option>
+											<option value="43">29 - TRANSCOSTACAÑARI S.A.</option>
+											<option value="44">30 - TRANSPORTE BASTIDAS RUIZ DELIVERYCOM S.A.</option>
+											<option value="45">31 - NPD GLOBAL SUPPLIERS S.A.</option>
+											<option value="46">32 - VETANRO LOGISTICS S.A. VETLOGISA</option>
+											<option value="47">33 - Torres Romero Gina Patricia</option>
+											<option value="48">34 - Suriaga Vasquez Jorge Alfredo</option>
+											<option value="49">35 - Negolevel S.A.</option>
+											<option value="50">36 - Bresson S.A.</option>
+											<option value="51">37 - CROPARSA S.A.</option>
+											<option value="52">38 - VILLEGAS FREIRE LAURA ESTHELA</option>
+											<option value="53">39 - CAJAMARCA LOPEZ GUIDO PATRICIO</option>
+											<option value="54">40 - Luzuriaga Iñiguez Milton Diogenes</option>
+											<option value="55">41 - GLOBALPACIFIC</option>
+											<option value="56">42 - Llerena Carrera Carlos Alberto</option>
+											<option value="57">43 - VIVERO DE CACAO ORBE</option>
+											<option value="58">44 - CARTOPEL S.A.I</option>
+											<option value="59">45 - ROMERO GUAMAN NESTOR ROBERTO</option>
+											<option value="60">46 - PAREDES CEDILLO CLARA ELENA</option>
+											<option value="61">47 - STARCARGO CIA. LTDA</option>
+											<option value="63">48 - VERA VILLAGOMEZ RUBEN LIZARDO</option>
+											<option value="64">49 - MARDIEMPRE S.A.</option>
+											<option value="65">50 - MANCHENO MASSON MIGUEL HERNAN</option>
+											<option value="66">51 - PEREZ AREVALO JORGE OMAR</option>
+											<option value="67">52 - PAZMIÑO JOSE VICENTE</option>
+											<option value="68">53 - IBO S.A.</option>
+											<option value="69">54 - SOLUFIT S.A.</option>
+											<option value="70">55 - BIZARGORRI S.A.</option>
+											<option value="71">56 - RUBIANES FREIRE SILVIA RUTH</option>
+											<option value="72">57 - OXALIS S.A.</option>
+											<option value="73">58 - MARIA FERNANDA GOMEZ ZAMORA</option>
+											<option value="74">59 - CITIKOLD SA</option>
+											<option value="75">60 - CAÑARTE AGUA CARLOS FRANKLIN</option>
+											<option value="77">61 - MYCORGANIC S.A.</option>
+											<option value="78">62 - AGROCOMERCIO EL TRIUNFO</option>
+											<option value="79">63 - TRANSCOCHANCAY S.A.</option>
+											<option value="80">64 - PESANTEZ SANMARTIN LIDIA PATRICIA</option>
+											<option value="82">65 - ROMERO HERNANDEZ DIONISIO</option>
+											<option value="83">66 - TRANSPORTE Y MAQUINARIAS RIVECH</option>
+											<option value="84">67 - AGRODRIP SA</option>
+											<option value="85">68 - juan denos</option>
+											<option value="86">69 - Papelplast</option>
+											<option value="87">70 - Tumacho SAC</option>
+											<option value="88">71 - Juanchoxo C.A</option>
+											<option value="89">72 - JAJAJ</option>
+										</select>
+									</div>
+									<ul class="list-group list-unstyled">
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Subtotal
+											<span class="badge badge-pill">$0.00 USD</span>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											IVA (21%)
+											<span class="badge badge-pill">$0.00 USD</span>
+										</li>
+										<li>
+											<hr>
+										</li>
+										<li class="list-group-item d-flex justify-content-between align-items-center">
+											Total
+											<span class="badge badge-pill">$0.00 USD</span>
+										</li>
+									</ul>
+									<p class="text-center">
+										<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+											obligatorios</small>
+									</p>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal agregar producto a compras -->
+			<div class="modal fade" id="add-product-modal" tabindex="-1" role="dialog" aria-hidden="true">
+				<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+					<form class="modal-content FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/compraAjax.php"
+						method="POST" data-form="default" autocomplete="off">
+						<input type="hidden" name="modulo_compra" value="agregar_producto">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLongTitle">Agregar producto a compra</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+							</button>
+						</div>
+						<div class="modal-body" id="formulario-producto-modal"></div>
+						<p class="text-center">
+							<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+								obligatorios</small>
+						</p>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-primary">
+								<i class="fas fa-plus"></i> &nbsp; Agregar producto
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<script>
+				/*----------  Buscar producto  ----------*/
+				function buscar_producto() {
+					let codigo_producto = document.querySelector('#barcode-input').value;
+
+					codigo_producto = codigo_producto.trim();
+
+					if (codigo_producto != "") {
+
+						let datos = new FormData();
+						datos.append("codigo_producto", codigo_producto);
+						datos.append("modulo_compra", "verificar_producto");
+
+						fetch('http://systems.designlopers.com/SVI/ajax/compraAjax.php', {
+							method: 'POST',
+							body: datos
+						})
+							.then(respuesta => respuesta.text())
+							.then(respuesta => {
+								let div_modal_productos = document.querySelector('#formulario-producto-modal');
+								div_modal_productos.innerHTML = respuesta;
+								$('#add-product-modal').modal({
+									'show': true,
+									'backdrop': 'static'
+								});
+							});
+
+					} else {
+						Swal.fire({
+							title: 'Ocurrió un error inesperado',
+							text: 'Debes de introducir el código de barras del producto',
+							type: 'error',
+							confirmButtonText: 'Aceptar'
+						});
+					}
+				}
+			</script>
+		</section>
+
+	</main>
+
+
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="js/bootstrap-material-design.min.js"></script>
+	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>
