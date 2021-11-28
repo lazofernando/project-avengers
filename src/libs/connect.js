@@ -1,8 +1,8 @@
-const MongoClient = require('mongodb').MongoClient
+require('dotenv/config');
 
+const MongoClient = require('mongodb').MongoClient
 const uri = process.env.CONNECTION_STRING;
 
-require('dotenv/config');
 
 let client;
 
