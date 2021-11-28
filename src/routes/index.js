@@ -188,13 +188,6 @@ router.get('/', (req,res) => {
 })
 
 
-
-
-
-router.get('/reporte', (req, res) =>{
-    res.send('<h1>Pagina del Reporte</h1>')
-})
-
 router.post('/consultar', (req, res) =>{
     res.send("{frutas:['manzana', 'pera','fresa']}")
 })
