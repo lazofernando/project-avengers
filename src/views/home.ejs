@@ -31,8 +31,11 @@
 				<h3 class="text-left">
 					<i class="fab fa-dashcube fa-fw"></i> &nbsp; DASHBOARD
 				</h3>
-				<p class="text-justify"> ¡Bienvenido <strong> Jasef Huachambe</strong> ! Este es el panel principal del sistema acá podrá encontrar atajos para acceder a los distintos listados de cada módulo del sistema.
+				
+   <% if(typeof profile !== 'undefined'){ %>
+				<p class="text-justify"> ¡Bienvenido <strong> <%- profile.name %></strong> ! Este es el panel principal del sistema acá podrá encontrar atajos para acceder a los distintos listados de cada módulo del sistema.
 				</p>
+				<%  } %>
 			</div>
 			
 			<!-- Content -->

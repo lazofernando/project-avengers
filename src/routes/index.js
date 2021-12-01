@@ -4,48 +4,254 @@ const express = require('express');
 const { list } = require('mongodb/lib/gridfs/grid_store');
 const router = express.Router()
 const client = require('../libs/connect')()
+const bodyParser=require('body-parser');
+const mongoose =require('mongoose');
+const session =require('express-session')
+const MongoDBStore=require('connect-mongodb-session')(session);
+var secion= false;
+//iniciando el odelo
+//conectarse a la base de datos
+mongoose.connect('mongodb+srv://jeanpierinca:jeanpier12oo@clustercertus.y176v.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true});
+//en caso aya un error 
+mongoose.connection.on('error',function(err){
+    console.log('error en la conección de mongoDB');
+});
+ // en caso se conecto a mongoBD
+mongoose.connection.once('open',function(){
+
+    console.log('Success: La conexión esta abierta a mogodb atlas');
+});
+
+//crear esquema de los documentos que se guardaran 
+// en la base de datos
+ let customSchema=new mongoose.Schema({
+     username:String,
+     email:String,
+     password:String
+
+ });
+
+ // configurar modelo
+ //el modelo describe la collecccion dentro de 
+ // la cual se van a guardar los documentos
+
+let customModel=mongoose.model('login',customSchema);
+//configurar session store
+let store = new MongoDBStore({
+    uri :'mongodb+srv://jeanpierinca:jeanpier12oo@clustercertus.y176v.mongodb.net/test?retryWrites=true&w=majority',
+    //en el valor de la propiedad collection guardamos las coleccion de mis sesiones
+    collection :'misSesiones'
+});
+
+store.on('error',function(err){
+    console.log(err);
+}); 
+
+
+//configurara seciones
+router.use(session({
+    secret:'usando nodejs',
+    store :store,
+    resave:true,
+    saveUninitialized : true
+}));
+
+
+
+//configurar body-parser para recicir la información de los formularios
+router.use(bodyParser.urlencoded({extended:false}));
+router.use(bodyParser.json());
+//router
+router.get('/',(req,res)=>{
+    res.render('index');
+})
+
+router.post('/login',(req,res)=>{
+
+    //guarndando información del formulqrio
+    let varemail=req.body.useremail;
+    let varpassword=req.body.userpassword;
+
+
+
+//verificar que el password y el correo son validos 
+//hacer busqueda en la base de datos si el passwor
+//y el email son validos 
+
+ customModel.findOne({
+   email: varemail,
+   password:varpassword
+ },function(err,doc){
+
+    if(err){
+        console.log(err);
+        res.render('login',{
+         error : 'problemas con la vase de datos'
+
+        });
+    }
+    // esta condicion me indica que si la contraseña y es usuari no son validos see ejecurtara elsiguiente codigo
+    if(doc === null){
+        console.log('El password y el correo no son validos ');
+        res.render('login',{
+            error : 'el password o el correo no son validos ',
+            //declaracióm de la propiedad profile
+            //esto lo puse para que me mueste la contraseña y el passsword ingresado
+            profile :{
+                email :varemail,
+                password:varpassword
+
+            }
+        });
+    }
+   //si encontramos un documento que contien el password y correo de la base de datso
+    if(doc !== null){
+        secion=true;
+        console.log('El password y el correo  son validos ');
+        //variables de sesion
+        //doc es el documento que se obtuvo de lavase de datso
+        req.session.clave=doc._id;
+        req.session.name=doc.username;
+        req.session.email=doc.email;
+        req.session.password=doc.password;
+        res.redirect('/home');
+    }
+ });
+ 
+});
+
+router.get('/home',(req,res) =>{
+    //en caso no exista una variable de secion significa 
+    //que el usuario no a iniciado seción
+  if(!req.session.clave){
+                res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+  }else{
+      res.render('home',{
+          profile :{
+              id : req.session.clave,
+              name :req.session.name,
+                 email : req.session.email,
+                   password : req.session.password
+          }
+      })
+  }
+
+});
+router.get('/cashier-new', (req,res)=>{
+    
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('cashier-new')
+}
+
+
+})
+
+router.get('/logout',(req,res) =>{
+ //con la funcion destroy destruimos la sesion
+    req.session.destroy(function(err){
+ // cuando se destrulle la seción el usuario es redireccionado
+ // a la paguina de iniciar seción
+         res.redirect('/');
+
+    });
+})
+
+
+
+
+
+
 
 router.get('/listarAlumnos', (req, res)=>{
     res.render('listarAlumnos')
 })
 // dashboard
-router.get('/home', (req, res)=>{
-    res.render('home')
-})
+// router.get('/home', (req, res)=>{
+//     res.render('home')
+// })
 // administracion
 
 //                  caja
-router.get('/cashier-new', (req, res)=>{
-    res.render('cashier-new')
-})
+
 router.get('/cashier-list', (req, res)=>{
-    res.render('cashier-list')
+    
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('cashier-list')
+}
 })
 router.get('/cashier-search', (req, res)=>{
-    res.render('cashier-search')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('cashier-search')
+}
 })
 router.get('/cashier-update', (req, res)=>{
-    res.render('cashier-update')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('cashier-update')
+}
 })
 
 //                  categorias
 router.get('/category-new', (req, res)=>{
-    res.render('category-new')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('category-new')
+}
 })
 router.get('/category-list', (req, res)=>{
-    res.render('category-list')
+   
+res.render('category-list')
+
 })
 router.get('/category-search', (req, res)=>{
-    res.render('category-search')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('category-search')
+}
 })
 router.get('/category-update', (req, res)=>{
-    res.render('category-update')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('category-update')
+}
 })
 
 
 //                  proveedor
 router.get('/provider-new', (req, res)=>{
-    res.render('provider-new')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('provider-new')
+}
 })
 router.get('/provider-list', (req, res)=>{
     res.render('provider-list')
@@ -178,14 +384,14 @@ router.get('/report-inventory', (req, res)=>{
 
 
 
-router.get('/404', (req, res)=>{
+router.get('*', (req, res)=>{
     res.render('404')
 })
 
 
-router.get('/', (req,res) => {
-    res.render('index')
-})
+// router.get('/', (req,res) => {
+//     res.render('index')
+// })
 
 
 router.post('/consultar', (req, res) =>{

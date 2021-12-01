@@ -228,6 +228,12 @@ table form{
 	outline: none;
 }
 
+#boton{
+	margin-top: 20px;
+margin-left: 60px;
+	width: 150px;
+}
+
 /*----------  Page layout Styles  ----------*/
 .main-container{
 	height: 100%;

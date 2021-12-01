@@ -4,9 +4,11 @@
     <figure class="full-box nav-lateral-avatar">
       <i class="far fa-times-circle show-nav-lateral"></i>
       <img src="assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+      <% if(typeof profile !== 'undefined'){ %>
       <figcaption class="roboto-medium text-center">
-        Jasef Huachambe <br><small class="roboto-condensed-light">Web Developer</small>
+        <%- profile.name %> <br><small class="roboto-condensed-light">Web Developer</small>
       </figcaption>
+      <%  } %>
     </figure>
     <div class="full-box nav-lateral-bar"></div>
     <nav class="full-box nav-lateral-menu">

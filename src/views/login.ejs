@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js" ></script>
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+		<div class="login-content">
+			<p class="text-center">
+				<i class="fas fa-user-circle fa-5x"></i>
+			</p>
+			<p class="text-center">
+				Inicia sesión con tu cuenta
+			</p>
+   <!-- hay un pequeño fallo una vez has fallado la contraseña 
+     tienes que reingresar todos tus datos nuevamente para ingresar 
+    si solo se modifica la contraeña nos dara error-->
+  <%  if(typeof error !== 'undefined'){ %>
+     <h3 style="color: red;"><%- error %>  </h3>
+       <!-- el valor de name  guarda la información que 
+    escribe el usuario -->
+    <form method="POST" action="/login">
+        <div class="form-group">
+        <label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
+          <input type="text"  class="form-control" id="UserName"  name="useremail" value="<%- profile.email %> "> 
+            </div>
+            <div class="form-group">
+            <label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Contraseña</label>
+         <input type="password" name ="userpassword" class="form-control" id="UserPassword" value="<%- profile.password %> " >
+        <input type="submit" value="Login">
+    </div>
+    </form>
+
+   <% } else{ %>
+    <form method="POST" action="/login">
+        <label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
+      <input type="text"   class="form-control" id="UserName" name="useremail"> 
+      <label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Contraseña</label>
+         <input type="password" class="form-control" id="UserPassword" name ="userpassword">
+        <input type="submit" value="Login" id="boton">
+    </form>
+   <% } %>
+</div>
+</div>
+</body>
+</html>

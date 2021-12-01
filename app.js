@@ -1,10 +1,15 @@
 const express = require('express')
 const path = require('path')
 const logger = require('morgan')
+const bodyParser=require('body-parser');
+const mongoose =require('mongoose');
+const session =require('express-session')
+const MongoDBStore=require('connect-mongodb-session')(session);
 
 
 //initilization
 const app = express()
+
 
 //Routes
 const indexRoutes = require('./src/routes/index');
@@ -14,7 +19,7 @@ require('dotenv/config');
 //settinggs
 app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'ejs')
-app.set('port', process.env.PORT || 3001 )
+app.set('port', process.env.PORT || 3010 )
 
 
 
@@ -35,6 +40,9 @@ app.use(express.static(__dirname + '/public'));
 // app.use(`${api}/cashier`, cashierRouter);
 
 app.use('/', indexRoutes)
+
+
+
 
 
 //Starting the Server

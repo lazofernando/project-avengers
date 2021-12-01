@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>panel de control</title>
+</head>
+<body>
+    <h1>Panel de Control</h1>
+   <% if(typeof profile !== 'undefined'){ %>
+      <div>
+          <p>ID :<%- profile.id %></p>
+          <p>NAME: <%- profile.name %> </p>
+          <p>EMAIL: <%- profile.email %> </p>
+          <p>Password: <%- profile.password %> </p>
+          <a href="/logout">cerrar Sesion</a>
+      </div>
+
+  <%  } %>
+</body>
+</html>
