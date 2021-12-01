@@ -219,13 +219,17 @@ res.render('category-new')
 }
 })
 router.get('/category-list', (req, res)=>{
-   
-res.render('category-list')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>')
+    }else{
+        res.render('category-list')
+    }
+
 
 })
 router.get('/category-search', (req, res)=>{
     if(!req.session.clave){
-        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>')
 
 
 }else{
