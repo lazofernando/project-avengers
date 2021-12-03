@@ -10,6 +10,8 @@ const session =require('express-session')
 const MongoDBStore=require('connect-mongodb-session')(session);
 require('../libs/mongo')
 const customModel=require('../libs/modelousuario')
+
+
 //configurar session store
 let store = new MongoDBStore({
     uri :'mongodb+srv://jeanpierinca:jeanpier12oo@clustercertus.y176v.mongodb.net/test?retryWrites=true&w=majority',
@@ -64,7 +66,7 @@ router.post('/login',(req,res)=>{
 
         });
     }
-    // esta condicion me indica que si la contraseña y es usuari no son validos see ejecurtara elsiguiente codigo
+    // esta condicion me indica que si la contraseña y es usuario no son validos see ejecutara el siguiente codigo
     if(doc === null){
         console.log('El password y el correo no son validos ');
         res.render('login',{

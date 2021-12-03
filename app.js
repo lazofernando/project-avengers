@@ -6,6 +6,8 @@ const mongoose =require('mongoose');
 const session =require('express-session')
 const MongoDBStore=require('connect-mongodb-session')(session);
 
+const dbocategoria = require('./dbcategoria');
+var cors = require('cors');
 
 //initilization
 const app = express()
