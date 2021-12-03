@@ -8,34 +8,8 @@ const bodyParser=require('body-parser');
 const mongoose =require('mongoose');
 const session =require('express-session')
 const MongoDBStore=require('connect-mongodb-session')(session);
-var secion= false;
-//iniciando el odelo
-//conectarse a la base de datos
-mongoose.connect('mongodb+srv://jeanpierinca:jeanpier12oo@clustercertus.y176v.mongodb.net/test?retryWrites=true&w=majority',{useNewUrlParser:true});
-//en caso aya un error 
-mongoose.connection.on('error',function(err){
-    console.log('error en la conección de mongoDB');
-});
- // en caso se conecto a mongoBD
-mongoose.connection.once('open',function(){
-
-    console.log('Success: La conexión esta abierta a mogodb atlas');
-});
-
-//crear esquema de los documentos que se guardaran 
-// en la base de datos
- let customSchema=new mongoose.Schema({
-     username:String,
-     email:String,
-     password:String
-
- });
-
- // configurar modelo
- //el modelo describe la collecccion dentro de 
- // la cual se van a guardar los documentos
-
-let customModel=mongoose.model('login',customSchema);
+require('../libs/mongo')
+const customModel=require('../libs/modelousuario')
 //configurar session store
 let store = new MongoDBStore({
     uri :'mongodb+srv://jeanpierinca:jeanpier12oo@clustercertus.y176v.mongodb.net/test?retryWrites=true&w=majority',
@@ -258,76 +232,190 @@ res.render('provider-new')
 }
 })
 router.get('/provider-list', (req, res)=>{
-    res.render('provider-list')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('provider-list')
+}
 })
 router.get('/provider-search', (req, res)=>{
-    res.render('provider-search')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('provider-search')
+}
 })
 router.get('/provider-update', (req, res)=>{
-    res.render('provider-update')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('provider-update')
+}
 })
 
 //                  usuario
 router.get('/user-new', (req, res)=>{
-    res.render('user-new')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('user-new')
+}
 })
 router.get('/user-list', (req, res)=>{
-    res.render('user-list')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('user-list')
+}
 })
 router.get('/user-search', (req, res)=>{
-    res.render('user-search ')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('user-search')
+}
 })
 router.get('/user-update', (req, res)=>{
-    res.render('user-update')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('user-update')
+}
 })
 
 //                  cliente
 router.get('/client-new', (req, res)=>{
-    res.render('client-new')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('client-new')
+}
 })
 router.get('/client-list', (req, res)=>{
-    res.render('client-list')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('client-list')
+}
 })
 router.get('/client-search', (req, res)=>{
-    res.render('client-search')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('client-search')
+}
 })
 router.get('/client-update', (req, res)=>{
-    res.render('client-update')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('client-update')
+}
 })
 
 
 // productos
 
 router.get('/product-new', (req, res)=>{
-    res.render('product-new')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('product-new')
+}
 })
 router.get('/product-list', (req, res)=>{
-    res.render('product-list')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('product-list')
+}
 })
 router.get('/product-search', (req, res)=>{
-    res.render('product-search')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('product-search')
+}
 })
 router.get('/product-sold', (req, res)=>{
-    res.render('product-sold')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('product-sold')
+}
 })
 router.get('/product-update', (req, res)=>{
-    res.render('product-update')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('product-update')
+}
 })
 
 
 // compras
 
 router.get('/shop-new', (req, res)=>{
-    res.render('shop-new')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('shop-new')
+}
 })
 router.get('/shop-list', (req, res)=>{
     res.render('shop-list')
 })
 router.get('/shop-search', (req, res)=>{
-    res.render('shop-search')
+    if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('shop-search')
+}
 })
 router.get('/shop-detail', (req, res)=>{
-    res.render('shop-detail')
+      if(!req.session.clave){
+        res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
+
+
+}else{
+res.render('shop-detail')
+}
 })
 
 
