@@ -12,6 +12,9 @@ require('../libs/mongo')
 const customModel=require('../libs/modelousuario')
 
 
+
+//var router=express.Router();
+
 //configurar session store
 let store = new MongoDBStore({
     uri :'mongodb+srv://jeanpierinca:jeanpier12oo@clustercertus.y176v.mongodb.net/test?retryWrites=true&w=majority',
@@ -474,8 +477,6 @@ router.get('/report-sales', (req, res)=>{
 router.get('/report-inventory', (req, res)=>{
     res.render('report-inventory')
 })
-
-
 
 
 router.get('*', (req, res)=>{

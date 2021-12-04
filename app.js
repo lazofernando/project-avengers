@@ -6,8 +6,6 @@ const mongoose =require('mongoose');
 const session =require('express-session')
 const MongoDBStore=require('connect-mongodb-session')(session);
 
-const dbocategoria = require('./dbcategoria');
-var cors = require('cors');
 
 //initilization
 const app = express()
@@ -15,6 +13,7 @@ const app = express()
 
 //Routes
 const indexRoutes = require('./src/routes/index');
+const { request } = require('http');
 // const cashierRouter = require('./models/cashier');
 require('dotenv/config');
 
