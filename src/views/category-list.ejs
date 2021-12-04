@@ -75,11 +75,12 @@
 							</tr>
 						</thead>
 						<tbody>
-							<!-- bloque para replicar -->						
+							<!-- bloque para replicar -->			
+							<% data.forEach((objeto)=> { %>
 							<tr class="text-center">
-								<td>idCategoria</td>
-								<td>Nombre</td>
-								<td>Estado</td>
+								<td><%= objeto.idCategoria %></td>
+								<td><%= objeto.Nombre %></td>
+								<td><%= objeto.Estado %></td>
 								<td>
 									<a class="btn btn-success"
 										href="category-update">
@@ -98,7 +99,7 @@
 								</td> 
 								
 							</tr>
-							
+							<% 	}) %>
 						</tbody>
 
 					</table>

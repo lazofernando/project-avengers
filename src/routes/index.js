@@ -199,15 +199,15 @@ router.get('/category-new', (req, res)=>{
 res.render('category-new')
 }
 })
+/*
 router.get('/category-list', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>')
     }else{
-        res.render('category-list')
+        //res.render('category-list',{data:data})
     }
-
-
 })
+*/
 router.get('/category-search', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>')
@@ -480,6 +480,10 @@ router.get('/report-inventory', (req, res)=>{
     res.render('report-inventory')
 })
 
+router.get('/prueba', (req, res)=>{
+    res.render('prueba')
+})
+
 /*
 router.get('*', (req, res)=>{
     res.render('404')
@@ -551,16 +555,17 @@ router.post('/listarUnAlumno', (req,res) => {
 })
 
 //obtener todas las categorias
-router.route('/listarCategoria').get((request,response)=>{
-    dbocategoria.getCategoria().then(result => {
-        response.json(result[0]);
+router.get('/category-list',(req,res)=>{
+    dbocategoria.getCategoria().then((data) => {
+       res.render('category-list',{data:data[0]});
+       //console.log(data);
     })
 })
 
 //para obtener categoria por id
-router.route('/categoria/:id').get((request,response)=>{
+router.route('/listarCategoria/:id').get((req,res)=>{
     dbocategoria.getCategoria_x_id(request.params.id).then(result => {
-        response.json(result[0]);
+        res.json(result[0]);
     })
 })
 
@@ -579,8 +584,6 @@ router.route('/categoria/actualizar').post((request,response)=>{
         response.json(result[0]);
     })
 })
-
-
 
 
 module.exports = router;
