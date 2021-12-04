@@ -27,5 +27,8 @@
     "passport-local": "^1.0.0",
     "cors": "2.8.1",
     "mssql": "^6.2.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }

@@ -10,7 +10,9 @@ const session =require('express-session')
 const MongoDBStore=require('connect-mongodb-session')(session);
 require('../libs/mongo')
 const customModel=require('../libs/modelousuario')
-
+const dbocategoria = require('../libs/dbcategoria');
+var cors = require('cors');
+const { request, response } = require('express');
 
 
 //var router=express.Router();
@@ -478,11 +480,11 @@ router.get('/report-inventory', (req, res)=>{
     res.render('report-inventory')
 })
 
-
+/*
 router.get('*', (req, res)=>{
     res.render('404')
 })
-
+*/
 
 // router.get('/', (req,res) => {
 //     res.render('index')
@@ -527,6 +529,8 @@ router.post('/listarAlumnos', (req,res) => {
     })
 })
 
+
+///PETICIONES****************************
 router.post('/listarUnAlumno', (req,res) => {
     var nombreLocal = req.body.nombre;
     client.connect(async (err) =>{
@@ -545,5 +549,38 @@ router.post('/listarUnAlumno', (req,res) => {
         }
     })
 })
+
+//obtener todas las categorias
+router.route('/categoria').get((request,response)=>{
+    dbocategoria.getCategoria().then(result => {
+        response.json(result[0]);
+    })
+})
+
+//para obtener categoria por id
+router.route('/categoria/:id').get((request,response)=>{
+    dbocategoria.getCategoria_x_id(request.params.id).then(result => {
+        response.json(result[0]);
+    })
+})
+
+//para dar de alta una categoria
+router.route('/categoria/guardar').post((request,response)=>{
+    let categoria = {...request.body}
+    dbocategoria.insertarCategoria(categoria).then(result => {
+        response.json(result[0]);
+    })
+})
+
+//para actualizar una categoria
+router.route('/categoria/actualizar').post((request,response)=>{
+    let categoria = {...request.body}
+    dbocategoria.actualizarCategoria(categoria).then(result => {
+        response.json(result[0]);
+    })
+})
+
+
+
 
 module.exports = router;
