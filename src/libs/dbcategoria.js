@@ -12,6 +12,29 @@ async function getCategoria(){
     }
 }
 
+
+//funcion async: asyncrona devuelve un objeto
+async function getCajas(){
+    try {
+        let pool = await sql.connect(config);
+        let cajas = await pool.request().execute("LISTAR_CAJAS");
+        return cajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//funcion async: asyncrona devuelve un objeto
+async function getCliente(){
+    try {
+        let pool = await sql.connect(config);
+        let clientes = await pool.request().execute("LISTAR_CLIENTES");
+        return clientes.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //devuelve categoria x id
 async function getCategoria_x_id(cat_id){
     try {
@@ -63,5 +86,7 @@ module.exports ={
     getCategoria:getCategoria,
     getCategoria_x_id:getCategoria_x_id,
     insertarCategoria:insertarCategoria,
-    actualizarCategoria:actualizarCategoria
+    actualizarCategoria:actualizarCategoria,
+    getCajas:getCajas,
+    getCliente:getCliente
 }

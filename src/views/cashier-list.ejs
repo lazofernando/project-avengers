@@ -77,11 +77,12 @@
 						</thead>
 						<tbody>
 							<!-- bloque para replicar -->
+							<% data.forEach((objeto)=> { %>
 							<tr class="text-center">
-								<td>1</td>
-								<td>Caja principal</td>
-								<td>549837.89</td>
-								<td>Habilitada</td>
+								<td><%= objeto.idCajas %></td>
+								<td><%= objeto.NombreCaja %></td>
+								<td><%= objeto.Efectivo %></td>
+								<td><%= objeto.Estado %></td>
 								<td>
 									<a class="btn btn-success"
 										href="cashier-update">
@@ -99,6 +100,7 @@
 									</form>
 								</td>
 							</tr>
+							<% 	}) %>
 						</tbody>
 
 

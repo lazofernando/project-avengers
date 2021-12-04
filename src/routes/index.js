@@ -164,12 +164,16 @@ router.get('/cashier-list', (req, res)=>{
     
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
-
-
-}else{
-res.render('cashier-list')
-}
+    }else{
+        dbocategoria.getCajas().then((data) => {
+        res.render('cashier-list',{data:data[0]});
+        //console.log(data);
+        })
+        }
 })
+
+
+
 router.get('/cashier-search', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
@@ -179,6 +183,8 @@ router.get('/cashier-search', (req, res)=>{
 res.render('cashier-search')
 }
 })
+
+
 router.get('/cashier-update', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
@@ -199,15 +205,18 @@ router.get('/category-new', (req, res)=>{
 res.render('category-new')
 }
 })
-/*
+
 router.get('/category-list', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>')
     }else{
-        //res.render('category-list',{data:data})
+        dbocategoria.getCategoria().then((data) => {
+       res.render('category-list',{data:data[0]});
+       //console.log(data);
+    })
     }
 })
-*/
+
 router.get('/category-search', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>')
@@ -317,11 +326,12 @@ res.render('client-new')
 router.get('/client-list', (req, res)=>{
     if(!req.session.clave){
         res.send('<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>')
-
-
-}else{
-res.render('client-list')
-}
+    }else{
+        dbocategoria.getCliente().then((data) => {
+        res.render('client-list',{data:data[0]});
+        //console.log(data);
+        })
+        }
 })
 router.get('/client-search', (req, res)=>{
     if(!req.session.clave){
@@ -555,12 +565,6 @@ router.post('/listarUnAlumno', (req,res) => {
 })
 
 //obtener todas las categorias
-router.get('/category-list',(req,res)=>{
-    dbocategoria.getCategoria().then((data) => {
-       res.render('category-list',{data:data[0]});
-       //console.log(data);
-    })
-})
 
 //para obtener categoria por id
 router.route('/listarCategoria/:id').get((req,res)=>{
