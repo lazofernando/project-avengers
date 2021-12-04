@@ -551,7 +551,7 @@ router.post('/listarUnAlumno', (req,res) => {
 })
 
 //obtener todas las categorias
-router.route('/categoria').get((request,response)=>{
+router.route('/listarCategoria').get((request,response)=>{
     dbocategoria.getCategoria().then(result => {
         response.json(result[0]);
     })
