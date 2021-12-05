@@ -34,6 +34,7 @@ app.use(express.urlencoded({extended:false}))
 
 
 app.use(express.static(__dirname + '/public'));
+//app.use(express.static(__dirname + '/category-update'));
 //app.use(express.static('/public'));
 
 

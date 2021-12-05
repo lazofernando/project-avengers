@@ -61,8 +61,8 @@ async function getCategoria_x_id(cat_id){
     try {
         let pool = await sql.connect(config);
         let categorias = await pool.request()
-        .input('input_parameter',sql.Int, cat_id)
-        .query("select * from Categoria where idCategoria=@input_parameter");
+        .input('idCategoria',sql.Int, cat_id)
+        .execute("LISTAR_CATEGORIA_X_ID");
         return categorias.recordsets;
     } catch (error) {
         console.log(error)
@@ -110,7 +110,6 @@ async function actualizarCategoria(categoria){
         .input('idCategoria',sql.Int, categoria.idCategoria)
         .input('Nombre',sql.VarChar, categoria.Nombre)
         .input('idEstado',sql.Int, categoria.idEstado)
-        .input('Detalle',sql.VarChar, categoria.Detalle)
         .execute("UPDATE_CATEGORIA");
         return Updatecategorias.recordsets;
     } catch (error) {

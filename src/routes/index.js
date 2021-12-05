@@ -13,6 +13,7 @@ const customModel = require("../libs/modelousuario");
 const dbocategoria = require("../libs/dbcategoria");
 var cors = require("cors");
 const { request, response } = require("express");
+const dbcategoria = require("../libs/dbcategoria");
 
 //var router=express.Router();
 
@@ -172,7 +173,7 @@ router.get("/cashier-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("cashier-update");
+    res.render('/cashier-update');
   }
 });
 
@@ -209,14 +210,20 @@ router.get("/category-search", (req, res) => {
     res.render("category-search");
   }
 });
-router.get("/category-update", (req, res) => {
+router.get('/category-update/:id', (req, res) => {
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("category-update");
-  }
+    const id = req.params.id;
+    let categoria = { ...req.body };
+    //res.send(id);    
+    dbocategoria.getCategoria_x_id(id).then((results)=>{
+        res.render('category-update', {objeto:results[0]});
+        //res.send(results);
+    });
+}
 });
 
 //                  proveedor
@@ -594,10 +601,7 @@ router.post ("/altaCaja", (req, res) => {
 
 //para actualizar una categoria
 router.route("/categoria/actualizar").post((req, res) => {
-  let categoria = { ...req.body };
-  dbocategoria.actualizarCategoria(categoria).then((result) => {
-    res.json(result[0]);
-  });
+  
 });
 
 router.post ("/eliminarCategoria",(req, res) =>{
