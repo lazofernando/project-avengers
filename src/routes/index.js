@@ -218,10 +218,14 @@ router.get('/category-update/:id', (req, res) => {
   } else {
     const id = req.params.id;
     let categoria = { ...req.body };
+    let objeto ={};
     //res.send(id);    
     dbocategoria.getCategoria_x_id(id).then((results)=>{
-        res.render('category-update', {objeto:results[0]});
-        console.log(results);
+      objeto = results[0];
+      res.render('category-update', {objeto:objeto[0]});
+      //console.log(objeto);
+        
+        
     });
 }
 });

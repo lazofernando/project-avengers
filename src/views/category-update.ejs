@@ -40,7 +40,7 @@
 					actualizar los datos de las categorías, realizar búsquedas de categorías o eliminarlas si así lo desea.
 				</p>
 			</div>
-			<% if (objeto) { %> 
+			
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
 					<li>
@@ -60,7 +60,7 @@
 					</li>
 				</ul>
 			</div>
-			
+			<% if (objeto) { %> 
 			<div class="container-fluid">
 				<p class="text-right"><a href="/category-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
@@ -84,8 +84,8 @@
 									<div class="form-group bmd-form-group is-filled">
 										<label for="categoria_estado" class="bmd-label-floating">Estado de la categoría</label>
 										<select class="form-control" name="categoria_estado_up" id="categoria_estado">
-											<option <%= objeto.idEstado ==1 ? "selected" : '' %> value="1" >1 - Habilitada</option>
-											<option <%= objeto.idEstado ==2 ? "selected" : '' %> value="2" >2 - Deshabilitada</option>
+				<option <%= objeto.Estado =='HABILITADO' ? "selected" :'' %> value="1" >1 - Habilitada</option>
+				<option <%= objeto.Estado =='DESHABILITADO' ? "selected" : '' %> value="2">2 - Deshabilitada</option>
 										</select>
 									</div>
 								</div>
