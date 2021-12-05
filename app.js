@@ -26,7 +26,7 @@ app.set('port', process.env.PORT || 3010 )
 
 
 
-
+// prueba
 //middleware
 app.use(logger('dev'))
 app.use(express.json())
