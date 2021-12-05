@@ -44,17 +44,17 @@
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
 					<li>
-						<a href="category-new">
+						<a href="/category-new">
 							<i class="fas fa-tags fa-fw"></i> &nbsp; Nueva categoría
 						</a>
 					</li>
 					<li>
-						<a href="category-list">
+						<a href="/category-list">
 							<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de categorías
 						</a>
 					</li>
 					<li>
-						<a href="category-search">
+						<a href="/category-search">
 							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar categoría
 						</a>
 					</li>
@@ -62,9 +62,9 @@
 			</div>
 			
 			<div class="container-fluid">
-				<p class="text-right"><a href="category-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
+				<p class="text-right"><a href="/category-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/categoriaAjax.php"
+				<form class="form-neon FormularioAjax" action=""
 					method="POST" data-form="update" autocomplete="off">
 					<input type="hidden" name="categoria_id_up" value="<%= objeto.idCategoria %>">
 					<fieldset>
@@ -84,8 +84,8 @@
 									<div class="form-group bmd-form-group is-filled">
 										<label for="categoria_estado" class="bmd-label-floating">Estado de la categoría</label>
 										<select class="form-control" name="categoria_estado_up" id="categoria_estado">
-											<option <%= objeto.idEstado =='1' ? "selected" : '' %> value="1" >1 - Habilitada</option>
-											<option <%= objeto.idEstado =='2' ? "selected" : '' %> value="2" >2 - Deshabilitada</option>
+											<option <%= objeto.idEstado ==1 ? "selected" : '' %> value="1" >1 - Habilitada</option>
+											<option <%= objeto.idEstado ==2 ? "selected" : '' %> value="2" >2 - Deshabilitada</option>
 										</select>
 									</div>
 								</div>
