@@ -59,32 +59,32 @@
       
       <!--CONTENT-->
       <div class="container-fluid">
-  <form action="" class="form-neon" autocomplete="off">
+  <form action="/save" class="form-neon" autocomplete="off" method="post">
     <fieldset>
       <legend><i class="far fa-plus-square"></i> &nbsp; Información de la categoría</legend>
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 col-md-6">
             <div class="form-group">
-              <label for="item_codigo" class="bmd-label-floating">Nombre de categoría</label>
-              <input type="text" pattern="[a-zA-Z0-9-]{1,45}" class="form-control" name="item_codigo_reg" id="item_codigo" maxlength="45">
+              <label for="Nombre" class="bmd-label-floating">Nombre de categoría</label>
+              <input type="text" pattern="[a-zA-Z0-9-]{1,45}" class="form-control" name="Nombre" id="Nombre" maxlength="30">
             </div>
           </div>
           
           <div class="col-12 col-md-6">
             <div class="form-group">
-              <label for="item_estado" class="bmd-label-floating">Estado</label>
-              <select class="form-control" name="item_estado_reg" id="item_estado">
+              <label for="idEstado" class="bmd-label-floating">Estado</label>
+              <select class="form-control" name="idEstado" id="idEstado">
                 <option value="" selected="" disabled="">Seleccione una opción</option>
-                <option value="Habilitado">Habilitado</option>
-                <option value="Deshabilitado">Deshabilitado</option>
+                <option value="1">Habilitado</option>
+                <option value="2">Deshabilitado</option>
               </select>
             </div>
           </div>
           <div class="col-12 col-md-12">
             <div class="form-group">
-              <label for="item_detalle" class="bmd-label-floating">Detalle</label>
-              <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,190}" class="form-control" name="item_detalle_reg" id="item_detalle" maxlength="190">
+              <label for="Detalle" class="bmd-label-floating">Detalle</label>
+              <input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,190}" class="form-control" name="Detalle" id="Detalle" maxlength="100">
             </div>
           </div>
         </div>

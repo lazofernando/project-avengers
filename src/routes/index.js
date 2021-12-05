@@ -568,11 +568,20 @@ router.route("/listarCategoria/:id").get((req, res) => {
   });
 });
 
+
 //para dar de alta una categoria
-router.post("/categoria/guardar",(req, res) => {
-  let categoria = { ...req.body };
+//router.post("/guardar",
+router.post ("/save", (req, res) => {
+    const nombre = req.body.Nombre;
+    const idEstado = req.body.idEstado;
+    const detalle = req.body.Detalle;
+  let categoria = {...req.body};
   dbocategoria.insertarCategoria(categoria).then((result) => {
-    res.json(result[0]);
+    res.redirect('/category-list');
+    // console.log(nombre)
+    // console.log(idEstado)
+    // console.log(detalle)
+    //console.log(categoria);
   });
 });
 
