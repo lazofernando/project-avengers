@@ -64,26 +64,26 @@
 			<div class="container-fluid">
 				<p class="text-right"><a href="/category-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
-				<form class="form-neon FormularioAjax" action=""
+				<form class="form-neon FormularioAjax" action="/updateCategoria"
 					method="POST" data-form="update" autocomplete="off">
-					<input type="hidden" name="categoria_id_up" value="<%= objeto.idCategoria %>">
+					<input type="hidden" name="idCategoria" value="<%= objeto.idCategoria %>">
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información de la categoría</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="categoria_nombre" class="bmd-label-floating">Nombre de la categoría &nbsp; <i
+										<label for="Nombre" class="bmd-label-floating">Nombre de la categoría &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-99áéíóúÁÉÍÓÚñÑ ]{3,40}" class="form-control"
-											name="categoria_nombre_up" value="<%= objeto.Nombre %>" id="categoria_nombre" maxlength="40">
+											name="Nombre" value="<%= objeto.Nombre %>" id="Nombre" maxlength="40">
 									</div>
 								</div>
 								
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="categoria_estado" class="bmd-label-floating">Estado de la categoría</label>
-										<select class="form-control" name="categoria_estado_up" id="categoria_estado">
+										<label for="idEstado" class="bmd-label-floating">Estado de la categoría</label>
+										<select class="form-control" name="idEstado" id="idEstado">
 				<option <%= objeto.Estado =='HABILITADO' ? "selected" :'' %> value="1" >1 - Habilitada</option>
 				<option <%= objeto.Estado =='DESHABILITADO' ? "selected" : '' %> value="2">2 - Deshabilitada</option>
 										</select>

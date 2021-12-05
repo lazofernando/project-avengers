@@ -224,8 +224,6 @@ router.get('/category-update/:id', (req, res) => {
       objeto = results[0];
       res.render('category-update', {objeto:objeto[0]});
       //console.log(objeto);
-        
-        
     });
 }
 });
@@ -585,7 +583,7 @@ router.route("/listarCategoria/:id").get((req, res) => {
 
 //para dar de alta una categoria
 //router.post("/guardar",
-router.post ("/save", (req, res) => {
+router.post ("/altaCategoria", (req, res) => {
   let categoria = {...req.body};
   dbocategoria.insertarCategoria(categoria).then((result) => {
     res.redirect('/category-list');
@@ -596,12 +594,21 @@ router.post ("/save", (req, res) => {
   });
 });
 
+router.post ("/updateCategoria", (req, res) => {
+  let categoria = {...req.body};
+  dbocategoria.actualizarCategoria(categoria).then((result) => {
+    res.redirect('/category-list');
+  });
+});
+
 router.post ("/altaCaja", (req, res) => {
     let caja = {...req.body};
     dbocategoria.insertarCaja(caja).then((result) => {
       res.redirect('/cashier-list');
     });
   });
+
+
 
 //para actualizar una categoria
 router.route("/categoria/actualizar").post((req, res) => {
