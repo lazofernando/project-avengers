@@ -88,10 +88,9 @@
 									</a>
 								</td>
 								<td>
-									<form class="FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/categoriaAjax.php"
+									<form class="FormularioAjax" action="/eliminarCategoria"
 										method="POST" data-form="delete" autocomplete="off">
-										<input type="hidden" name="categoria_id_del" value="b0Fzc05BUjNJZHJDR2xsNy9ZNjRYQT09">
-										<input type="hidden" name="modulo_categoria" value="eliminar">
+										<input type="hidden" name="idCategoria" value="<%= objeto.idCategoria %>">
 										<button type="submit" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</button>

@@ -85,6 +85,22 @@ async function insertarCategoria(categoria){
     }
 }
 
+//insertar una caja
+async function insertarCaja(caja){
+    try {
+        let pool = await sql.connect(config);
+        let Insertcajas = await pool.request()
+        //estos son los parametros del store procedure
+        .input('NombreCaja',sql.VarChar, caja.NombreCaja)
+        .input('idEstado',sql.Int, caja.idEstado)
+        .input('Efectivo',sql.Money, caja.Efectivo)
+        .execute("ALTA_CAJA");
+        return Insertcajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //actualizar una categoria
 async function actualizarCategoria(categoria){
     try {
@@ -102,14 +118,30 @@ async function actualizarCategoria(categoria){
     }
 }
 
+//eliminar una categoria
+async function eliminarCategoria(categoria){
+    try {
+        let pool = await sql.connect(config);
+        let DeleteCategorias = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idCategoria',sql.Int, categoria.idCategoria)
+        .execute("DELETE_CATEGORIA");
+        return DeleteCategorias.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 module.exports ={
     getCategoria:getCategoria,
-    getCategoria_x_id:getCategoria_x_id,
-    insertarCategoria:insertarCategoria,
-    actualizarCategoria:actualizarCategoria,
     getCajas:getCajas,
     getCliente:getCliente,
     getProveedores:getProveedores,
-    getUsuarios:getUsuarios
+    getUsuarios:getUsuarios,
+    getCategoria_x_id:getCategoria_x_id,
+    insertarCategoria:insertarCategoria,
+    insertarCaja:insertarCaja,
+    actualizarCategoria:actualizarCategoria,
+    eliminarCategoria:eliminarCategoria
 }

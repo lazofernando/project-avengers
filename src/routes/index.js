@@ -585,12 +585,27 @@ router.post ("/save", (req, res) => {
   });
 });
 
+router.post ("/altaCaja", (req, res) => {
+    let caja = {...req.body};
+    dbocategoria.insertarCaja(caja).then((result) => {
+      res.redirect('/cashier-list');
+    });
+  });
+
 //para actualizar una categoria
 router.route("/categoria/actualizar").post((req, res) => {
   let categoria = { ...req.body };
   dbocategoria.actualizarCategoria(categoria).then((result) => {
     res.json(result[0]);
   });
+});
+
+router.post ("/eliminarCategoria",(req, res) =>{
+    let categoria = {...req.body};
+    dbocategoria.eliminarCategoria(categoria).then((result)=>{
+        res.redirect('/category-list');
+        //console.log(categoria)
+    });
 });
 
 module.exports = router;

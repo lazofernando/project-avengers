@@ -61,8 +61,8 @@
 			</div>
 
 			<div class="container-fluid">
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/cajaAjax.php"
-					method="POST" data-form="save" autocomplete="off">
+				<form class="form-neon FormularioAjax" action="/altaCaja"
+					method="POST" autocomplete="off">
 					<input type="hidden" name="modulo_caja" value="registrar">
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información de la caja</legend>
@@ -70,34 +70,26 @@
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="caja_numero" class="bmd-label-floating">Numero de caja &nbsp; <i
-												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9]{1,5}" class="form-control" name="caja_numero_reg" id="caja_numero"
-											maxlength="5">
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group bmd-form-group">
-										<label for="caja_nombre" class="bmd-label-floating">Nombre o código de caja &nbsp; <i
+										<label for="NombreCaja" class="bmd-label-floating">Nombre o código de caja &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ:# ]{3,70}" class="form-control"
-											name="caja_nombre_reg" id="caja_nombre" maxlength="70">
+											name="NombreCaja" id="NombreCaja" maxlength="70">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="caja_estado" class="bmd-label-floating">Estado de la caja</label>
-										<select class="form-control" name="caja_estado_reg" id="caja_estado">
-											<option value="Habilitada" selected="">Habilitada</option>
-											<option value="Deshabilitada">Deshabilitada</option>
+										<label for="idEstado" class="bmd-label-floating">Estado de la caja</label>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option value="1" selected="">Habilitada</option>
+											<option value="2">Deshabilitada</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="caja_efectivo" class="bmd-label-floating">Efectivo en caja</label>
-										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="caja_efectivo_reg" value="0.00"
-											id="caja_efectivo" maxlength="25">
+										<label for="Efectivo" class="bmd-label-floating">Efectivo en caja</label>
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="Efectivo" value="0.00"
+											id="Efectivo" maxlength="25">
 									</div>
 								</div>
 							</div>
