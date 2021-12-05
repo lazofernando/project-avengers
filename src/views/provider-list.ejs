@@ -79,15 +79,15 @@
 						</thead>
 
 						<tbody>
-
+							<% data.forEach((objeto)=> { %>
 							<!-- bloque para replicar -->
 							<tr class="text-center">
-								<td>1</td>
-								<td>Cedula: 0503452949</td>
-								<td>Agricultor 1</td>
-								<td>032803675</td>
-								<td>talin@gmail.com</td>
-								<td>Habilitado</td>
+								<td><%= objeto.idProveedor %></td>
+								<td><%= objeto.Documento %></td>
+								<td><%= objeto.Nombre %></td>
+								<td><%= objeto.Telefono %></td>
+								<td><%= objeto.Email %></td>
+								<td><%= objeto.Estado %></td>
 								<td>
 									<a class="btn btn-success"
 										href="provider-update">
@@ -105,7 +105,7 @@
 									</form>
 								</td>
 							</tr>
-						
+							<% 	}) %>
 						</tbody>
 
 					</table>

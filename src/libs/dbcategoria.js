@@ -35,6 +35,17 @@ async function getCliente(){
     }
 }
 
+//funcion async: asyncrona devuelve un objeto
+async function getProveedores(){
+    try {
+        let pool = await sql.connect(config);
+        let proveedores = await pool.request().execute("LISTAR_PROVEEDOR");
+        return proveedores.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //devuelve categoria x id
 async function getCategoria_x_id(cat_id){
     try {
@@ -88,5 +99,6 @@ module.exports ={
     insertarCategoria:insertarCategoria,
     actualizarCategoria:actualizarCategoria,
     getCajas:getCajas,
-    getCliente:getCliente
+    getCliente:getCliente,
+    getProveedores:getProveedores
 }
