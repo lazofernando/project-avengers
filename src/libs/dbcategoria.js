@@ -46,6 +46,16 @@ async function getProveedores(){
     }
 }
 
+async function getUsuarios(){
+    try {
+        let pool = await sql.connect(config);
+        let usuarios = await pool.request().execute("LISTAR_USUARIOS");
+        return usuarios.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //devuelve categoria x id
 async function getCategoria_x_id(cat_id){
     try {
@@ -100,5 +110,6 @@ module.exports ={
     actualizarCategoria:actualizarCategoria,
     getCajas:getCajas,
     getCliente:getCliente,
-    getProveedores:getProveedores
+    getProveedores:getProveedores,
+    getUsuarios:getUsuarios
 }
