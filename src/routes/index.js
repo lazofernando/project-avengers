@@ -599,7 +599,7 @@ router.post ("/updateCategoria", (req, res) => {
   dbocategoria.actualizarCategoria(categoria).then((result) => {
     res.redirect('/category-list');
   });
-});
+}); 
 
 router.post ("/altaCaja", (req, res) => {
     let caja = {...req.body};
