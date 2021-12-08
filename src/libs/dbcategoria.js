@@ -47,7 +47,7 @@ async function getUsuarios(){
     }
 }
 
-//devuelve categoria x id
+//obtener categoria x id
 async function getCategoria_x_id(cat_id){
     try {
         let pool = await sql.connect(config);
@@ -142,7 +142,7 @@ async function insertarProveedor(proveedor){
     }
 }
 
-//devuelve categoria x id
+//obtener caja x id
 async function getCaja_x_id(caja_id){
     try {
         let pool = await sql.connect(config);
@@ -150,6 +150,18 @@ async function getCaja_x_id(caja_id){
         .input('idCajas',sql.Int, caja_id)
         .execute("LISTAR_CAJA_X_ID");
         return cajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+//obtener proveedor por id
+async function getProveedor_x_id(prov_id){
+    try {
+        let pool = await sql.connect(config);
+        let proveedor = await pool.request()
+        .input('idProveedor',sql.Int, prov_id)
+        .execute("LISTAR_PROVEEDOR_X_ID");
+        return proveedor.recordsets;
     } catch (error) {
         console.log(error)
     }
@@ -174,6 +186,28 @@ async function actualizarCaja(caja){
     }
 }
 
+//actualizar una PROVEEDOR
+async function actualizarProveedor(proveedor){
+    try {
+        let pool = await sql.connect(config);
+        let UpdateProveedor = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idProveedor',sql.Int, proveedor.idProveedor)
+        .input('TipoDocumento',sql.VarChar, proveedor.TipoDocumento)
+        .input('DNI',sql.VarChar, proveedor.DNI)
+        .input('Nombre',sql.VarChar, proveedor.Nombre)
+        .input('Direccion',sql.VarChar, proveedor.Direccion)
+        .input('idEstado',sql.Int, proveedor.idEstado)
+        .input('NombreEncargado',sql.VarChar, proveedor.NombreEncargado)
+        .input('Telefono',sql.VarChar, proveedor.Telefono)
+        .input('Email',sql.VarChar, proveedor.Email)
+        .execute("UPDATE_PROVEEDOR");
+        return UpdateProveedor.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //eliminar una categoria
 async function eliminarCategoria(categoria){
     try {
@@ -187,7 +221,7 @@ async function eliminarCategoria(categoria){
         console.log(error)
     }
 }
-
+//eliminar caja
 async function eliminarCaja(caja){
     try {
         let pool = await sql.connect(config);
@@ -215,6 +249,8 @@ module.exports ={
     eliminarCategoria:eliminarCategoria,
     actualizarCaja:actualizarCaja,
     getCaja_x_id:getCaja_x_id,
+    getProveedor_x_id:getProveedor_x_id,
     eliminarCaja:eliminarCaja,
-    insertarProveedor:insertarProveedor
+    insertarProveedor:insertarProveedor,
+    actualizarProveedor:actualizarProveedor
 }

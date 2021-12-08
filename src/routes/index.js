@@ -378,23 +378,29 @@ router.get("/provider-search", (req, res) => {
   }
 });
 
-router.get("/provider-update", (req, res) => {
+router.get("/provider-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("provider-update", {
+    const id = req.params.id;
+    let proveedor = { ...req.body };
+    let objeto ={};
+    dbocategoria.getProveedor_x_id(id).then((results)=>{
+      objeto = results[0];
+    res.render("provider-update", {objeto:objeto[0],
       profile: {
         id: req.session.clave,
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
         imagen:req.session.imagenes
-      },
+      }});
     });
   }
 });
+
 
 //                  usuario
 router.get("/user-new", (req, res) => {
@@ -1037,13 +1043,6 @@ router.get('*', (req, res)=>{
 
 //obtener todas las categorias
 
-//para obtener categoria por id
-router.route("/listarCategoria/:id").get((req, res) => {
-  dbocategoria.getCategoria_x_id(req.params.id).then((result) => {
-    res.json(result[0]);
-  });
-});
-
 
 //para dar de alta una categoria
 //router.post("/guardar",
@@ -1069,6 +1068,13 @@ router.post ("/updateCaja", (req, res) => {
   let caja = {...req.body};
   dbocategoria.actualizarCaja(caja).then((result) => {
     res.redirect('/cashier-list');
+  });
+}); 
+
+router.post ("/updateProveedor", (req, res) => {
+  let proveedor = {...req.body};
+  dbocategoria.actualizarProveedor(proveedor).then((result) => {
+    res.redirect('/provider-list');
   });
 }); 
 

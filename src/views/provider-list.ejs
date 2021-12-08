@@ -90,12 +90,12 @@
 								<td><%= objeto.Estado %></td>
 								<td>
 									<a class="btn btn-success"
-										href="provider-update">
+										href="provider-update/<%= objeto.idProveedor %>">
 										<i class="fas fa-sync fa-fw"></i>
 									</a>
 								</td>
 								<td>
-									<form class="FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/proveedorAjax.php"
+									<form class="FormularioAjax" action=""
 										method="POST" data-form="delete" autocomplete="off">
 										<input type="hidden" name="proveedor_id_del" value="SXJMcTlEelNsZTBMdVlqOXdtTWxmQT09">
 										<input type="hidden" name="modulo_proveedor" value="eliminar">
