@@ -1,147 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <title>Home</title>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/bootstrap-material-design.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="/css/sweetalert2.min.css" />
+    <script src="js/sweetalert2.min.js"></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/css/jquery.mCustomScrollbar.css"
+    />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+  </head>
 
-	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" type="text/css" href="/css/all.css">
-	<link rel="stylesheet" type="text/css" href="/css/sweetalert2.min.css">
-	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" type="text/css" href="/css/style.css">
+  <body>
+    <!-- Main container -->
+    <main class="full-box main-container">
+      <!-- Nav lateral -->
+      <%- include('../views/partials/sectionLateral') %>
 
-</head>
+      <!-- Page content -->
 
-<body>
+      <section class="full-box page-content scroll">
+        <!-- seccion info -->
+        <%- include('../views/partials/navbar-info') %>
+        <div class="full-box page-header">
+          <h3 class="text-left text-uppercase">
+            <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de cajas
+          </h3>
+          <p class="text-justify">
+            En el módulo CAJA usted podrá registrar cajas de ventas en el
+            sistema para poder realizar ventas, además podrá actualizar los
+            datos de las cajas de venta, realizar búsquedas de cajas o
+            eliminarlas si lo desea.
+          </p>
+        </div>
 
-	<!-- Main container -->
-	<main class="full-box main-container">
-		<!-- Nav lateral -->
-		<%- include('../views/partials/sectionLateral') %>
+        <div class="container-fluid">
+          <ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+            <li>
+              <a href="cashier-new">
+                <i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva caja
+              </a>
+            </li>
+            <li>
+              <a class="active" href="cashier-list">
+                <i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de
+                cajas
+              </a>
+            </li>
+            <li>
+              <a href="cashier-search">
+                <i class="fas fa-search fa-fw"></i> &nbsp; Buscar caja
+              </a>
+            </li>
+          </ul>
+        </div>
 
-		<!-- Page content -->
+        <div class="container-fluid">
+          <div class="table-responsive">
+            <table id="cajas" class="table table-dark table-sm">
+              <thead>
+                <tr class="text-center roboto-medium">
+                  <th>NUMERO DE CAJA</th>
+                  <th>NOMBRE / CODIGO</th>
+                  <th>EFECTIVO</th>
+                  <th>ESTADO</th>
+                  <th>ACTUALIZAR</th>
+                  <th>ELIMINAR</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- bloque para replicar -->
+                <% data.forEach((objeto)=> { %>
+                <tr class="text-center">
+                  <td><%= objeto.idCajas %></td>
+                  <td><%= objeto.NombreCaja %></td>
+                  <td><%= objeto.Efectivo %></td>
+                  <td><%= objeto.Estado %></td>
+                  <td>
+                    <a
+                      class="btn btn-success"
+                      href="cashier-update/<%= objeto.idCajas %>"
+                    >
+                      <i class="fas fa-sync fa-fw"></i>
+                    </a>
+                  </td>
+                  <td>
+                    <form
+                      class="FormularioAjax"
+                      action="/eliminarCaja"
+                      method="POST"
+                      data-form="delete"
+                      autocomplete="off"
+					  name="formulario_eliminar"
+                    >
+                      <input
+                        type="hidden"
+                        name="idCajas"
+                        value="<%= objeto.idCajas %>"
+                      />
+                      <button
+                        type="submit"
+                        class="btn btn-warning"
+                        onclick="confirmar(<%= objeto.idCajas %>)"
+                      >
+                        <i class="far fa-trash-alt"></i>
+                      </button>
+                    </form>
+                  </td>
+                </tr>
+                <% }) %>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-right">
+            Mostrando cajas <strong>1</strong> al <strong>15</strong> de un
+            <strong>total de 106</strong>
+          </p>
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item disabled">
+                <a class="page-link"
+                  ><i class="fas fa-angle-double-left"></i
+                ></a>
+              </li>
+              <li class="page-item">
+                <a class="page-link active" href="#">1</a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">4</a></li>
+              <li class="page-item"><a class="page-link" href="#">5</a></li>
+              <li class="page-item"><a class="page-link" href="#">6</a></li>
+              <li class="page-item"><a class="page-link" href="#">7</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Siguiente</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#"
+                  ><i class="fas fa-angle-double-right"></i
+                ></a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <script>
+      $(document).ready(function () {
+        $("#cajas").DataTable();
+      });
 
-		<section class="full-box page-content scroll">
-			<!-- seccion info -->
-			<%- include('../views/partials/navbar-info') %>
-			<div class="full-box page-header">
-				<h3 class="text-left text-uppercase">
-					<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de cajas
-				</h3>
-				<p class="text-justify">
-					En el módulo CAJA usted podrá registrar cajas de ventas en el sistema para poder realizar ventas, además podrá
-					actualizar los datos de las cajas de venta, realizar búsquedas de cajas o eliminarlas si lo desea.
-				</p>
-			</div>
-
-			<div class="container-fluid">
-				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
-					<li>
-						<a href="cashier-new">
-							<i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva caja
-						</a>
-					</li>
-					<li>
-						<a class="active" href="cashier-list">
-							<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de cajas
-						</a>
-					</li>
-					<li>
-						<a href="cashier-search">
-							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar caja
-						</a>
-					</li>
-				</ul>
-			</div>
-
-			<div class="container-fluid">
-
-				<div class="table-responsive">
-					<table class="table table-dark table-sm">
-						<thead>
-							<tr class="text-center roboto-medium">
-								<th>NUMERO DE CAJA</th>
-								<th>NOMBRE / CODIGO</th>
-								<th>EFECTIVO</th>
-								<th>ESTADO</th>
-								<th>ACTUALIZAR</th>
-								<th>ELIMINAR</th>
-							</tr>
-						</thead>
-						<tbody>
-							<!-- bloque para replicar -->
-							<% data.forEach((objeto)=> { %>
-							<tr class="text-center">
-								<td><%= objeto.idCajas %></td>
-								<td><%= objeto.NombreCaja %></td>
-								<td><%= objeto.Efectivo %></td>
-								<td><%= objeto.Estado %></td>
-								<td>
-									<a class="btn btn-success"
-										href="cashier-update/<%= objeto.idCajas %>">
-										<i class="fas fa-sync fa-fw"></i>
-									</a>
-								</td>
-								<td>
-									<form class="FormularioAjax" action="/eliminarCaja"
-										method="POST" data-form="delete" autocomplete="off">
-										<input type="hidden" name="idCajas" value="<%= objeto.idCaJas%>">
-										<button type="submit" class="btn btn-warning">
-											<i class="far fa-trash-alt"></i>
-										</button>
-									</form>
-								</td>
-							</tr>
-							<% 	}) %>
-						</tbody>
-					</table>
-				</div>
-				<p class="text-right">Mostrando cajas <strong>1</strong> al <strong>15</strong> de un <strong>total de
-						106</strong></p>
-				<nav aria-label="Page navigation example">
-					<ul class="pagination justify-content-center">
-						<li class="page-item disabled"><a class="page-link"><i class="fas fa-angle-double-left"></i></a></li>
-						<li class="page-item"><a class="page-link active"
-								href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">3</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">4</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">5</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">6</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">7</a>
-						</li>
-						<li class="page-item"><a class="page-link"
-								href="#">Siguiente</a></li>
-						<li class="page-item"><a class="page-link" href="#"><i
-									class="fas fa-angle-double-right"></i></a></li>
-					</ul>
-				</nav>
-			</div>
-		</section>
-
-	</main>
-
-
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/bootstrap-material-design.min.js"></script>
-	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
-	<script src="js/main.js"></script>
-
-</body>
-
+      function confirmar(id) {
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Usted ha eliminado una caja",
+          timer: 99999999,
+          showConfirmButton: false,
+        });
+      }
+    </script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="js/bootstrap-material-design.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("body").bootstrapMaterialDesign();
+      });
+    </script>
+    <script src="js/main.js"></script>
+  </body>
 </html>

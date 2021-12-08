@@ -1109,4 +1109,12 @@ router.post ("/eliminarCaja",(req, res) =>{
   });
 });
 
+router.post ("/eliminarProveedor",(req, res) =>{
+  let proveedor = {...req.body};
+  dbocategoria.eliminarProveedor(proveedor).then((result)=>{
+      res.redirect('/provider-list');
+      //console.log(categoria)
+  });
+});
+
 module.exports = router;
