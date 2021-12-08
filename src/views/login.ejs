@@ -26,7 +26,11 @@
    <!-- hay un pequeño fallo una vez has fallado la contraseña 
      tienes que reingresar todos tus datos nuevamente para ingresar 
     si solo se modifica la contraeña nos dara error-->
+
+    <!-- esta condicon me esta diciendo si la variable error es diferente a undefined eso quiere decir que error tine algo guardado
+    entonces eso quiere decir que error existe  -->
   <%  if(typeof error !== 'undefined'){ %>
+    <!-- si el error existe quiero que haga lo siguiente -->
      <h3 style="color: red;"><%- error %>  </h3>
        <!-- el valor de name  guarda la información que 
     escribe el usuario -->
@@ -45,7 +49,7 @@
    <% } else{ %>
     <form method="POST" action="/login">
         <label for="UserName" class="bmd-label-floating"><i class="fas fa-user-secret"></i> &nbsp; Usuario</label>
-      <input type="text"   class="form-control" id="UserName" name="useremail"> 
+      <input type="text"   class="form-control" id="UserName" name="useremail" > 
       <label for="UserPassword" class="bmd-label-floating"><i class="fas fa-key"></i> &nbsp; Contraseña</label>
          <input type="password" class="form-control" id="UserPassword" name ="userpassword">
         <input type="submit" value="Login" id="boton">

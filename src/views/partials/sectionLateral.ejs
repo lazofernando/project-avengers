@@ -3,7 +3,11 @@
   <div class="full-box nav-lateral-content">
     <figure class="full-box nav-lateral-avatar">
       <i class="far fa-times-circle show-nav-lateral"></i>
-      <img src="/assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+      <% if(typeof profile !== 'undefined'){ %>
+      <img src="<%-profile.imagen%>" class="img-fluid" alt="Avatar">
+      <%  } else{%>
+        <img src="/assets/avatar/Avatar.png" class="img-fluid" alt="Avatar">
+     <% } %>
       <% if(typeof profile !== 'undefined'){ %>
       <figcaption class="roboto-medium text-center">
         <%- profile.name %> <br><small class="roboto-condensed-light">Web Developer</small>

@@ -3,14 +3,14 @@ const mongoose =require('mongoose');
 const session =require('express-session')
 const MongoDBStore=require('connect-mongodb-session')(session);
 
-//esto lo pusimos para que reconosca  A Shema como una 
 
 //definir la estructura  de los documentos que se guardaran 
 // en la base de datos
 let customSchema= new mongoose.Schema({
     username:String,
     email:String,
-    password:String
+    password:String,
+    img:String
 
 });
 

@@ -3,6 +3,7 @@ const fs = require("fs");
 const express = require("express");
 const { list } = require("mongodb/lib/gridfs/grid_store");
 const router = express.Router();
+const path =require('path');
 const client = require("../libs/connect")();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -64,7 +65,7 @@ router.post("/login", (req, res) => {
       if (err) {
         console.log(err);
         res.render("login", {
-          error: "problemas con la vase de datos",
+          error: "problemas con la base de datos",
         });
       }
       // esta condicion me indica que si la contraseña y es usuario no son validos see ejecutara el siguiente codigo
@@ -90,11 +91,14 @@ router.post("/login", (req, res) => {
         req.session.name = doc.username;
         req.session.email = doc.email;
         req.session.password = doc.password;
+        req.session.imagenes=doc.img;
         res.redirect("/home");
       }
     }
   );
 });
+
+
 
 router.get("/home", (req, res) => {
   //en caso no exista una variable de secion significa
@@ -104,24 +108,63 @@ router.get("/home", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
+    //en caso aya iniciado sesion 
+    //quiero que estas propiedasdes guarden la informacion de la base de datos
     res.render("home", {
       profile: {
         id: req.session.clave,
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
+        imagen:req.session.imagenes
+        
       },
     });
   }
 });
-router.get("/cashier-new", (req, res) => {
+ 
+//fucion para comprobar si se a inicioado secion o no
+ function comprobar(n){
+
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("cashier-new");
+    res.render(n, {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
+
+
+
+ }
+router.get("/cashier-new", (req, res) => {
+
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("cashier-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
+
 });
 
 router.get("/logout", (req, res) => {
@@ -133,14 +176,7 @@ router.get("/logout", (req, res) => {
   });
 });
 
-router.get("/listarAlumnos", (req, res) => {
-  res.render("listarAlumnos");
-});
-// dashboard
-// router.get('/home', (req, res)=>{
-//     res.render('home')
-// })
-// administracion
+
 
 //                  caja
 
@@ -151,8 +187,17 @@ router.get("/cashier-list", (req, res) => {
     );
   } else {
     dbocategoria.getCajas().then((data) => {
-      res.render("cashier-list", { data: data[0] });
-      //console.log(data);
+      res.render("cashier-list", { data: data[0] }, {
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen:req.session.imagenes
+          
+        },
+      });
+     
     });
   }
 });
@@ -163,7 +208,16 @@ router.get("/cashier-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("cashier-search");
+    res.render("cashier-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -173,7 +227,16 @@ router.get("/cashier-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render('/cashier-update');
+    res.render('/cashier-update', {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -184,7 +247,16 @@ router.get("/category-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("category-new");
+    res.render("category-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -195,8 +267,17 @@ router.get("/category-list", (req, res) => {
     );
   } else {
     dbocategoria.getCategoria().then((data) => {
-      res.render("category-list", { data: data[0] });
-      //console.log(data);
+      res.render("category-list", { data: data[0] }, {
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen:req.session.imagenes
+          
+        },
+      });
+      
     });
   }
 });
@@ -207,7 +288,16 @@ router.get("/category-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>'
     );
   } else {
-    res.render("category-search");
+    res.render("category-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get('/category-update/:id', (req, res) => {
@@ -222,8 +312,17 @@ router.get('/category-update/:id', (req, res) => {
     //res.send(id);    
     dbocategoria.getCategoria_x_id(id).then((results)=>{
       objeto = results[0];
-      res.render('category-update', {objeto:objeto[0]});
-      //console.log(objeto);
+      res.render('category-update', {objeto:objeto[0]}, {
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen:req.session.imagenes
+          
+        },
+      });
+    
     });
 }
 });
@@ -235,7 +334,16 @@ router.get("/provider-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("provider-new");
+    res.render("provider-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/provider-list", (req, res) => {
@@ -245,7 +353,16 @@ router.get("/provider-list", (req, res) => {
     );
   } else {
     dbocategoria.getProveedores().then((data) => {
-      res.render("provider-list", { data: data[0] });
+      res.render("provider-list", { data: data[0] }, {
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen:req.session.imagenes
+          
+        },
+      });
     });
   }
 });
@@ -255,7 +372,16 @@ router.get("/provider-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("provider-search");
+    res.render("provider-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/provider-update", (req, res) => {
@@ -264,7 +390,16 @@ router.get("/provider-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("provider-update");
+    res.render("provider-update", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -275,9 +410,66 @@ router.get("/user-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("user-new");
+    res.render("user-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+
   }
+ 
+   
 });
+
+router.post('/user-new',(req,res)=>{
+
+  //guardando datos del formulrio
+    let nombre=req.body.usuario_usuario_reg;
+    let email2=req.body.useremail;
+    let passwork2=req.body.userpasswork;
+    let imagen=req.body.usuario_avatar_reg;
+  
+   if(nombre === "" || email2 === "" || passwork2 === ""){
+         
+    res.render("user-new",{error :"ERROR: Complete todos los campos de texto vacios para guardar la información"})
+    
+     }
+     else {
+    //guardando los datos del formulario en base de datos
+    let nuevomodelo = new customModel({
+    username :nombre,
+    email :email2,
+    password :passwork2,
+    img:imagen
+    });
+
+
+    nuevomodelo.save(function(err,doc){
+      if(err){
+          console.log('error: no se pudo guardar');
+          //en casoo aya error se montrara el siguiente mensaje
+          res.render("user-new",{ error:'error:problemas al guardar la información'}) 
+      } 
+
+
+       else{
+         console.log('LOS DATOS SE GUARDARON EXITOSAMENTE');
+            //en casoo todo vaya bien
+            res.render('user-new',{exito:"los datos se guardaron exitosamente"});
+            
+        }
+});
+  
+     }
+  
+});
+
+
 router.get("/user-list", (req, res) => {
   if (!req.session.clave) {
     res.send(
@@ -285,7 +477,16 @@ router.get("/user-list", (req, res) => {
     );
   } else {
     dbocategoria.getUsuarios().then((data) => {
-      res.render("user-list", { data: data[0] });
+      res.render("user-list", { data: data[0] }, {
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen:req.session.imagenes
+          
+        },
+      });
       //console.log(data);
     });
   }
@@ -296,7 +497,16 @@ router.get("/user-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("user-search");
+    res.render("user-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/user-update", (req, res) => {
@@ -305,7 +515,16 @@ router.get("/user-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("user-update");
+    res.render("user-update", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -316,7 +535,16 @@ router.get("/client-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("client-new");
+    res.render("client-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/client-list", (req, res) => {
@@ -326,8 +554,17 @@ router.get("/client-list", (req, res) => {
     );
   } else {
     dbocategoria.getCliente().then((data) => {
-      res.render("client-list", { data: data[0] });
-      //console.log(data);
+      res.render("client-list", { data: data[0] }, {
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen:req.session.imagenes
+          
+        },
+      });
+     
     });
   }
 });
@@ -337,7 +574,16 @@ router.get("/client-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("client-search");
+    res.render("client-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/client-update", (req, res) => {
@@ -346,7 +592,16 @@ router.get("/client-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("client-update");
+    res.render("client-update", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -358,7 +613,16 @@ router.get("/product-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-new");
+    res.render("product-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/product-list", (req, res) => {
@@ -367,7 +631,16 @@ router.get("/product-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-list");
+    res.render("product-list", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/product-search", (req, res) => {
@@ -376,7 +649,16 @@ router.get("/product-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-search");
+    res.render("product-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/product-sold", (req, res) => {
@@ -385,7 +667,16 @@ router.get("/product-sold", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-sold");
+    res.render("product-sold", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/product-update", (req, res) => {
@@ -394,7 +685,16 @@ router.get("/product-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-update");
+    res.render("product-update", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
@@ -406,11 +706,35 @@ router.get("/shop-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("shop-new");
+    res.render("shop-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/shop-list", (req, res) => {
-  res.render("shop-list");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("shop-list", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/shop-search", (req, res) => {
   if (!req.session.clave) {
@@ -418,7 +742,16 @@ router.get("/shop-search", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("shop-search");
+    res.render("shop-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 router.get("/shop-detail", (req, res) => {
@@ -427,64 +760,283 @@ router.get("/shop-detail", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("shop-detail");
+    res.render("shop-detail", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
   }
 });
 
 // ventas
 
 router.get("/sale-new", (req, res) => {
-  res.render("sale-new");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("sale-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/sale-list", (req, res) => {
-  res.render("sale-list");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("sale-list", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/sale-search-date", (req, res) => {
-  res.render("sale-search-date");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("sale-search-date", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/sale-search-code", (req, res) => {
-  res.render("sale-search-code");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("sale-search-code", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/sale-detail", (req, res) => {
-  res.render("sale-detail");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("sale-detail", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 
 // devoluciones
 
 router.get("/return-list", (req, res) => {
-  res.render("return-list");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("return-list", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/return-search", (req, res) => {
-  res.render("return-search");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("return-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 
 // configuraciones
 
 router.get("/company", (req, res) => {
-  res.render("company");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("company", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 
 //  movimientos en caja
 router.get("/movement-new", (req, res) => {
-  res.render("movement-new");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("movement-new", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/movement-list", (req, res) => {
-  res.render("movement-list");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("movement-list", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/movement-search", (req, res) => {
-  res.render("movement-search");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("movement-search", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 
 // reporte
 router.get("/report-sales", (req, res) => {
-  res.render("report-sales");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("report-sales", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 router.get("/report-inventory", (req, res) => {
-  res.render("report-inventory");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("report-inventory", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 
 router.get("/prueba", (req, res) => {
-  res.render("prueba");
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("prueba", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen:req.session.imagenes
+        
+      },
+    });
+  }
 });
 
 /*
