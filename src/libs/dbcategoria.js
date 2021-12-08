@@ -121,6 +121,27 @@ async function insertarCaja(caja){
     }
 }
 
+//insertar un proveedor
+async function insertarProveedor(proveedor){
+    try {
+        let pool = await sql.connect(config);
+        let InsertProveedor = await pool.request()
+        //estos son los parametros del store procedure
+        .input('TipoDocumento',sql.VarChar, proveedor.TipoDocumento)
+        .input('DNI',sql.VarChar, proveedor.DNI)
+        .input('Nombre',sql.VarChar, proveedor.Nombre)
+        .input('Direccion',sql.VarChar, proveedor.Direccion)
+        .input('idEstado',sql.Int, proveedor.idEstado)
+        .input('NombreEncargado',sql.VarChar, proveedor.NombreEncargado)
+        .input('Telefono',sql.VarChar, proveedor.Telefono)
+        .input('Email',sql.VarChar, proveedor.Email)
+        .execute("ALTA_PROVEEDOR");
+        return InsertProveedor.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //devuelve categoria x id
 async function getCaja_x_id(caja_id){
     try {
@@ -194,5 +215,6 @@ module.exports ={
     eliminarCategoria:eliminarCategoria,
     actualizarCaja:actualizarCaja,
     getCaja_x_id:getCaja_x_id,
-    eliminarCaja:eliminarCaja
+    eliminarCaja:eliminarCaja,
+    insertarProveedor:insertarProveedor
 }

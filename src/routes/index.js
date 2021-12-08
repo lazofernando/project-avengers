@@ -1077,7 +1077,14 @@ router.post ("/altaCaja", (req, res) => {
     dbocategoria.insertarCaja(caja).then((result) => {
       res.redirect('/cashier-list');
     });
-  });
+});
+
+router.post ("/altaProveedor", (req, res) => {
+    let proveedor = {...req.body};
+    dbocategoria.insertarProveedor(proveedor).then((result) => {
+      res.redirect('/provider-list');
+    });
+});
 
 
 router.post ("/eliminarCategoria",(req, res) =>{

@@ -7,14 +7,14 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Home</title>
 
-	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">
 	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
@@ -61,57 +61,55 @@
 			</div>
 
 			<div class="container-fluid">
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/proveedorAjax.php"
+				<form class="form-neon FormularioAjax" action="/altaProveedor"
 					method="POST" data-form="save" autocomplete="off">
-					<input type="hidden" name="modulo_proveedor" value="registrar">
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Datos del proveedor</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="proveedor_tipo_documento" class="bmd-label-floating">Tipo de documento &nbsp; <i
+										<label for="TipoDocumento" class="bmd-label-floating">Tipo de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="proveedor_tipo_documento_reg" id="proveedor_tipo_documento">
+										<select class="form-control" name="TipoDocumento" id="TipoDocumento">
 											<option value="" selected="">Seleccione una opción</option>
 											<option value="DNI">1 - DNI</option>
-											<option value="Cedula">2 - Cedula</option>
-											<option value="NIT">3 - NIT</option>
+											<option value="CE">2 - Carnet de extranjeria</option>
+											<option value="PASAPORTE">3 - PASAPORTE</option>
 											<option value="RUC">4 - RUC</option>
-											<option value="Otro">5 - Otro</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="proveedor_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i
+										<label for="DNI" class="bmd-label-floating">Numero de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control"
-											name="proveedor_numero_documento_reg" id="proveedor_numero_documento" maxlength="30">
+											name="DNI" id="DNI" maxlength="30">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="proveedor_nombre" class="bmd-label-floating">Nombre &nbsp; <i
+										<label for="Nombre" class="bmd-label-floating">Nombre &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ., ]{4,75}" class="form-control"
-											name="proveedor_nombre_reg" id="proveedor_nombre" maxlength="75">
+											name="Nombre" id="Nombre" maxlength="75">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="proveedor_direccion" class="bmd-label-floating">Dirección</label>
+										<label for="Direccion" class="bmd-label-floating">Dirección</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{4,97}" class="form-control"
-											name="proveedor_direccion_reg" id="proveedor_direccion" maxlength="97">
+											name="Direccion" id="Direccion" maxlength="97">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="proveedor_estado" class="bmd-label-floating">Estado &nbsp; <i
+										<label for="idEstado" class="bmd-label-floating">Estado &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="proveedor_estado_reg" id="proveedor_estado">
-											<option value="Habilitado" selected="">1 - Habilitado</option>
-											<option value="Deshabilitado">2 - Deshabilitado</option>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option value="1" selected="">1 - Habilitado</option>
+											<option value="2">2 - Deshabilitado</option>
 										</select>
 									</div>
 								</div>
@@ -125,22 +123,22 @@
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="proveedor_encargado" class="bmd-label-floating">Nombre del encargado</label>
-										<input type="text" pattern="[a-zA-Z ]{4,70}" class="form-control" name="proveedor_encargado_reg"
-											id="proveedor_encargado" maxlength="70">
+										<label for="NombreEncargado" class="bmd-label-floating">Nombre del encargado</label>
+										<input type="text" pattern="[a-zA-Z ]{4,70}" class="form-control" name="NombreEncargado"
+											id="NombreEncargado" maxlength="70">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="proveedor_telefono" class="bmd-label-floating">Teléfono</label>
-										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="proveedor_telefono_reg"
-											id="proveedor_telefono" maxlength="20">
+										<label for="Telefono" class="bmd-label-floating">Teléfono</label>
+										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="Telefono"
+											id="Telefono" maxlength="20">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="proveedor_email" class="bmd-label-floating">Email</label>
-										<input type="email" class="form-control" name="proveedor_email_reg" id="proveedor_email"
+										<label for="Email" class="bmd-label-floating">Email</label>
+										<input type="email" class="form-control" name="Email" id="Email"
 											maxlength="50">
 									</div>
 								</div>
