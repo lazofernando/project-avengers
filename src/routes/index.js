@@ -3,7 +3,7 @@ const fs = require("fs");
 const express = require("express");
 const { list } = require("mongodb/lib/gridfs/grid_store");
 const router = express.Router();
-const path =require('path');
+const path = require("path");
 const client = require("../libs/connect")();
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -39,7 +39,7 @@ router.use(
   })
 );
 
-//configurar body-parser para recicir la información de los formularios
+//configurar body-parser para recibir la información de los formularios
 router.use(bodyParser.urlencoded({ extended: false }));
 router.use(bodyParser.json());
 //router
@@ -48,7 +48,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/login", (req, res) => {
-  //guarndando información del formulqrio
+  //guardando información del formulario
   let varemail = req.body.useremail;
   let varpassword = req.body.userpassword;
 
@@ -74,31 +74,29 @@ router.post("/login", (req, res) => {
         res.render("login", {
           error: "el password o el correo no son validos ",
           //declaracióm de la propiedad profile
-          //esto lo puse para que me mueste la contraseña y el passsword ingresado
+          //esto lo puse para que me muestre la contraseña y el passsword ingresado
           profile: {
             email: varemail,
             password: varpassword,
           },
         });
       }
-      //si encontramos un documento que contien el password y correo de la base de datso
+      //si encontramos un documento que contiene el password y correo de la base de datos
       if (doc !== null) {
         secion = true;
         console.log("El password y el correo  son validos ");
         //variables de sesion
-        //doc es el documento que se obtuvo de lavase de datso
+        //doc es el documento que se obtuvo de la base de datso
         req.session.clave = doc._id;
         req.session.name = doc.username;
         req.session.email = doc.email;
         req.session.password = doc.password;
-        req.session.imagenes=doc.img;
+        req.session.imagenes = doc.img;
         res.redirect("/home");
       }
     }
   );
 });
-
-
 
 router.get("/home", (req, res) => {
   //en caso no exista una variable de secion significa
@@ -108,7 +106,7 @@ router.get("/home", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    //en caso aya iniciado sesion 
+    //en caso halla iniciado sesion
     //quiero que estas propiedasdes guarden la informacion de la base de datos
     res.render("home", {
       profile: {
@@ -116,16 +114,14 @@ router.get("/home", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
 });
- 
-//fucion para comprobar si se a inicioado secion o no
- function comprobar(n){
 
+//fucion para comprobar si se a inicioado secion o no
+function comprobar(n) {
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
@@ -137,17 +133,12 @@ router.get("/home", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
-
-
-
- }
+}
 router.get("/cashier-new", (req, res) => {
-
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
@@ -159,12 +150,10 @@ router.get("/cashier-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
-
 });
 
 router.get("/logout", (req, res) => {
@@ -176,8 +165,6 @@ router.get("/logout", (req, res) => {
   });
 });
 
-
-
 //                  caja
 
 router.get("/cashier-list", (req, res) => {
@@ -187,14 +174,16 @@ router.get("/cashier-list", (req, res) => {
     );
   } else {
     dbocategoria.getCajas().then((data) => {
-      res.render("cashier-list", { data: data[0],profile: {
+      res.render("cashier-list", {
+        data: data[0],
+        profile: {
           id: req.session.clave,
           name: req.session.name,
           email: req.session.email,
           password: req.session.password,
-          imagen:req.session.imagenes
-        } });
-     
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -211,15 +200,13 @@ router.get("/cashier-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
 });
 
-
-router.get('/category-update/:id', (req, res) => {
+router.get("/category-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
@@ -227,45 +214,49 @@ router.get('/category-update/:id', (req, res) => {
   } else {
     const id = req.params.id;
     let categoria = { ...req.body };
-    let objeto ={};
-    //res.send(id);    
-    dbocategoria.getCategoria_x_id(id).then((results)=>{
-      objeto = results[0];
-      res.render('category-update', {objeto:objeto[0], profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen:req.session.imagenes
-      }});
-    });
-}
-});
-
-router.get('/cashier-update/:id', (req, res) => {
-  if (!req.session.clave) {
-    res.send(
-      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
-    );
-  } else {
-    const id = req.params.id;
-    let categoria = { ...req.body };
-    let objeto ={};
+    let objeto = {};
     //res.send(id);
-    dbocategoria.getCaja_x_id(id).then((results)=>{
+    dbocategoria.getCategoria_x_id(id).then((results) => {
       objeto = results[0];
-      res.render('cashier-update', {objeto:objeto[0], profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen:req.session.imagenes
-      }});
+      res.render("category-update", {
+        objeto: objeto[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
 
-
+router.get("/cashier-update/:id", (req, res) => {
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    const id = req.params.id;
+    let categoria = { ...req.body };
+    let objeto = {};
+    //res.send(id);
+    dbocategoria.getCaja_x_id(id).then((results) => {
+      objeto = results[0];
+      res.render("cashier-update", {
+        objeto: objeto[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
+    });
+  }
+});
 
 //                  categorias
 router.get("/category-new", (req, res) => {
@@ -280,7 +271,7 @@ router.get("/category-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -293,13 +284,16 @@ router.get("/category-list", (req, res) => {
     );
   } else {
     dbocategoria.getCategoria().then((data) => {
-      res.render("category-list", { data: data[0], profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen:req.session.imagenes
-      }});    
+      res.render("category-list", {
+        data: data[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -316,13 +310,11 @@ router.get("/category-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
 });
-
-
 
 //                  proveedor
 router.get("/provider-new", (req, res) => {
@@ -337,7 +329,7 @@ router.get("/provider-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -350,13 +342,16 @@ router.get("/provider-list", (req, res) => {
     );
   } else {
     dbocategoria.getProveedores().then((data) => {
-      res.render("provider-list", { data: data[0],  profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen:req.session.imagenes
-      }});
+      res.render("provider-list", {
+        data: data[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -372,7 +367,7 @@ router.get("/provider-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -386,21 +381,22 @@ router.get("/provider-update/:id", (req, res) => {
   } else {
     const id = req.params.id;
     let proveedor = { ...req.body };
-    let objeto ={};
-    dbocategoria.getProveedor_x_id(id).then((results)=>{
+    let objeto = {};
+    dbocategoria.getProveedor_x_id(id).then((results) => {
       objeto = results[0];
-    res.render("provider-update", {objeto:objeto[0],
-      profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen:req.session.imagenes
-      }});
+      res.render("provider-update", {
+        objeto: objeto[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
-
 
 //                  usuario
 router.get("/user-new", (req, res) => {
@@ -415,58 +411,54 @@ router.get("/user-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
-
   }
- 
-   
 });
-
 
 /*ALTA USUARIO*/
-router.post('/user-new',(req,res)=>{
-
+router.post("/altaUsuario", (req, res) => {
   //guardando datos del formulrio
-    let nombre=req.body.usuario_usuario_reg;
-    let email2=req.body.useremail;
-    let passwork2=req.body.userpasswork;
-    let imagen=req.body.usuario_avatar_reg;
-  
-   if(nombre === "" || email2 === "" || passwork2 === ""){
-         
-    res.render("user-new",{error :"ERROR: Complete todos los campos de texto vacios para guardar la información"})
-    
-     }
-     else {
-    //guardando los datos del formulario en base de datos
-    let nuevomodelo = new customModel({
-    username :nombre,
-    email :email2,
-    password :passwork2,
-    img:imagen
+  let nombre = req.body.name_user;
+  let email2 = req.body.Usuario;
+  let passwork2 = req.body.Password;
+  let imagen = req.body.usuario_avatar_reg;
+
+  if (nombre === "" || email2 === "" || passwork2 === "") {
+    res.render("user-new", {
+      error:
+        "ERROR: Complete todos los campos de texto vacios para guardar la información",
     });
+  } else {
+  }
+  //guardando los datos del formulario en base de datos
+  let nuevomodelo = new customModel({
+    username: nombre,
+    email: email2,
+    password: passwork2,
+    img: imagen,
+  });
 
-
-    nuevomodelo.save(function(err,doc){
-      if(err){
-          console.log('error: no se pudo guardar');
-          //en casoo aya error se montrara el siguiente mensaje
-          res.render("user-new",{ error:'error:problemas al guardar la información'}) 
-      } 
-       else{
-         //aqui agregar metodo SQL
-         console.log('LOS DATOS SE GUARDARON EXITOSAMENTE');
-            //en casoo todo vaya bien
-            res.render('user-new',{exito:"los datos se guardaron exitosamente"});
-            
-        }
+  nuevomodelo.save(function (err, doc) {
+    if (err) {
+      console.log("error: no se pudo guardar");
+      res.render("user-new", {
+        error: "error:problemas al guardar la información",
+      });
+    } else {
+      //aqui agregar metodo SQL
+      console.log("LOS DATOS SE GUARDARON EXITOSAMENTE EN MONGO ATLAS");
+      let user = { ...req.body };
+      dbocategoria.insertarUser(user).then((result) => {
+        console.log("Los datos se guardaron exitosamente en SQL SERVER");
+        res.redirect("user-list");
+      });
+      //en casoo todo vaya bien
+      //res.render('user-new',{exito:"los datos se guardaron exitosamente"});
+    }
+  });
 });
-     }
-});
-
 
 router.get("/user-list", (req, res) => {
   if (!req.session.clave) {
@@ -475,14 +467,16 @@ router.get("/user-list", (req, res) => {
     );
   } else {
     dbocategoria.getUsuarios().then((data) => {
-      res.render("user-list", { data: data[0], profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen:req.session.imagenes
-        
-      } });
+      res.render("user-list", {
+        data: data[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
       //console.log(data);
     });
   }
@@ -499,8 +493,7 @@ router.get("/user-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -517,7 +510,7 @@ router.get("/user-update", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -536,7 +529,7 @@ router.get("/client-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -548,15 +541,19 @@ router.get("/client-list", (req, res) => {
     );
   } else {
     dbocategoria.getCliente().then((data) => {
-      res.render("client-list", { data: data[0] }, {
-        profile: {
-          id: req.session.clave,
-          name: req.session.name,
-          email: req.session.email,
-          password: req.session.password,
-          imagen:req.session.imagenes
-        },
-      });
+      res.render(
+        "client-list",
+        { data: data[0] },
+        {
+          profile: {
+            id: req.session.clave,
+            name: req.session.name,
+            email: req.session.email,
+            password: req.session.password,
+            imagen: req.session.imagenes,
+          },
+        }
+      );
     });
   }
 });
@@ -573,7 +570,7 @@ router.get("/client-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -591,8 +588,7 @@ router.get("/client-update", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -612,7 +608,7 @@ router.get("/product-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -630,7 +626,7 @@ router.get("/product-list", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -648,7 +644,7 @@ router.get("/product-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -666,7 +662,7 @@ router.get("/product-sold", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -684,7 +680,7 @@ router.get("/product-update", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -704,7 +700,7 @@ router.get("/shop-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -722,7 +718,7 @@ router.get("/shop-list", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -740,7 +736,7 @@ router.get("/shop-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -758,7 +754,7 @@ router.get("/shop-detail", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -778,8 +774,7 @@ router.get("/sale-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -797,7 +792,7 @@ router.get("/sale-list", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -815,7 +810,7 @@ router.get("/sale-search-date", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -833,7 +828,7 @@ router.get("/sale-search-code", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -851,7 +846,7 @@ router.get("/sale-detail", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -871,8 +866,7 @@ router.get("/return-list", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -889,8 +883,7 @@ router.get("/return-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -910,8 +903,7 @@ router.get("/company", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -930,8 +922,7 @@ router.get("/movement-new", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -949,8 +940,7 @@ router.get("/movement-list", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -967,8 +957,7 @@ router.get("/movement-search", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -987,8 +976,7 @@ router.get("/report-sales", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -1005,8 +993,7 @@ router.get("/report-inventory", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -1024,8 +1011,7 @@ router.get("/prueba", (req, res) => {
         name: req.session.name,
         email: req.session.email,
         password: req.session.password,
-        imagen:req.session.imagenes
-        
+        imagen: req.session.imagenes,
       },
     });
   }
@@ -1037,19 +1023,16 @@ router.get('*', (req, res)=>{
 })
 */
 
-
-
 ///PETICIONES****************************
 
 //obtener todas las categorias
 
-
 //para dar de alta una categoria
 //router.post("/guardar",
-router.post ("/altaCategoria", (req, res) => {
-  let categoria = {...req.body};
+router.post("/altaCategoria", (req, res) => {
+  let categoria = { ...req.body };
   dbocategoria.insertarCategoria(categoria).then((result) => {
-    res.redirect('/category-list');
+    res.redirect("/category-list");
     // console.log(nombre)
     // console.log(idEstado)
     // console.log(detalle)
@@ -1057,63 +1040,62 @@ router.post ("/altaCategoria", (req, res) => {
   });
 });
 
-router.post ("/updateCategoria", (req, res) => {
-  let categoria = {...req.body};
+router.post("/updateCategoria", (req, res) => {
+  let categoria = { ...req.body };
   dbocategoria.actualizarCategoria(categoria).then((result) => {
-    res.redirect('/category-list');
+    res.redirect("/category-list");
   });
-}); 
+});
 
-router.post ("/updateCaja", (req, res) => {
-  let caja = {...req.body};
+router.post("/updateCaja", (req, res) => {
+  let caja = { ...req.body };
   dbocategoria.actualizarCaja(caja).then((result) => {
-    res.redirect('/cashier-list');
+    res.redirect("/cashier-list");
   });
-}); 
+});
 
-router.post ("/updateProveedor", (req, res) => {
-  let proveedor = {...req.body};
+router.post("/updateProveedor", (req, res) => {
+  let proveedor = { ...req.body };
   dbocategoria.actualizarProveedor(proveedor).then((result) => {
-    res.redirect('/provider-list');
-  });
-}); 
-
-router.post ("/altaCaja", (req, res) => {
-    let caja = {...req.body};
-    dbocategoria.insertarCaja(caja).then((result) => {
-      res.redirect('/cashier-list');
-    });
-});
-
-router.post ("/altaProveedor", (req, res) => {
-    let proveedor = {...req.body};
-    dbocategoria.insertarProveedor(proveedor).then((result) => {
-      res.redirect('/provider-list');
-    });
-});
-
-
-router.post ("/eliminarCategoria",(req, res) =>{
-    let categoria = {...req.body};
-    dbocategoria.eliminarCategoria(categoria).then((result)=>{
-        res.redirect('/category-list');
-        //console.log(categoria)
-    });
-});
-
-router.post ("/eliminarCaja",(req, res) =>{
-  let caja = {...req.body};
-  dbocategoria.eliminarCaja(caja).then((result)=>{
-      res.redirect('/cashier-list');
-      //console.log(categoria)
+    res.redirect("/provider-list");
   });
 });
 
-router.post ("/eliminarProveedor",(req, res) =>{
-  let proveedor = {...req.body};
-  dbocategoria.eliminarProveedor(proveedor).then((result)=>{
-      res.redirect('/provider-list');
-      //console.log(categoria)
+router.post("/altaCaja", (req, res) => {
+  let caja = { ...req.body };
+  dbocategoria.insertarCaja(caja).then((result) => {
+    res.redirect("/cashier-list");
+  });
+});
+
+router.post("/altaProveedor", (req, res) => {
+  let proveedor = { ...req.body };
+  dbocategoria.insertarProveedor(proveedor).then((result) => {
+    res.redirect("/provider-list");
+  });
+});
+
+router.post("/eliminarCategoria", (req, res) => {
+  let categoria = { ...req.body };
+  dbocategoria.eliminarCategoria(categoria).then((result) => {
+    res.redirect("/category-list");
+    //console.log(categoria)
+  });
+});
+
+router.post("/eliminarCaja", (req, res) => {
+  let caja = { ...req.body };
+  dbocategoria.eliminarCaja(caja).then((result) => {
+    res.redirect("/cashier-list");
+    //console.log(categoria)
+  });
+});
+
+router.post("/eliminarProveedor", (req, res) => {
+  let proveedor = { ...req.body };
+  dbocategoria.eliminarProveedor(proveedor).then((result) => {
+    res.redirect("/provider-list");
+    //console.log(categoria)
   });
 });
 

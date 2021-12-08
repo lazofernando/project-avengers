@@ -142,6 +142,29 @@ async function insertarProveedor(proveedor){
     }
 }
 
+//insertar un USER
+async function insertarUser(user){
+    try {
+        let pool = await sql.connect(config);
+        let InsertUser= await pool.request()
+        //estos son los parametros del store procedure
+        .input('TipoDocumento',sql.VarChar, user.TipoDocumento)
+        .input('DNI',sql.VarChar, user.DNI)
+        .input('Nombre',sql.VarChar, user.Nombre)
+        .input('Apellidos',sql.VarChar, user.Apellidos)
+        .input('Cargo',sql.VarChar, user.Cargo)
+        .input('Telefono',sql.VarChar, user.Telefono)
+        .input('Genero',sql.VarChar, user.Genero)
+        .input('idEstado',sql.Int, user.idEstado)
+        .input('Usuario',sql.VarChar, user.Usuario)
+        .input('Password',sql.VarChar, user.Password)
+        .execute("ALTA_USUARIO");
+        return InsertUser.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //obtener caja x id
 async function getCaja_x_id(caja_id){
     try {
@@ -267,5 +290,6 @@ module.exports ={
     eliminarCaja:eliminarCaja,
     insertarProveedor:insertarProveedor,
     actualizarProveedor:actualizarProveedor,
-    eliminarProveedor:eliminarProveedor
+    eliminarProveedor:eliminarProveedor,
+    insertarUser:insertarUser
 }

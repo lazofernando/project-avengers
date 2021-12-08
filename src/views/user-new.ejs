@@ -7,14 +7,14 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Home</title>
 
-	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">
 	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
@@ -65,39 +65,39 @@
 				<%  if(typeof error !== 'undefined'){ %>
 					<h1 style="color: crimson;"><%- error %></h1>
 
-				<form class="form-neon FormularioAjax" action="/user-new"
+				<form class="form-neon FormularioAjax" action="/altaUsuario"
 					method="POST" data-form="save" autocomplete="off">
-					<input type="hidden" name="modulo_usuario" value="registrar">
+					<input type="hidden" name="modulo_usuario" value="registrar"> -->
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="usuario_tipo_documento" class="bmd-label-floating">Tipo de documento &nbsp; <i
+										<label for="TipoDocumento" class="bmd-label-floating">Tipo de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="usuario_tipo_documento_reg" id="usuario_tipo_documento">
-											<option value="" selected="">Seleccione una opción</option>
-											<option value="DNI">DNI</option>
-											<option value="Carnet Extranjeria">Carnet Extranjeria</option>
-											<option value="Pasaporte">Pasaporte</option>
-											<option value="Otro">Otro</option>
+										<select class="form-control" name="TipoDocumento" id="TipoDocumento">
+											<option value="" selected>Seleccione una opción</option>
+											<option value="DNI">1 - DNI</option>
+											<option value="CE">2 - Carnet de extranjeria</option>
+											<option value="PASAPORTE">3 - PASAPORTE</option>
+											<option value="RUC">4 - RUC</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i
+										<label for="DNI" class="bmd-label-floating">Numero de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control"
-											name="usuario_numero_documento_reg" id="usuario_numero_documento" maxlength="30">
+											name="DNI" id="DNI" maxlength="20">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="usuario_cargo" class="bmd-label-floating">Cargo &nbsp; <i
+										<label for="Cargo" class="bmd-label-floating">Cargo &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="usuario_cargo_reg" id="usuario_cargo">
+										<select class="form-control" name="Cargo" id="Cargo">
 											<option value="" selected="">Seleccione una opción</option>
 											<option value="Administrador">1 - Administrador</option>
 											<option value="Cajero">2 - Cajero</option>
@@ -106,25 +106,25 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_nombre" class="bmd-label-floating">Nombres &nbsp; <i
+										<label for="Nombre" class="bmd-label-floating">Nombres &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="usuario_nombre_reg" id="usuario_nombre" maxlength="35">
+											name="Nombre" id="Nombre" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_apellido" class="bmd-label-floating">Apellidos &nbsp; <i
+										<label for="Apellidos" class="bmd-label-floating">Apellidos &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="usuario_apellido_reg" id="usuario_apellido" maxlength="35">
+											name="Apellidos" id="Apellidos" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_telefono" class="bmd-label-floating">Teléfono</label>
-										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="usuario_telefono_reg"
-											id="usuario_telefono" maxlength="20">
+										<label for="Telefono" class="bmd-label-floating">Teléfono</label>
+										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="Telefono"
+											id="Telefono" maxlength="20">
 									</div>
 								</div>
 							</div>
@@ -139,14 +139,14 @@
 									<div class="form-group bmd-form-group is-filled">
 										<div class="radio">
 											<label>
-												<input type="radio" name="usuario_genero_reg" value="Masculino" checked=""><span
+												<input type="radio" name="Genero" value="Masculino" checked=""><span
 													class="bmd-radio"></span>
 												<i class="fas fa-male fa-fw"></i> &nbsp; Masculino
 											</label>
 										</div>
 										<div class="radio">
 											<label>
-												<input type="radio" name="usuario_genero_reg" value="Femenino"><span class="bmd-radio"></span>
+												<input type="radio" name="Genero" value="Femenino"><span class="bmd-radio"></span>
 												<i class="fas fa-female fa-fw"></i> &nbsp; Femenino
 											</label>
 										</div>
@@ -164,23 +164,23 @@
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_usuario" class="bmd-label-floating">Nombre de usuario &nbsp; <i
+										<label for="user" class="bmd-label-floating">Nombre de usuario &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="usuario_usuario_reg"
-											id="usuario_usuario" maxlength="25" >
+										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="user"
+											id="user" maxlength="25" >
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_email" class="bmd-label-floating">Email</label>
-										<input type="email" class="form-control" name="useremail" id="usuario_email" >
+										<label for="Usuario" class="bmd-label-floating">Email</label>
+										<input type="email" class="form-control" name="Usuario" id="Usuario" >
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_clave_1" class="bmd-label-floating">Contraseña &nbsp; <i
+										<label for="Password" class="bmd-label-floating">Contraseña &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="password" class="form-control" name="userpasswork" id="usuario_clave_1"
+										<input type="password" class="form-control" name="Password" id="Password"
 											>
 									</div>
 								</div>
@@ -194,11 +194,11 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="usuario_estado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
+										<label for="idEstado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="usuario_estado_reg" id="usuario_estado">
-											<option value="Activa" selected="">1 - Activa</option>
-											<option value="Deshabilitada">2 - Deshabilitada</option>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option value="1" selected="">1 - Activa</option>
+											<option value="2">2 - Deshabilitada</option>
 										</select>
 									</div>
 								</div>
@@ -384,7 +384,7 @@
 				</form>
 				<% } else{ %>
 					 
-					<form class="form-neon FormularioAjax" action="/user-new"
+					<form class="form-neon FormularioAjax" action="/altaUsuario"
 					method="POST" data-form="save" autocomplete="off">
 					<input type="hidden" name="modulo_usuario" value="registrar">
 					<fieldset>
@@ -393,12 +393,12 @@
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="usuario_tipo_documento" class="bmd-label-floating">Tipo de documento &nbsp; <i
+										<label for="TipoDocumento" class="bmd-label-floating">Tipo de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="usuario_tipo_documento_reg" id="usuario_tipo_documento">
+										<select class="form-control" name="TipoDocumento" id="TipoDocumento">
 											<option value="" selected="">Seleccione una opción</option>
 											<option value="DNI">DNI</option>
-											<option value="Carnet Extranjeria">Carnet Extranjeria</option>
+											<option value="CE">Carnet Extranjeria</option>
 											<option value="Pasaporte">Pasaporte</option>
 											<option value="Otro">Otro</option>
 										</select>
@@ -406,17 +406,17 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i
+										<label for="DNI" class="bmd-label-floating">Numero de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control"
-											name="usuario_numero_documento_reg" id="usuario_numero_documento" maxlength="30">
+											name="DNI" id="DNI" maxlength="30">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="usuario_cargo" class="bmd-label-floating">Cargo &nbsp; <i
+										<label for="Cargo" class="bmd-label-floating">Cargo &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="usuario_cargo_reg" id="usuario_cargo">
+										<select class="form-control" name="Cargo" id="Cargo">
 											<option value="" selected="">Seleccione una opción</option>
 											<option value="Administrador">1 - Administrador</option>
 											<option value="Cajero">2 - Cajero</option>
@@ -425,25 +425,25 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_nombre" class="bmd-label-floating">Nombres &nbsp; <i
+										<label for="Nombre" class="bmd-label-floating">Nombres &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="usuario_nombre_reg" id="usuario_nombre" maxlength="35">
+											name="Nombre" id="Nombre" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_apellido" class="bmd-label-floating">Apellidos &nbsp; <i
+										<label for="Apellidos" class="bmd-label-floating">Apellidos &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="usuario_apellido_reg" id="usuario_apellido" maxlength="35">
+											name="Apellidos" id="Apellidos" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_telefono" class="bmd-label-floating">Teléfono</label>
-										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="usuario_telefono_reg"
-											id="usuario_telefono" maxlength="20">
+										<label for="Telefono" class="bmd-label-floating">Teléfono</label>
+										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="Telefono"
+											id="Telefono" maxlength="20">
 									</div>
 								</div>
 							</div>
@@ -458,14 +458,14 @@
 									<div class="form-group bmd-form-group is-filled">
 										<div class="radio">
 											<label>
-												<input type="radio" name="usuario_genero_reg" value="Masculino" checked=""><span
+												<input type="radio" name="Genero" value="Masculino" checked=""><span
 													class="bmd-radio"></span>
 												<i class="fas fa-male fa-fw"></i> &nbsp; Masculino
 											</label>
 										</div>
 										<div class="radio">
 											<label>
-												<input type="radio" name="usuario_genero_reg" value="Femenino"><span class="bmd-radio"></span>
+												<input type="radio" name="Genero" value="Femenino"><span class="bmd-radio"></span>
 												<i class="fas fa-female fa-fw"></i> &nbsp; Femenino
 											</label>
 										</div>
@@ -483,23 +483,23 @@
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_usuario" class="bmd-label-floating">Nombre de usuario &nbsp; <i
+										<label for="name_user" class="bmd-label-floating">Nombre de usuario &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="usuario_usuario_reg"
-											id="usuario_usuario" maxlength="25">
+										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="name_user"
+											id="name_user" maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_email" class="bmd-label-floating">Email</label>
-										<input type="email" class="form-control" name="useremail" id="usuario_email" >
+										<label for="Usuario" class="bmd-label-floating">Email</label>
+										<input type="email" class="form-control" name="Usuario" id="Usuario" >
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="usuario_clave_1" class="bmd-label-floating">Contraseña &nbsp; <i
+										<label for="Password" class="bmd-label-floating">Contraseña &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="password" class="form-control" name="userpasswork" id="usuario_clave_1"
+										<input type="password" class="form-control" name="Password" id="Password"
 											>
 									</div>
 								</div>
@@ -513,11 +513,11 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="usuario_estado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
+										<label for="idEstado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="usuario_estado_reg" id="usuario_estado">
-											<option value="Activa" selected="">1 - Activa</option>
-											<option value="Deshabilitada">2 - Deshabilitada</option>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option value="1" selected="">1 - Activa</option>
+											<option value="2">2 - Deshabilitada</option>
 										</select>
 									</div>
 								</div>
