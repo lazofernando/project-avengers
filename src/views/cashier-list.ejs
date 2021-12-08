@@ -7,14 +7,14 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Home</title>
 
-	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/css/sweetalert2.min.css">
 	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 
@@ -85,15 +85,14 @@
 								<td><%= objeto.Estado %></td>
 								<td>
 									<a class="btn btn-success"
-										href="cashier-update">
+										href="cashier-update/<%= objeto.idCajas %>">
 										<i class="fas fa-sync fa-fw"></i>
 									</a>
 								</td>
 								<td>
-									<form class="FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/cajaAjax.php"
+									<form class="FormularioAjax" action="/eliminarCaja"
 										method="POST" data-form="delete" autocomplete="off">
-										<input type="hidden" name="caja_id_del" value="dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09">
-										<input type="hidden" name="modulo_caja" value="eliminar">
+										<input type="hidden" name="idCajas" value="<%= objeto.idCaJas%>">
 										<button type="submit" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</button>

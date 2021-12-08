@@ -13,16 +13,7 @@ async function getCategoria(){
 }
 
 
-//funcion async: asyncrona devuelve un objeto
-async function getCajas(){
-    try {
-        let pool = await sql.connect(config);
-        let cajas = await pool.request().execute("LISTAR_CAJAS");
-        return cajas.recordsets;
-    } catch (error) {
-        console.log(error)
-    }
-}
+
 
 //funcion async: asyncrona devuelve un objeto
 async function getCliente(){
@@ -85,6 +76,35 @@ async function insertarCategoria(categoria){
     }
 }
 
+
+//actualizar una categoria
+async function actualizarCategoria(categoria){
+    try {
+        let pool = await sql.connect(config);
+        let Updatecategorias = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idCategoria',sql.Int, categoria.idCategoria)
+        .input('Nombre',sql.VarChar, categoria.Nombre)
+        .input('idEstado',sql.Int, categoria.idEstado)
+        .execute("UPDATE_CATEGORIA");
+        return Updatecategorias.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//funcion async: asyncrona devuelve un objeto
+async function getCajas(){
+    try {
+        let pool = await sql.connect(config);
+        let cajas = await pool.request().execute("LISTAR_CAJAS");
+        return cajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
 //insertar una caja
 async function insertarCaja(caja){
     try {
@@ -101,17 +121,33 @@ async function insertarCaja(caja){
     }
 }
 
-//actualizar una categoria
-async function actualizarCategoria(categoria){
+//devuelve categoria x id
+async function getCaja_x_id(caja_id){
     try {
         let pool = await sql.connect(config);
-        let Updatecategorias = await pool.request()
+        let cajas = await pool.request()
+        .input('idCajas',sql.Int, caja_id)
+        .execute("LISTAR_CAJA_X_ID");
+        return cajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+
+//actualizar una CAJA
+async function actualizarCaja(caja){
+    try {
+        let pool = await sql.connect(config);
+        let Updatecaja = await pool.request()
         //estos son los parametros del store procedure
-        .input('idCategoria',sql.Int, categoria.idCategoria)
-        .input('Nombre',sql.VarChar, categoria.Nombre)
-        .input('idEstado',sql.Int, categoria.idEstado)
-        .execute("UPDATE_CATEGORIA");
-        return Updatecategorias.recordsets;
+        .input('idCajas',sql.Int, caja.idCajas)
+        .input('NombreCaja',sql.VarChar, caja.NombreCaja)
+        .input('idEstado',sql.Int, caja.idEstado)
+        .input('Efectivo',sql.Money, caja.Efectivo)
+        .execute("UPDATE_CAJA");
+        return Updatecaja.recordsets;
     } catch (error) {
         console.log(error)
     }
@@ -131,6 +167,19 @@ async function eliminarCategoria(categoria){
     }
 }
 
+async function eliminarCaja(caja){
+    try {
+        let pool = await sql.connect(config);
+        let DeleteCajas = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idCajas',sql.Int, caja.idCajas)
+        .execute("DELETE_CAJA");
+        return DeleteCajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 module.exports ={
     getCategoria:getCategoria,
@@ -142,5 +191,8 @@ module.exports ={
     insertarCategoria:insertarCategoria,
     insertarCaja:insertarCaja,
     actualizarCategoria:actualizarCategoria,
-    eliminarCategoria:eliminarCategoria
+    eliminarCategoria:eliminarCategoria,
+    actualizarCaja:actualizarCaja,
+    getCaja_x_id:getCaja_x_id,
+    eliminarCaja:eliminarCaja
 }

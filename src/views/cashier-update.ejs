@@ -7,14 +7,14 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Home</title>
 
-	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
-	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/css/sweetalert2.min.css">
+	<script src="/js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 
@@ -43,64 +43,55 @@
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
 					<li>
-						<a href="cashier-new">
+						<a href="/cashier-new">
 							<i class="fas fa-cash-register fa-fw"></i> &nbsp; Nueva caja
 						</a>
 					</li>
 					<li>
-						<a href="cashier-list">
+						<a href="/cashier-list">
 							<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de cajas
 						</a>
 					</li>
 					<li>
-						<a href="cashier-search">
+						<a href="/cashier-search">
 							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar caja
 						</a>
 					</li>
 				</ul>
 			</div>
-
+			<% if (objeto) { %> 
 			<div class="container-fluid">
 				<p class="text-right"><a href="cashier-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/cajaAjax.php"
+				<form class="form-neon FormularioAjax" action="/updateCaja"
 					method="POST" data-form="update" autocomplete="off">
-					<input type="hidden" name="caja_id_up" value="dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09">
-					<input type="hidden" name="modulo_caja" value="actualizar">
+					<input type="hidden" name="idCajas" value="<%= objeto.idCajas %>">
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información de la caja</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="caja_numero" class="bmd-label-floating">Numero de caja &nbsp; <i
-												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9]{1,5}" class="form-control" name="caja_numero_up" value="1"
-											id="caja_numero" maxlength="5">
-									</div>
-								</div>
-								<div class="col-12 col-md-6">
-									<div class="form-group bmd-form-group is-filled">
-										<label for="caja_nombre" class="bmd-label-floating">Nombre o código de caja &nbsp; <i
+										<label for="NombreCaja" class="bmd-label-floating">Nombre o código de caja &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ:# ]{3,70}" class="form-control"
-											name="caja_nombre_up" value="Caja principal" id="caja_nombre" maxlength="70">
+											name="NombreCaja" value="<%= objeto.NombreCaja %>" id="NombreCaja" maxlength="60">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="caja_estado" class="bmd-label-floating">Estado de la caja</label>
-										<select class="form-control" name="caja_estado_up" id="caja_estado">
-											<option value="Habilitada" selected="">1 - Habilitada (Actual)</option>
-											<option value="Deshabilitada">2 - Deshabilitada</option>
+										<label for="idEstado" class="bmd-label-floating">Estado de la caja</label>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option <%= objeto.Estado =='HABILITADO' ? "selected" :'' %> value="1" >1 - Habilitada</option>
+				<option <%= objeto.Estado =='DESHABILITADO' ? "selected" : '' %> value="2">2 - Deshabilitada</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="caja_efectivo" class="bmd-label-floating">Efectivo en caja</label>
-										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="caja_efectivo_up"
-											value="549837.89" id="caja_efectivo" maxlength="25">
+										<label for="Efectivo" class="bmd-label-floating">Efectivo en caja</label>
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="Efectivo"
+											value="<%= objeto.Efectivo %>" id="Efectivo" maxlength="25">
 									</div>
 								</div>
 							</div>
@@ -116,19 +107,20 @@
 					</p>
 				</form>
 			</div>
+			<% } %>
 		</section>
 
 
 	</main>
 
 
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/bootstrap-material-design.min.js"></script>
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/js/bootstrap-material-design.min.js"></script>
 	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
-	<script src="js/main.js"></script>
+	<script src="/js/main.js"></script>
 
 </body>
 
