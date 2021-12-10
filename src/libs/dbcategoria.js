@@ -13,6 +13,25 @@ async function getCategoria(){
 }
 
 
+async function getCategoriaOption(){
+    try {
+        let pool = await sql.connect(config);
+        let categorias = await pool.request().execute("LISTAR_OPTION_CATEGORIA");
+        return categorias.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+async function getProveedorOption(){
+    try {
+        let pool = await sql.connect(config);
+        let proveedor = await pool.request().execute("LISTAR_OPTION_PROVEEDOR");
+        return proveedor.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 
 //funcion async: asyncrona devuelve un objeto
@@ -99,6 +118,18 @@ async function getCajas(){
         let pool = await sql.connect(config);
         let cajas = await pool.request().execute("LISTAR_CAJAS");
         return cajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+//listar productos
+async function getProductos(){
+    try {
+        let pool = await sql.connect(config);
+        let productos = await pool.request().execute("LISTAR_PRODUCTO");
+        return productos.recordsets;
     } catch (error) {
         console.log(error)
     }
@@ -291,5 +322,8 @@ module.exports ={
     insertarProveedor:insertarProveedor,
     actualizarProveedor:actualizarProveedor,
     eliminarProveedor:eliminarProveedor,
-    insertarUser:insertarUser
+    insertarUser:insertarUser,
+    getProductos:getProductos,
+    getCategoriaOption:getCategoriaOption,
+    getProveedorOption:getProveedorOption
 }

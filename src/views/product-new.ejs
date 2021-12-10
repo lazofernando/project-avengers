@@ -7,14 +7,14 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Home</title>
 
-	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">
 	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 
@@ -72,17 +72,9 @@
 					method="POST" data-form="save" autocomplete="off" enctype="multipart/form-data">
 					<input type="hidden" name="modulo_producto" value="registrar">
 					<fieldset>
-						<legend><i class="fas fa-barcode"></i> &nbsp; Código y SKU</legend>
+						<legend><i class="fas fa-barcode"></i> &nbsp;SKU</legend>
 						<div class="container-fluid">
 							<div class="row">
-								<div class="col-12 col-md-6">
-									<div class="form-group bmd-form-group">
-										<label for="producto_codigo" class="bmd-label-floating">Código de barras &nbsp; <i
-												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[a-zA-Z0-9- ]{1,70}" class="form-control input-barcode"
-											name="producto_codigo_reg" id="producto_codigo" maxlength="70">
-									</div>
-								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
 										<label for="producto_sku" class="bmd-label-floating">SKU</label>
@@ -270,78 +262,10 @@
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<select class="form-control" name="producto_proveedor_reg" id="producto_proveedor">
 											<option value="" selected="">Seleccione una opción</option>
-											<option value="3">1 - Truper</option>
-											<option value="4">2 - Ferrepat</option>
-											<option value="6">3 - YAPPA riobanba</option>
-											<option value="7">4 - Distribuidora marca</option>
-											<option value="10">5 - Farmacia 24</option>
-											<option value="11">6 - Microsoft</option>
-											<option value="13">7 - mario hidalgoa</option>
-											<option value="14">8 - PAN GENESIS</option>
-											<option value="16">9 - test</option>
-											<option value="17">10 - INTCOMEX</option>
-											<option value="18">11 - Farmacia vida</option>
-											<option value="21">12 - Grupo Fibel</option>
-											<option value="23">13 - Hhhhhh</option>
-											<option value="24">14 - Framacia enrique</option>
-											<option value="25">15 - FERIA BARRIO LINDO</option>
-											<option value="26">16 - SPIRIT</option>
-											<option value="29">17 - jose lus</option>
-											<option value="32">18 - prueba</option>
-											<option value="33">19 - Farmacia Sana sana</option>
-											<option value="34">20 - joshe</option>
-											<option value="35">21 - pepito12888</option>
-											<option value="36">22 - jose</option>
-											<option value="37">23 - inventores SA</option>
-											<option value="38">24 - Jorge Flores</option>
-											<option value="39">25 - Agricultor 1</option>
-											<option value="40">26 - Noveltyc</option>
-											<option value="41">27 - Trasporte ejemplo</option>
-											<option value="42">28 - Montesdeoca Salazar Luis German</option>
-											<option value="43">29 - TRANSCOSTACAÑARI S.A.</option>
-											<option value="44">30 - TRANSPORTE BASTIDAS RUIZ DELIVERYCOM S.A.</option>
-											<option value="45">31 - NPD GLOBAL SUPPLIERS S.A.</option>
-											<option value="46">32 - VETANRO LOGISTICS S.A. VETLOGISA</option>
-											<option value="47">33 - Torres Romero Gina Patricia</option>
-											<option value="48">34 - Suriaga Vasquez Jorge Alfredo</option>
-											<option value="49">35 - Negolevel S.A.</option>
-											<option value="50">36 - Bresson S.A.</option>
-											<option value="51">37 - CROPARSA S.A.</option>
-											<option value="52">38 - VILLEGAS FREIRE LAURA ESTHELA</option>
-											<option value="53">39 - CAJAMARCA LOPEZ GUIDO PATRICIO</option>
-											<option value="54">40 - Luzuriaga Iñiguez Milton Diogenes</option>
-											<option value="55">41 - GLOBALPACIFIC</option>
-											<option value="56">42 - Llerena Carrera Carlos Alberto</option>
-											<option value="57">43 - VIVERO DE CACAO ORBE</option>
-											<option value="58">44 - CARTOPEL S.A.I</option>
-											<option value="59">45 - ROMERO GUAMAN NESTOR ROBERTO</option>
-											<option value="60">46 - PAREDES CEDILLO CLARA ELENA</option>
-											<option value="61">47 - STARCARGO CIA. LTDA</option>
-											<option value="63">48 - VERA VILLAGOMEZ RUBEN LIZARDO</option>
-											<option value="64">49 - MARDIEMPRE S.A.</option>
-											<option value="65">50 - MANCHENO MASSON MIGUEL HERNAN</option>
-											<option value="66">51 - PEREZ AREVALO JORGE OMAR</option>
-											<option value="67">52 - PAZMIÑO JOSE VICENTE</option>
-											<option value="68">53 - IBO S.A.</option>
-											<option value="69">54 - SOLUFIT S.A.</option>
-											<option value="70">55 - BIZARGORRI S.A.</option>
-											<option value="71">56 - RUBIANES FREIRE SILVIA RUTH</option>
-											<option value="72">57 - OXALIS S.A.</option>
-											<option value="73">58 - MARIA FERNANDA GOMEZ ZAMORA</option>
-											<option value="74">59 - CITIKOLD SA</option>
-											<option value="75">60 - CAÑARTE AGUA CARLOS FRANKLIN</option>
-											<option value="77">61 - MYCORGANIC S.A.</option>
-											<option value="78">62 - AGROCOMERCIO EL TRIUNFO</option>
-											<option value="79">63 - TRANSCOCHANCAY S.A.</option>
-											<option value="80">64 - PESANTEZ SANMARTIN LIDIA PATRICIA</option>
-											<option value="82">65 - ROMERO HERNANDEZ DIONISIO</option>
-											<option value="83">66 - TRANSPORTE Y MAQUINARIAS RIVECH</option>
-											<option value="84">67 - AGRODRIP SA</option>
-											<option value="85">68 - juan denos</option>
-											<option value="86">69 - Papelplast</option>
-											<option value="87">70 - Tumacho SAC</option>
-											<option value="88">71 - Juanchoxo C.A</option>
-											<option value="89">72 - JAJAJ</option>
+											<!-- <% proveedor.forEach((prov)=> { %>
+											<option value="<%= prov.idCategoria %>"><%= prov.idCategoria %> - <%= prov.Nombre %></option>
+											<% }) %> -->
+											
 										</select>
 									</div>
 								</div>
@@ -351,44 +275,9 @@
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<select class="form-control" name="producto_categoria_reg" id="producto_categoria">
 											<option value="" selected="">Seleccione una opción</option>
-											<option value="1">1 - Tabletas</option>
-											<option value="2">2 - belleza</option>
-											<option value="3">3 - Hogar y Jardin</option>
-											<option value="4">4 - Insumos médicos</option>
-											<option value="5">5 - MERCADO</option>
-											<option value="6">6 - Tornillos</option>
-											<option value="7">7 - Decoracion</option>
-											<option value="8">8 - Chocolates</option>
-											<option value="10">9 - Nueva</option>
-											<option value="12">10 - ropa</option>
-											<option value="13">11 - ssds</option>
-											<option value="14">12 - Snack</option>
-											<option value="16">13 - Repuwstos</option>
-											<option value="20">14 - Peliculas Disney</option>
-											<option value="21">15 - bebidasalll</option>
-											<option value="25">16 - Vitaminas</option>
-											<option value="26">17 - deditos</option>
-											<option value="27">18 - ROPA DE DAMA</option>
-											<option value="30">19 - Ventiladores</option>
-											<option value="32">20 - Cuidado personal</option>
-											<option value="33">21 - Parlante Computo</option>
-											<option value="34">22 - SELFIE</option>
-											<option value="36">23 - sdvsfsfvwsvf90870vasv</option>
-											<option value="37">24 - Regalos</option>
-											<option value="39">25 - Hamburguesas Sencillas</option>
-											<option value="40">26 - Medida fruta</option>
-											<option value="41">27 - Calibres</option>
-											<option value="42">28 - Trasporte</option>
-											<option value="44">29 - perfumeria</option>
-											<option value="45">30 - mano</option>
-											<option value="46">31 - pasta</option>
-											<option value="47">32 - tronco</option>
-											<option value="48">33 - CITY</option>
-											<option value="49">34 - Jabon</option>
-											<option value="50">35 - SSSS</option>
-											<option value="51">36 - Botas Botines</option>
-											<option value="52">37 - CALZADO</option>
-											<option value="53">38 - ddfsdfsdfadf</option>
+											<% data.forEach((objeto)=> { %>
+											<option value="<%= objeto.idCategoria %>"><%= objeto.idCategoria %> - <%= objeto.Nombre %></option>
+											<% }) %>
 										</select>
 									</div>
 								</div>
@@ -396,8 +285,8 @@
 									<div class="form-group bmd-form-group is-filled">
 										<label for="producto_estado" class="bmd-label-floating">Estado del producto</label>
 										<select class="form-control" name="producto_estado_reg" id="producto_estado">
-											<option value="Habilitado" selected="">Habilitado</option>
-											<option value="Deshabilitado">Deshabilitado</option>
+											<option value="1" selected="">Habilitado</option>
+											<option value="2">Deshabilitado</option>
 										</select>
 									</div>
 								</div>
@@ -405,21 +294,6 @@
 						</div>
 					</fieldset>
 					<br><br><br>
-					<fieldset>
-						<legend><i class="far fa-image"></i> &nbsp; Foto o imagen del producto</legend>
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-12">
-									<div class="form-group">
-										<input type="file" class="form-control-file" name="producto_foto" id="producto_foto"
-											accept=".jpg, .png, .jpeg">
-										<small class="text-muted">Tipos de archivos permitidos: JPG, JPEG, PNG. Tamaño máximo 3MB.
-											Resolución recomendada 300px X 300px o superior manteniendo el aspecto cuadrado (1:1)</small>
-									</div>
-								</div>
-							</div>
-						</div>
-					</fieldset>
 					<p class="text-center" style="margin-top: 40px;">
 						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp;
 							LIMPIAR</button>

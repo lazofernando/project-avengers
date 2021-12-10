@@ -15,7 +15,6 @@ const dbsql = require("../libs/dbcategoria");
 var cors = require("cors");
 const { request, response } = require("express");
 
-
 //var router=express.Router();
 
 //configurar session store
@@ -541,16 +540,16 @@ router.get("/client-list", (req, res) => {
     );
   } else {
     dbsql.getCliente().then((data) => {
-      res.render(
-        "client-list",
-        { data: data[0], profile: {
+      res.render("client-list", {
+        data: data[0],
+        profile: {
           id: req.session.clave,
           name: req.session.name,
           email: req.session.email,
           password: req.session.password,
           imagen: req.session.imagenes,
-        }},
-      );
+        },
+      });
     });
   }
 });
@@ -576,7 +575,7 @@ router.get("/client-search", (req, res) => {
 router.get("/client-update", (req, res) => {
   if (!req.session.clave) {
     res.send(
-      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+      '<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>'
     );
   } else {
     res.render("client-update", {
@@ -599,14 +598,16 @@ router.get("/product-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-new", {
-      profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen: req.session.imagenes,
-      },
+    dbsql.getCategoriaOption().then((data) => {
+      res.render("product-new", {data: data[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -617,14 +618,18 @@ router.get("/product-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("product-list", {
-      profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen: req.session.imagenes,
-      },
+    dbsql.getProductos().then((data) => {
+      //console.log(data);
+      res.render("product-list", {
+        data: data[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -1014,11 +1019,9 @@ router.get("/prueba", (req, res) => {
   }
 });
 
-
-router.get('*', (req, res)=>{
-    res.render('404')
-})
-
+router.get("*", (req, res) => {
+  res.render("404");
+});
 
 ///PETICIONES****************************
 
