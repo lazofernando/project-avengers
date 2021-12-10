@@ -39,7 +39,7 @@ router.use(
 );
 
 //configurar body-parser para recibir la información de los formularios
-router.use(bodyParser.urlencoded({ extended: false }));
+router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 //router
 router.get("/", (req, res) => {
