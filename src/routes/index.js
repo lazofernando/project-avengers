@@ -598,8 +598,12 @@ router.get("/product-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
+    let proveedor
+    dbsql.getProveedorOption().then((results) =>{
+      proveedor = results;
+    });
     dbsql.getCategoriaOption().then((data) => {
-      res.render("product-new", {data: data[0],
+      res.render("product-new", {data: data[0],proveedor:proveedor[0],
         profile: {
           id: req.session.clave,
           name: req.session.name,
