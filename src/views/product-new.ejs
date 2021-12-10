@@ -68,18 +68,17 @@
 			</div>
 
 			<div class="container-fluid">
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/productoAjax.php"
-					method="POST" data-form="save" autocomplete="off" enctype="multipart/form-data">
-					<input type="hidden" name="modulo_producto" value="registrar">
+				<form class="form-neon FormularioAjax" action="/altaProducto"
+					method="POST" data-form="save" autocomplete="off">
 					<fieldset>
 						<legend><i class="fas fa-barcode"></i> &nbsp;SKU</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group">
-										<label for="producto_sku" class="bmd-label-floating">SKU</label>
+										<label for="SKU" class="bmd-label-floating">SKU</label>
 										<input type="text" pattern="[a-zA-Z0-9- ]{1,70}" class="form-control input-barcode"
-											name="producto_sku_reg" id="producto_sku" maxlength="70">
+											name="SKU" id="SKU" maxlength="70">
 									</div>
 								</div>
 							</div>
@@ -92,33 +91,33 @@
 							<div class="row">
 								<div class="col-12">
 									<div class="form-group bmd-form-group">
-										<label for="producto_nombre" class="bmd-label-floating">Nombre &nbsp; <i
+										<label for="NOMBRE" class="bmd-label-floating">Nombre &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,$#\- ]{1,97}"
-											class="form-control input-barcode" name="producto_nombre_reg" id="producto_nombre" maxlength="97">
+											class="form-control input-barcode" name="NOMBRE" id="NOMBRE" maxlength="80">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="producto_stock_total" class="bmd-label-floating">Stock o existencias &nbsp; <i
+										<label for="Stock" class="bmd-label-floating">Stock o existencias &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="producto_stock_total_reg"
-											id="producto_stock_total" maxlength="20">
+										<input type="text" pattern="[0-9]{1,20}" class="form-control" name="Stock"
+											id="Stock" maxlength="20">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group">
-										<label for="producto_stock_minimo" class="bmd-label-floating">Stock mínimo &nbsp; <i
+										<label for="Stock_minimo" class="bmd-label-floating">Stock mínimo &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9]{1,9}" class="form-control" name="producto_stock_minimo_reg"
-											id="producto_stock_minimo" maxlength="9">
+										<input type="text" pattern="[0-9]{1,9}" class="form-control" name="Stock_minimo"
+											id="Stock_minimo" maxlength="9">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_unidad" class="bmd-label-floating">Presentación del producto &nbsp; <i
+										<label for="PresentacionProducto" class="bmd-label-floating">Presentación del producto &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_unidad_reg" id="producto_unidad">
+										<select class="form-control" name="PresentacionProducto" id="PresentacionProducto">
 											<option value="" selected="">Seleccione una opción</option>
 											<option value="Unidad">1 - Unidad</option>
 											<option value="Libra">2 - Libra</option>
@@ -139,49 +138,42 @@
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_precio_compra" class="bmd-label-floating">Precio de compra (Con impuesto
+										<label for="PrecioCompra" class="bmd-label-floating">Precio de compra (Con impuesto
 											incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="producto_precio_compra_reg"
-											value="0.00" id="producto_precio_compra" maxlength="25">
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="PrecioCompra"
+											value="0.00" id="PrecioCompra" maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_precio_venta" class="bmd-label-floating">Precio de venta (Con impuesto
+										<label for="Precioventa" class="bmd-label-floating">Precio de venta (Con impuesto
 											incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="producto_precio_venta_reg"
-											value="0.00" id="producto_precio_venta" maxlength="25">
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="Precioventa"
+											value="0.00" id="Precioventa" maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_precio_venta_mayoreo" class="bmd-label-floating">Precio de venta por mayoreo
+										<label for="PrecioVentaMayoreo" class="bmd-label-floating">Precio de venta por mayoreo
 											(Con impuesto incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[0-9.]{1,25}" class="form-control"
-											name="producto_precio_venta_mayoreo_reg" value="0.00" id="producto_precio_venta_mayoreo"
+											name="PrecioVentaMayoreo" value="0.00" id="PrecioVentaMayoreo"
 											maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_descuento" class="bmd-label-floating">Descuento (%) en venta &nbsp; <i
+										<label for="Descuento" class="bmd-label-floating">Descuento (%) en venta &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9]{1,2}" class="form-control" name="producto_descuento_reg" value="0"
-											id="producto_descuento" maxlength="2">
+										<input type="text" pattern="[0-9]{1,2}" class="form-control" name="Descuento" value="0"
+											id="Descuento" maxlength="2">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group">
-										<label for="producto_marca" class="bmd-label-floating">Marca</label>
+										<label for="Marca" class="bmd-label-floating">Marca</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}"
-											class="form-control input-barcode" name="producto_marca_reg" id="producto_marca" maxlength="30">
-									</div>
-								</div>
-								<div class="col-12 col-md-6 col-lg-4">
-									<div class="form-group bmd-form-group">
-										<label for="producto_modelo" class="bmd-label-floating">Modelo</label>
-										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}"
-											class="form-control input-barcode" name="producto_modelo_reg" id="producto_modelo" maxlength="30">
+											class="form-control input-barcode" name="Marca" id="Marca" maxlength="30">
 									</div>
 								</div>
 							</div>
@@ -196,13 +188,13 @@
 									<div class="form-group bmd-form-group is-filled">
 										<div class="radio">
 											<label>
-												<input type="radio" name="producto_vencimiento_reg" value="Si"><span class="bmd-radio"></span>
+												<input type="radio" name="Vence" value="Si"><span class="bmd-radio"></span>
 												<i class="far fa-check-circle fa-fw"></i> &nbsp; Si vence
 											</label>
 										</div>
 										<div class="radio">
 											<label>
-												<input type="radio" name="producto_vencimiento_reg" value="No" checked=""><span
+												<input type="radio" name="Vence" value="No" checked=""><span
 													class="bmd-radio"></span>
 												<i class="far fa-times-circle fa-fw"></i> &nbsp; No vence
 											</label>
@@ -211,10 +203,10 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_fecha_vencimiento" class="bmd-label-static">Fecha de vencimiento
+										<label for="FechaVencimiento" class="bmd-label-static">Fecha de vencimiento
 											(día/mes/año)</label>
-										<input type="date" class="form-control" name="producto_fecha_vencimiento_reg"
-											id="producto_fecha_vencimiento" maxlength="30" value="2021-11-26">
+										<input type="date" class="form-control" name="FechaVencimiento"
+											id="FechaVencimiento" maxlength="30" value="2021-11-26">
 									</div>
 								</div>
 							</div>
@@ -227,17 +219,17 @@
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_garantia_unidad" class="bmd-label-floating">Unidad de tiempo &nbsp; <i
+										<label for="Garantia" class="bmd-label-floating">Unidad de tiempo &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[0-9]{1,2}" class="form-control input-barcode"
-											name="producto_garantia_unidad_reg" id="producto_garantia_unidad" maxlength="2" value="0">
+											name="Garantia" id="Garantia" maxlength="2" value="0">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_garantia_tiempo" class="bmd-label-floating">Tiempo de garantía &nbsp; <i
+										<label for="TiempoGarantia" class="bmd-label-floating">Tiempo de garantía &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_garantia_tiempo_reg" id="producto_garantia_tiempo">
+										<select class="form-control" name="TiempoGarantia" id="TiempoGarantia">
 											<option value="N/A">1 - N/A</option>
 											<option value="Dias">2 - Dias</option>
 											<option value="Semanas">3 - Semanas</option>
@@ -258,9 +250,9 @@
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_proveedor" class="bmd-label-floating">Proveedor &nbsp; <i
+										<label for="idProveedor" class="bmd-label-floating">Proveedor &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_proveedor_reg" id="producto_proveedor">
+										<select class="form-control" name="idProveedor" id="idProveedor">
 											<option value="" selected="">Seleccione una opción</option>
 											<% proveedor.forEach((prov)=> { %>
 											<option value="<%= prov.idProveedor %>"><%= prov.idProveedor %> - <%= prov.Nombre %></option>
@@ -271,9 +263,9 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_categoria" class="bmd-label-floating">Categoría &nbsp; <i
+										<label for="idCategoria" class="bmd-label-floating">Categoría &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_categoria_reg" id="producto_categoria">
+										<select class="form-control" name="idCategoria" id="idCategoria">
 											<option value="" selected="">Seleccione una opción</option>
 											<% data.forEach((objeto)=> { %>
 											<option value="<%= objeto.idCategoria %>"><%= objeto.idCategoria %> - <%= objeto.Nombre %></option>
@@ -283,8 +275,8 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_estado" class="bmd-label-floating">Estado del producto</label>
-										<select class="form-control" name="producto_estado_reg" id="producto_estado">
+										<label for="idEstado" class="bmd-label-floating">Estado del producto</label>
+										<select class="form-control" name="idEstado" id="idEstado">
 											<option value="1" selected="">Habilitado</option>
 											<option value="2">Deshabilitado</option>
 										</select>

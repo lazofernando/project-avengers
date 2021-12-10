@@ -1079,6 +1079,16 @@ router.post("/altaProveedor", (req, res) => {
   });
 });
 
+router.post("/altaProducto", (req, res) => {
+  let producto = { ...req.body};
+  console.log(producto);
+  dbsql.insertarProducto(producto).then((result) => {
+    //console.log(result);
+    res.redirect("/product-list");
+    
+  });
+});
+
 router.post("/eliminarCategoria", (req, res) => {
   let categoria = { ...req.body };
   dbsql.eliminarCategoria(categoria).then((result) => {

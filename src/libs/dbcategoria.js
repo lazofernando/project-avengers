@@ -196,6 +196,36 @@ async function insertarUser(user){
     }
 }
 
+//insertar un PRODUCTO
+async function insertarProducto(producto){
+    try {
+        let pool = await sql.connect(config);
+        let InsertProducto= await pool.request()
+        //estos son los parametros del store procedure
+        .input('SKU',sql.VarChar, producto.SKU)
+        .input('NOMBRE',sql.VarChar, producto.NOMBRE)
+        .input('Stock',sql.BigInt, producto.Stock)
+        .input('Stock_minimo',sql.Int, producto.Stock_minimo)
+        .input('PresentacionProducto',sql.VarChar, producto.PresentacionProducto)
+        .input('PrecioCompra',sql.Money, producto.PrecioCompra)
+        .input('Precioventa',sql.Money, producto.Precioventa)
+        .input('PrecioVentaMayoreo',sql.Money, producto.PrecioVentaMayoreo)
+        .input('Descuento',sql.Decimal, producto.Descuento)
+        .input('Marca',sql.VarChar, producto.Marca)
+        .input('Vence',sql.VarChar, producto.Vence)
+        .input('FechaVencimiento',sql.Date, producto.FechaVencimiento)
+        .input('Garantia',sql.Int, producto.Garantia)
+        .input('TiempoGarantía',sql.VarChar, producto.TiempoGarantia)
+        .input('idProveedor',sql.Int, producto.idProveedor)
+        .input('idCategoria',sql.Int, producto.idCategoria)
+        .input('idEstado',sql.Int, producto.idEstado)
+        .execute("ALTA_PRODUCTO");
+        return InsertProducto.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //obtener caja x id
 async function getCaja_x_id(caja_id){
     try {
@@ -323,6 +353,7 @@ module.exports ={
     actualizarProveedor:actualizarProveedor,
     eliminarProveedor:eliminarProveedor,
     insertarUser:insertarUser,
+    insertarProducto:insertarProducto,
     getProductos:getProductos,
     getCategoriaOption:getCategoriaOption,
     getProveedorOption:getProveedorOption
