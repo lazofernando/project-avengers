@@ -11,10 +11,10 @@ const session = require("express-session");
 const MongoDBStore = require("connect-mongodb-session")(session);
 require("../libs/mongo");
 const customModel = require("../libs/modelousuario");
-const dbocategoria = require("../libs/dbcategoria");
+const dbsql = require("../libs/dbcategoria");
 var cors = require("cors");
 const { request, response } = require("express");
-const dbcategoria = require("../libs/dbcategoria");
+
 
 //var router=express.Router();
 
@@ -173,7 +173,7 @@ router.get("/cashier-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    dbocategoria.getCajas().then((data) => {
+    dbsql.getCajas().then((data) => {
       res.render("cashier-list", {
         data: data[0],
         profile: {
@@ -216,7 +216,7 @@ router.get("/category-update/:id", (req, res) => {
     let categoria = { ...req.body };
     let objeto = {};
     //res.send(id);
-    dbocategoria.getCategoria_x_id(id).then((results) => {
+    dbsql.getCategoria_x_id(id).then((results) => {
       objeto = results[0];
       res.render("category-update", {
         objeto: objeto[0],
@@ -242,7 +242,7 @@ router.get("/cashier-update/:id", (req, res) => {
     let categoria = { ...req.body };
     let objeto = {};
     //res.send(id);
-    dbocategoria.getCaja_x_id(id).then((results) => {
+    dbsql.getCaja_x_id(id).then((results) => {
       objeto = results[0];
       res.render("cashier-update", {
         objeto: objeto[0],
@@ -283,7 +283,7 @@ router.get("/category-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>'
     );
   } else {
-    dbocategoria.getCategoria().then((data) => {
+    dbsql.getCategoria().then((data) => {
       res.render("category-list", {
         data: data[0],
         profile: {
@@ -341,7 +341,7 @@ router.get("/provider-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    dbocategoria.getProveedores().then((data) => {
+    dbsql.getProveedores().then((data) => {
       res.render("provider-list", {
         data: data[0],
         profile: {
@@ -382,7 +382,7 @@ router.get("/provider-update/:id", (req, res) => {
     const id = req.params.id;
     let proveedor = { ...req.body };
     let objeto = {};
-    dbocategoria.getProveedor_x_id(id).then((results) => {
+    dbsql.getProveedor_x_id(id).then((results) => {
       objeto = results[0];
       res.render("provider-update", {
         objeto: objeto[0],
@@ -450,7 +450,7 @@ router.post("/altaUsuario", (req, res) => {
       //aqui agregar metodo SQL
       console.log("LOS DATOS SE GUARDARON EXITOSAMENTE EN MONGO ATLAS");
       let user = { ...req.body };
-      dbocategoria.insertarUser(user).then((result) => {
+      dbsql.insertarUser(user).then((result) => {
         console.log("Los datos se guardaron exitosamente en SQL SERVER");
         res.redirect("user-list");
       });
@@ -466,7 +466,7 @@ router.get("/user-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    dbocategoria.getUsuarios().then((data) => {
+    dbsql.getUsuarios().then((data) => {
       res.render("user-list", {
         data: data[0],
         profile: {
@@ -540,19 +540,16 @@ router.get("/client-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    dbocategoria.getCliente().then((data) => {
+    dbsql.getCliente().then((data) => {
       res.render(
         "client-list",
-        { data: data[0] },
-        {
-          profile: {
-            id: req.session.clave,
-            name: req.session.name,
-            email: req.session.email,
-            password: req.session.password,
-            imagen: req.session.imagenes,
-          },
-        }
+        { data: data[0], profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        }},
       );
     });
   }
@@ -1017,11 +1014,11 @@ router.get("/prueba", (req, res) => {
   }
 });
 
-/*
+
 router.get('*', (req, res)=>{
     res.render('404')
 })
-*/
+
 
 ///PETICIONES****************************
 
@@ -1031,7 +1028,7 @@ router.get('*', (req, res)=>{
 //router.post("/guardar",
 router.post("/altaCategoria", (req, res) => {
   let categoria = { ...req.body };
-  dbocategoria.insertarCategoria(categoria).then((result) => {
+  dbsql.insertarCategoria(categoria).then((result) => {
     res.redirect("/category-list");
     // console.log(nombre)
     // console.log(idEstado)
@@ -1042,42 +1039,42 @@ router.post("/altaCategoria", (req, res) => {
 
 router.post("/updateCategoria", (req, res) => {
   let categoria = { ...req.body };
-  dbocategoria.actualizarCategoria(categoria).then((result) => {
+  dbsql.actualizarCategoria(categoria).then((result) => {
     res.redirect("/category-list");
   });
 });
 
 router.post("/updateCaja", (req, res) => {
   let caja = { ...req.body };
-  dbocategoria.actualizarCaja(caja).then((result) => {
+  dbsql.actualizarCaja(caja).then((result) => {
     res.redirect("/cashier-list");
   });
 });
 
 router.post("/updateProveedor", (req, res) => {
   let proveedor = { ...req.body };
-  dbocategoria.actualizarProveedor(proveedor).then((result) => {
+  dbsql.actualizarProveedor(proveedor).then((result) => {
     res.redirect("/provider-list");
   });
 });
 
 router.post("/altaCaja", (req, res) => {
   let caja = { ...req.body };
-  dbocategoria.insertarCaja(caja).then((result) => {
+  dbsql.insertarCaja(caja).then((result) => {
     res.redirect("/cashier-list");
   });
 });
 
 router.post("/altaProveedor", (req, res) => {
   let proveedor = { ...req.body };
-  dbocategoria.insertarProveedor(proveedor).then((result) => {
+  dbsql.insertarProveedor(proveedor).then((result) => {
     res.redirect("/provider-list");
   });
 });
 
 router.post("/eliminarCategoria", (req, res) => {
   let categoria = { ...req.body };
-  dbocategoria.eliminarCategoria(categoria).then((result) => {
+  dbsql.eliminarCategoria(categoria).then((result) => {
     res.redirect("/category-list");
     //console.log(categoria)
   });
@@ -1085,7 +1082,7 @@ router.post("/eliminarCategoria", (req, res) => {
 
 router.post("/eliminarCaja", (req, res) => {
   let caja = { ...req.body };
-  dbocategoria.eliminarCaja(caja).then((result) => {
+  dbsql.eliminarCaja(caja).then((result) => {
     res.redirect("/cashier-list");
     //console.log(categoria)
   });
@@ -1093,7 +1090,7 @@ router.post("/eliminarCaja", (req, res) => {
 
 router.post("/eliminarProveedor", (req, res) => {
   let proveedor = { ...req.body };
-  dbocategoria.eliminarProveedor(proveedor).then((result) => {
+  dbsql.eliminarProveedor(proveedor).then((result) => {
     res.redirect("/provider-list");
     //console.log(categoria)
   });
