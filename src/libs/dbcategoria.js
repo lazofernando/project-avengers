@@ -92,6 +92,19 @@ async function getCategoria_x_Nombre(nombre){
     }
 }
 
+//obtener caja x nombre
+async function getCaja_x_Nombre(nombre){
+    try {
+        let pool = await sql.connect(config);
+        let cajas = await pool.request()
+        .input('Nombre',sql.VarChar, nombre)
+        .execute("BUSCAR_CAJA_POR_NOMBRE");
+        return cajas.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //insertar una categoria
 async function insertarCategoria(categoria){
     try {
@@ -355,6 +368,7 @@ module.exports ={
     getUsuarios:getUsuarios,
     getCategoria_x_id:getCategoria_x_id,
     getCategoria_x_Nombre:getCategoria_x_Nombre,
+    getCaja_x_Nombre:getCaja_x_Nombre,
     insertarCategoria:insertarCategoria,
     insertarCaja:insertarCaja,
     actualizarCategoria:actualizarCategoria,
