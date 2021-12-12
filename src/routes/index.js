@@ -514,6 +514,58 @@ router.get("/user-update", (req, res) => {
     });
   }
 });
+router.get("/actualizar",(req,res) =>{
+
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    res.render("actualizar", {
+      profile: {
+        id: req.session.clave,
+        name: req.session.name,
+        email: req.session.email,
+        password: req.session.password,
+        imagen: req.session.imagenes,
+      },
+    });
+  }
+
+
+})
+
+router.post("/altaUsuario2",(req,res)=>{
+ //guardando los datos del formulario
+  let nombre = req.body.name_user;
+  let email2 = req.body.Usuario;
+  let passwork2 = req.body.Password;
+  let imagen = req.body.usuario_avatar_reg;
+
+  //actualizando informacion de la base de datos
+// el primer parametro de la función updateone nos 
+//permite encontrar el documento que queremos actualizar
+//el segundo parametro contrendra el valor que queremos actualizar
+customModel.updateOne({username:req.session.name},{  username:nombre, email:email2 , password:passwork2 ,img:imagen},
+ // req.session.clave
+  function(err,results){
+if(err){
+    console.log(err)
+    res.render('actualizar',{
+        // error: 'no se pudo actualizar'
+    });
+}
+
+if(err==null){
+  console.log('EXITO: la actualizacion es correcta')
+  res.redirect("/actualizar");
+}
+
+
+});
+})
+
+
 
 //                  cliente
 router.get("/client-new", (req, res) => {

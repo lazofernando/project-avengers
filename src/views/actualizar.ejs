@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Home</title>
+
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<link rel="stylesheet" type="text/css" href="css/sweetalert2.min.css">
+	<script src="js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+
+	<!-- Main container -->
+	<main class="full-box main-container">
+		<!-- Nav lateral -->
+		<%- include('../views/partials/sectionLateral') %>
+
+		<!-- Page content -->
+
+		<section class="full-box page-content scroll">
+			<!-- seccion info -->
+			<%- include('../views/partials/navbar-info') %>
+			<div class="full-box page-header">
+				<h3 class="text-left text-uppercase">
+					<i class="fas fa-user-tie fa-fw"></i> &nbsp; Actualizar Información
+				</h3>
+				<p class="text-justify">
+					En el módulo USUARIO podrá registrar nuevos usuarios en el sistema ya sea un administrador o un cajero,
+					también podrá ver la lista de usuarios registrados, buscar usuarios en el sistema, actualizar datos de otros
+					usuarios y los suyos.
+				</p>
+			</div>
+
+			<div class="container-fluid">
+				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
+					<li>
+						<a class="active" href="user-new">
+							<i class="fas fa-user-tie fa-fw"></i> &nbsp; Nuevo usuario
+						</a>
+					</li>
+					<li>
+						<a href="user-list">
+							<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de usuarios
+						</a>
+					</li>
+					<li>
+						<a href="user-search">
+							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar usuario
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="container-fluid">
+				<%  if(typeof error !== 'undefined'){ %>
+					<h1 style="color: crimson;"><%- error %></h1>
+
+				<form class="form-neon FormularioAjax" action="/altaUsuario2"
+					method="POST" data-form="save" autocomplete="off">
+					
+					
+	
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-user-lock"></i> &nbsp; Información de la cuenta</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="user" class="bmd-label-floating">Nombre de usuario &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="user"
+											id="user" maxlength="25" >
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="Usuario" class="bmd-label-floating">Email</label>
+										<input type="email" class="form-control" name="Usuario" id="Usuario" required="">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="Password" class="bmd-label-floating">Contraseña &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="password" class="form-control" name="Password" id="Password"
+											required="">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="usuario_clave_2" class="bmd-label-floating">Repetir contraseña &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="password" class="form-control" name="usuario_clave_2_reg" id="usuario_clave_2"
+											pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="idEstado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option value="1" selected="">1 - Activa</option>
+											<option value="2">2 - Deshabilitada</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<div class="container-fluid">
+							<legend><i class="fas fa-portrait"></i> &nbsp; Avatar</legend>
+							<div class="row">
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_2.png" ><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_2.png"
+													alt="Avatar_Male_2.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<!-- en un imput el value contiene el valor de los imputs -->
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_1.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_1.png"
+													alt="Avatar_Male_1.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label></label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_male.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_male.png"
+													alt="Avatar_default_male.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_5.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_5.png"
+													alt="Avatar_Female_5.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_female.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_female.png"
+													alt="Avatar_default_female.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_1.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_1.png"
+													alt="Avatar_Female_1.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_3.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_3.png"
+													alt="Avatar_Male_3.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_4.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_4.png"
+													alt="Avatar_Female_4.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_4.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_4.png"
+													alt="Avatar_Male_4.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_5.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_5.png"
+													alt="Avatar_Male_5.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_3.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_3.png"
+													alt="Avatar_Female_3.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_2.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_2.png"
+													alt="Avatar_Female_2.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<p class="text-center" style="margin-top: 40px;">
+						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp;
+							LIMPIAR</button>
+						&nbsp; &nbsp;
+						
+							<input type="submit"  class="btn btn-raised btn-info btn-sm" class="far fa-save" value="GUARDAR "> 
+					
+					<p class="text-center">
+						<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+							obligatorios</small>
+					</p>
+				</form>
+			<% }else{ %>
+ 
+				<form class="form-neon FormularioAjax" action="/altaUsuario2"
+					method="POST" data-form="save" autocomplete="off">
+					
+					
+	
+					<br><br><br>
+					<fieldset>
+						<legend><i class="fas fa-user-lock"></i> &nbsp; Información de la cuenta</legend>
+						<div class="container-fluid">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="user" class="bmd-label-floating">Nombre de usuario &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="text" pattern="[a-zA-Z0-9]{4,25}" class="form-control" name="user"
+											id="user" maxlength="25" >
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="Usuario" class="bmd-label-floating">Email</label>
+										<input type="email" class="form-control" name="Usuario" id="Usuario" required="">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="Password" class="bmd-label-floating">Contraseña &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="password" class="form-control" name="Password" id="Password"
+											required="">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group">
+										<label for="usuario_clave_2" class="bmd-label-floating">Repetir contraseña &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<input type="password" class="form-control" name="usuario_clave_2_reg" id="usuario_clave_2"
+											pattern="[a-zA-Z0-9$@.-]{7,100}" maxlength="100" required="">
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="form-group bmd-form-group is-filled">
+										<label for="idEstado" class="bmd-label-floating">Estado de la cuenta &nbsp; <i
+												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option value="1" selected="">1 - Activa</option>
+											<option value="2">2 - Deshabilitada</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<br><br><br>
+					<fieldset>
+						<div class="container-fluid">
+							<legend><i class="fas fa-portrait"></i> &nbsp; Avatar</legend>
+							<div class="row">
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_2.png" ><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_2.png"
+													alt="Avatar_Male_2.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<!-- en un imput el value contiene el valor de los imputs -->
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_1.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_1.png"
+													alt="Avatar_Male_1.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label></label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_male.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_male.png"
+													alt="Avatar_default_male.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_5.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_5.png"
+													alt="Avatar_Female_5.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_female.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_default_female.png"
+													alt="Avatar_default_female.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_1.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_1.png"
+													alt="Avatar_Female_1.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_3.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_3.png"
+													alt="Avatar_Male_3.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_4.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_4.png"
+													alt="Avatar_Female_4.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_4.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_4.png"
+													alt="Avatar_Male_4.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_5.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Male_5.png"
+													alt="Avatar_Male_5.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_3.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_3.png"
+													alt="Avatar_Female_3.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+
+								<div class="col-6 col-md-4 col-lg-2">
+									<span class="bmd-form-group is-filled">
+										<div class="radio radio-avatar-form">
+											<label>
+												<input type="radio" name="usuario_avatar_reg" value="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_2.png"><span
+													class="bmd-radio"></span>
+												<img src="http://systems.designlopers.com/SVI/vistas/assets/avatar/Avatar_Female_2.png"
+													alt="Avatar_Female_2.png" class="img-fluid img-avatar-form">
+											</label>
+										</div>
+									</span>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+					<p class="text-center" style="margin-top: 40px;">
+						<button type="reset" class="btn btn-raised btn-secondary btn-sm"><i class="fas fa-paint-roller"></i> &nbsp;
+							LIMPIAR</button>
+						&nbsp; &nbsp;
+						
+							<input type="submit"  class="btn btn-raised btn-info btn-sm" class="far fa-save" value="GUARDAR "> 
+					
+					<p class="text-center">
+						<small>Los campos marcados con &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp; son
+							obligatorios</small>
+					</p>
+				</form>
+			<% } %>
+		</div>
+	</section>
+
+</main>
+
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/bootstrap-material-design.min.js"></script>
+<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>
