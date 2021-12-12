@@ -61,16 +61,15 @@
       </div>
 
 			<div class="container-fluid">
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/buscadorAjax.php"
+				<form class="form-neon FormularioAjax" action="/category-list-nombre/nombre"
 					data-form="default" method="POST" autocomplete="off">
-					<input type="hidden" name="modulo" value="categoria">
 					<div class="container-fluid">
 						<div class="row justify-content-md-center">
 							<div class="col-12 col-md-6">
 								<div class="form-group bmd-form-group">
-									<label for="inputSearch" class="bmd-label-floating">¿Qué categoría estas buscando?</label>
-									<input type="text" class="form-control" name="busqueda_inicial"
-										pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" id="inputSearch" maxlength="30">
+									<label for="nombre" class="bmd-label-floating">¿Qué categoría estas buscando?</label>
+									<input type="text" class="form-control" name="nombre"
+										pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ ]{1,30}" id="nombre" maxlength="30">
 								</div>
 							</div>
 							<div class="col-12">

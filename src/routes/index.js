@@ -231,6 +231,40 @@ router.get("/category-update/:id", (req, res) => {
   }
 });
 
+let prueba = [];
+
+router.post("/category-list-nombre/nombre", (req, res) => {
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    //const nombre = req.params.nombre ; 
+    const nombre = req.body ; 
+    //let categoria = { ...req.body };
+    let objeto = {};
+    objeto = nombre.nombre;
+    //console.log(objeto);
+    //res.send(id);
+    //console.log(nombre)
+    let resultado = {};
+    dbsql.getCategoria_x_Nombre(objeto).then((results) => {
+      resultado = results[0];
+      console.log(results[0])
+      res.render("category-list-nombre", {
+         data: results[0],
+         profile: {
+           id: req.session.clave,
+           name: req.session.name,
+           email: req.session.email,
+           password: req.session.password,
+           imagen: req.session.imagenes,
+         },
+       });
+    });
+  }
+});
+
 router.get("/cashier-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(
