@@ -28,7 +28,7 @@
 :root{
 	--color-one: #F5F5F5;
 	--color-two: #24292E;
-	--color-three: #28c275;
+	--color-three: #0485ff;
 	/*--color-three: #0366D6;*/
 
 	--form-color: #14111A;
@@ -45,6 +45,10 @@ body,html{
 	background-color: var(--color-one);
 	color: #333;
 	font-size: 16px;
+}
+a{
+	text-decoration: none;
+	font-weight: bold;
 }
 
 .full-box{
