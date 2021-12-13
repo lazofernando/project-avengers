@@ -54,11 +54,6 @@
 						</a>
 					</li>
 					<li>
-						<a href="/product-sold">
-							<i class="fas fa-fire-alt fa-fw"></i> &nbsp; Lo más vendido
-						</a>
-					</li>
-					<li>
 						<a href="/product-search">
 							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar productos
 						</a>
@@ -120,64 +115,64 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_unidad" class="bmd-label-floating">Presentación del producto &nbsp; <i
+										<label for="PresentacionProducto" class="bmd-label-floating">Presentación del producto &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_unidad_up" id="producto_unidad">
-											<option value="Unidad" selected="">1 - Unidad (Actual)</option>
-											<option value="Libra">2 - Libra</option>
-											<option value="Kilogramo">3 - Kilogramo</option>
-											<option value="Caja">4 - Caja</option>
-											<option value="Paquete">5 - Paquete</option>
-											<option value="Lata">6 - Lata</option>
-											<option value="Galon">7 - Galon</option>
-											<option value="Botella">8 - Botella</option>
-											<option value="Tira">9 - Tira</option>
-											<option value="Sobre">10 - Sobre</option>
-											<option value="Bolsa">11 - Bolsa</option>
-											<option value="Saco">12 - Saco</option>
-											<option value="Tarjeta">13 - Tarjeta</option>
-											<option value="Otro">14 - Otro</option>
+										<select class="form-control" name="PresentacionProducto" id="PresentacionProducto">
+											<option <%= objeto.PresentacionProducto =='Unidad' ? "selected" :'' %> value="Unidad">1 - Unidad</option>
+											<option <%= objeto.PresentacionProducto =='Libra' ? "selected" :'' %> value="Libra">2 - Libra</option>
+											<option <%= objeto.PresentacionProducto =='Kilogramo' ? "selected" :'' %> value="Kilogramo">3 - Kilogramo</option>
+											<option <%= objeto.PresentacionProducto =='CAJA' ? "selected" :'' %> value="Caja">4 - Caja</option>
+											<option <%= objeto.PresentacionProducto =='Paquete' ? "selected" :'' %> value="Paquete">5 - Paquete</option>
+											<option <%= objeto.PresentacionProducto =='Lata' ? "selected" :'' %> value="Lata">6 - Lata</option>
+											<option <%= objeto.PresentacionProducto =='Galon' ? "selected" :'' %> value="Galon">7 - Galon</option>
+											<option <%= objeto.PresentacionProducto =='Botella' ? "selected" :'' %> value="Botella">8 - Botella</option>
+											<option <%= objeto.PresentacionProducto =='Tira' ? "selected" :'' %> value="Tira">9 - Tira</option>
+											<option <%= objeto.PresentacionProducto =='Sobre' ? "selected" :'' %> value="Sobre">10 - Sobre</option>
+											<option <%= objeto.PresentacionProducto =='Bolsa' ? "selected" :'' %> value="Bolsa">11 - Bolsa</option>
+											<option <%= objeto.PresentacionProducto =='Saco' ? "selected" :'' %> value="Saco">12 - Saco</option>
+											<option <%= objeto.PresentacionProducto =='Tarjeta' ? "selected" :'' %> value="Tarjeta">13 - Tarjeta</option>
+											<option <%= objeto.PresentacionProducto =='Otro' ? "selected" :'' %> value="Otro">14 - Otro</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_precio_compra" class="bmd-label-floating">Precio de compra (Con impuesto
+										<label for="PrecioCompra" class="bmd-label-floating">Precio de compra (Con impuesto
 											incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="producto_precio_compra_up"
-											value="500.00" id="producto_precio_compra" maxlength="25">
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="PrecioCompra"
+											value="<%= objeto.PrecioCompra %>" id="PrecioCompra" maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_precio_venta" class="bmd-label-floating">Precio de venta (Con impuesto
+										<label for="Precioventa" class="bmd-label-floating">Precio de venta (Con impuesto
 											incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="producto_precio_venta_up"
-											value="600.00" id="producto_precio_venta" maxlength="25">
+										<input type="text" pattern="[0-9.]{1,25}" class="form-control" name="Precioventa"
+											value="<%= objeto.Precioventa %>" id="Precioventa" maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_precio_venta_mayoreo" class="bmd-label-floating">Precio de venta por mayoreo
+										<label for="PrecioVentaMayoreo" class="bmd-label-floating">Precio de venta por mayoreo
 											(Con impuesto incluido) &nbsp; <i class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[0-9.]{1,25}" class="form-control"
-											name="producto_precio_venta_mayoreo_up" value="500.00" id="producto_precio_venta_mayoreo"
+											name="PrecioVentaMayoreo" value="<%= objeto.PrecioVentaMayoreo %>" id="PrecioVentaMayoreo"
 											maxlength="25">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_descuento" class="bmd-label-floating">Descuento (%) en venta &nbsp; <i
+										<label for="Descuento" class="bmd-label-floating">Descuento (%) en venta &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9]{1,2}" class="form-control" name="producto_descuento_up" value="0"
-											id="producto_descuento" maxlength="2">
+										<input type="number" step="0.01" class="form-control" name="Descuento" value="<%= objeto.Descuento %>"
+											id="Descuento" maxlength="2">
 									</div>
 								</div>
 								<div class="col-12 col-md-6 col-lg-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_marca" class="bmd-label-floating">Marca</label>
+										<label for="Marca" class="bmd-label-floating">Marca</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{1,30}"
-											class="form-control input-barcode" name="producto_marca_up" value="ACEROS" id="producto_marca"
+											class="form-control input-barcode" name="Marca" value="<%= objeto.Marca %>" id="Marca"
 											maxlength="30">
 									</div>
 								</div>
@@ -193,13 +188,13 @@
 									<div class="form-group bmd-form-group is-filled">
 										<div class="radio">
 											<label>
-												<input type="radio" name="producto_vencimiento_up" value="Si"><span class="bmd-radio"></span>
+												<input type="radio" name="producto_vencimiento_up" value="<%= objeto.Vence %>" <%= objeto.Vence =='Si' ? "checked" :'' %>><span class="bmd-radio"></span>
 												<i class="far fa-check-circle fa-fw"></i> &nbsp; Si vence
 											</label>
 										</div>
 										<div class="radio">
 											<label>
-												<input type="radio" name="producto_vencimiento_up" value="No" checked=""><span
+												<input type="radio" name="producto_vencimiento_up" value="<%= objeto.Vence %>" <%= objeto.Vence =='No' ? "checked" :'' %>><span
 													class="bmd-radio"></span>
 												<i class="far fa-times-circle fa-fw"></i> &nbsp; No vence
 											</label>
@@ -208,10 +203,10 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_fecha_vencimiento" class="bmd-label-static">Fecha de vencimiento
+										<label for="FechaVencimiento" class="bmd-label-static">Fecha de vencimiento
 											(día/mes/año)</label>
-										<input type="date" class="form-control" name="producto_fecha_vencimiento_up"
-											id="producto_fecha_vencimiento" maxlength="30" value="2021-07-15">
+										<input type="date" class="form-control" name="FechaVencimiento"
+											id="FechaVencimiento" maxlength="30" value="<%= objeto.FechaVencimiento %>">
 									</div>
 								</div>
 							</div>
@@ -224,24 +219,23 @@
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_garantia_unidad" class="bmd-label-floating">Unidad de tiempo &nbsp; <i
+										<label for="Garantia" class="bmd-label-floating">Unidad de tiempo &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[0-9]{1,2}" class="form-control input-barcode"
-											name="producto_garantia_unidad_up" id="producto_garantia_unidad" maxlength="2" value="0">
+											name="Garantia" id="Garantia" maxlength="2" value="<%= objeto.Garantia %>">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_garantia_tiempo" class="bmd-label-floating">Tiempo de garantía &nbsp; <i
+										<label for="TiempoGarantia" class="bmd-label-floating">Tiempo de garantía &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_garantia_tiempo_up" id="producto_garantia_tiempo">
-											<option value="N/A" selected="">1 - N/A (Actual)</option>
-											<option value="Dias">2 - Dias</option>
-											<option value="Semanas">3 - Semanas</option>
-											<option value="Mes">4 - Mes</option>
-											<option value="Meses">5 - Meses</option>
-											<option value="Año">6 - Año</option>
-											<option value="Años">7 - Años</option>
+										<select class="form-control" name="TiempoGarantia" id="TiempoGarantia">
+											<option  <%= objeto.TiempoGarantia =='Dias' ? "selected" :'' %> value="Dias">2 - Dias</option>
+											<option  <%= objeto.TiempoGarantia =='Semanas' ? "selected" :'' %> value="Semanas">3 - Semanas</option>
+											<option  <%= objeto.TiempoGarantia =='Mes' ? "selected" :'' %> value="Mes">4 - Mes</option>
+											<option  <%= objeto.TiempoGarantia =='Meses' ? "selected" :'' %> value="Meses">5 - Meses</option>
+											<option  <%= objeto.TiempoGarantia =='Año' ? "selected" :'' %> value="Año">6 - Año</option>
+											<option  <%= objeto.TiempoGarantia =='Años' ? "selected" :'' %> value="Años">7 - Años</option>
 										</select>
 									</div>
 								</div>
@@ -259,7 +253,7 @@
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<select class="form-control" name="producto_proveedor_up" id="producto_proveedor">
 											<% proveedor.forEach((prov)=> { %>
-											<option value="<%= prov.idProveedor %>"><%= prov.idProveedor %> - <%= prov.Nombre %></option>
+											<option <%= objeto.idProveedor == prov.idProveedor ? "selected" :'' %> value="<%= prov.idProveedor %>"><%= prov.idProveedor %> - <%= prov.Nombre %></option>
 											<% }) %>
 										</select>
 									</div>
@@ -270,17 +264,17 @@
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<select class="form-control" name="producto_categoria_up" id="producto_categoria">
 											<% categoria.forEach((cat)=> { %>
-											<option value="<%= cat.idCategoria %>"><%= cat.idCategoria %> - <%= cat.Nombre %></option>
+											<option <%= objeto.idCategoria == cat.idCategoria ? "selected" :'' %> value="<%= cat.idCategoria %>"><%= cat.idCategoria %> - <%= cat.Nombre %></option>
 											<% }) %>
 										</select>
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_estado" class="bmd-label-floating">Estado del producto</label>
-										<select class="form-control" name="producto_estado_up" id="producto_estado">
-											<option value="Habilitado">1 - Habilitado</option>
-											<option value="Deshabilitado" selected="">2 - Deshabilitado (Actual)</option>
+										<label for="idEstado" class="bmd-label-floating">Estado del producto</label>
+										<select class="form-control" name="idEstado" id="idEstado">
+											<option <%= objeto.idEstado =='1' ? "selected" :'' %> value="1">1 - Habilitado</option>
+											<option <%= objeto.idEstado =='2' ? "selected" :'' %> value="2">2 - Deshabilitado</option>
 										</select>
 									</div>
 								</div>

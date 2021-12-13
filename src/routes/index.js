@@ -494,6 +494,7 @@ router.get("/product-update/:id", (req, res) => {
     //console.log(id);
     dbsql.getProducto_x_id(id).then((results) => {
        objeto = results[0];
+       //console.log(objeto);
        res.render("product-update", {
          objeto: objeto[0],proveedor:proveedor[0],categoria:categoria[0],
          profile: {
