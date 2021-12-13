@@ -4,9 +4,9 @@ const sql = require('mssql'); //se necesita paquete mssql
 //funcion async: asyncrona devuelve un objeto
 async function getCategoria(){
     try {
-        let pool = await sql.connect(config);
-        let categorias = await pool.request().execute("LISTAR_CATEGORIA");
-        return categorias.recordsets;
+        let pool = await sql.connect(config); //aqui espero a que se conecte al SQL SERVER 
+        let categorias = await pool.request().execute("LISTAR_CATEGORIA"); //llamamos al Store Procedure
+        return categorias.recordsets;//te retorna el resultado
     } catch (error) {
         console.log(error)
     }
@@ -74,6 +74,19 @@ async function getCategoria_x_id(cat_id){
         .input('idCategoria',sql.Int, cat_id)
         .execute("LISTAR_CATEGORIA_X_ID");
         return categorias.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+//obtener producto x id
+async function getProducto_x_id(prod_id){
+    try {
+        let pool = await sql.connect(config);
+        let productos = await pool.request()
+        .input('idProducto',sql.Int, prod_id)
+        .execute("LISTAR_PRODUCTO_X_ID");
+        return productos.recordsets;
     } catch (error) {
         console.log(error)
     }
@@ -373,6 +386,8 @@ async function eliminarProveedor(proveedor){
 }
 
 
+
+
 module.exports ={
     getCategoria:getCategoria,
     getCajas:getCajas,
@@ -390,6 +405,7 @@ module.exports ={
     actualizarCaja:actualizarCaja,
     getCaja_x_id:getCaja_x_id,
     getProveedor_x_id:getProveedor_x_id,
+    getProducto_x_id:getProducto_x_id,
     eliminarCaja:eliminarCaja,
     insertarProveedor:insertarProveedor,
     actualizarProveedor:actualizarProveedor,

@@ -208,11 +208,11 @@ router.get("/cashier-search", (req, res) => {
 router.get("/category-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(
-      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+      '<h3> <a href="/">Debes iniciar sesión para ver esta paguina</a></h3>'
     );
   } else {
-    const id = req.params.id;
-    let categoria = { ...req.body };
+    const id = req.params.id; //obtengo el id
+    //let categoria = { ...req.body };
     let objeto = {};
     //res.send(id);
     dbsql.getCategoria_x_id(id).then((results) => {
@@ -471,6 +471,40 @@ router.get("/provider-update/:id", (req, res) => {
         },
       });
     });
+  }
+});
+
+router.get("/product-update/:id", (req, res) => {
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    const id = req.params.id;
+    //let proveedor = { ...req.body };
+    let objeto = {};
+    let proveedor 
+    dbsql.getProveedorOption().then((results) =>{
+      proveedor = results;
+    });
+    let categoria
+    dbsql.getCategoriaOption().then((results) =>{
+      categoria = results;
+    })
+    //console.log(id);
+    dbsql.getProducto_x_id(id).then((results) => {
+       objeto = results[0];
+       res.render("product-update", {
+         objeto: objeto[0],proveedor:proveedor[0],categoria:categoria[0],
+         profile: {
+           id: req.session.clave,
+           name: req.session.name,
+           email: req.session.email,
+           password: req.session.password,
+           imagen: req.session.imagenes,
+         },
+       });
+     });
   }
 });
 
@@ -803,23 +837,6 @@ router.get("/product-sold", (req, res) => {
   }
 });
 
-router.get("/product-update", (req, res) => {
-  if (!req.session.clave) {
-    res.send(
-      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
-    );
-  } else {
-    res.render("product-update", {
-      profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen: req.session.imagenes,
-      },
-    });
-  }
-});
 
 // compras
 
