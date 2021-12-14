@@ -106,10 +106,10 @@
 									</a>
 								</td>
 								<td>
-									<form class="FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/usuarioAjax.php"
-										method="POST" data-form="delete" enctype="multipart/form-data" autocomplete="off">
-										<input type="hidden" name="usuario_id_del" value="bTN4NVFnVno1cmlRUzlrd3UxT3ViUT09">
-										<input type="hidden" name="modulo_usuario" value="eliminar">
+									<form class="FormularioAjax" action="/eliminarUsuario"
+										method="POST" data-form="delete" autocomplete="off">
+										<input type="hidden" name="idUsuarios" value="<%= objeto.idUsuarios %>">
+										<input type="hidden" name="NickName" value="<%= objeto.NickName %>">
 										<button type="submit" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</button>

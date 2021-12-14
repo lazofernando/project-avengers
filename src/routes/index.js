@@ -333,7 +333,6 @@ router.post("/client-list-nombre/nombre", (req, res) => {
   }
 });
 
-
 router.get("/cashier-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(
@@ -559,7 +558,7 @@ router.get("/user-new", (req, res) => {
 /*ALTA USUARIO*/
 router.post("/altaUsuario", (req, res) => {
   //guardando datos del formulrio
-  let nombre = req.body.name_user;
+  let nombre = req.body.NickName;
   let email2 = req.body.Usuario;
   let passwork2 = req.body.Password;
   let imagen = req.body.usuario_avatar_reg;
@@ -606,6 +605,7 @@ router.get("/user-list", (req, res) => {
     );
   } else {
     dbsql.getUsuarios().then((data) => {
+      //console.log(data);
       res.render("user-list", {
         data: data[0],
         profile: {
@@ -643,7 +643,7 @@ router.get("/user-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.redirect("/actualizar")
+    res.redirect("/actualizar");
   }
 });
 router.get("/actualizar", (req, res) => {
@@ -1319,6 +1319,26 @@ router.post("/eliminarCliente", (req, res) => {
     res.redirect("/client-list");
     //console.log(cliente)
   });
+});
+
+router.post("/eliminarUsuario", (req, res) => {
+  let nombre = req.body.NickName;
+  let usuario = { ...req.body };
+  //console.log(nombre);
+
+  usuario = usuario.idUsuarios;
+  console.log(usuario);
+  dbsql.eliminarUsuario(usuario).then((result) => {
+    customModel.deleteOne({ username: nombre }).then(function (err) {
+      console.log(err);
+    });
+    res.redirect("/user-list");
+    //console.log(cliente)
+  });
+
+  
+
+  
 });
 
 module.exports = router;
