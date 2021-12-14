@@ -85,26 +85,26 @@
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_numero_documento" class="bmd-label-floating">Numero de documento &nbsp; <i
+										<label for="DNI" class="bmd-label-floating">Numero de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9-]{7,30}" class="form-control"
-											name="cliente_numero_documento_up" value="234234234" id="cliente_numero_documento" maxlength="30">
+											name="DNI" value="<%= objeto.DNI %>" id="DNI" maxlength="30">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_nombre" class="bmd-label-floating">Nombres &nbsp; <i
+										<label for="Nombre" class="bmd-label-floating">Nombres &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="cliente_nombre_up" value="ALEXIS" id="cliente_nombre" maxlength="35">
+											name="Nombre" value="<%= objeto.Nombre %>" id="Nombre" maxlength="35">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_apellido" class="bmd-label-floating">Apellidos &nbsp; <i
+										<label for="Apellidos" class="bmd-label-floating">Apellidos &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,35}" class="form-control"
-											name="cliente_apellido_up" value="AVALOS" id="cliente_apellido" maxlength="35">
+											name="Apellidos" value="<%= objeto.Apellidos %>" id="Apellidos" maxlength="35">
 									</div>
 								</div>
 							</div>
@@ -117,26 +117,26 @@
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_provincia" class="bmd-label-floating">Estado, provincia o departamento &nbsp; <i
+										<label for="País" class="bmd-label-floating">Estado o País&nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" class="form-control"
-											name="cliente_provincia_up" value="Guatemala" id="cliente_provincia" maxlength="30">
+											name="País" value="<%= objeto.País %>" id="País" maxlength="30">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_ciudad" class="bmd-label-floating">Ciudad o pueblo &nbsp; <i
+										<label for="Departamento" class="bmd-label-floating">Ciudad o pueblo &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{4,30}" class="form-control"
-											name="cliente_ciudad_up" value="Guatemala" id="cliente_ciudad" maxlength="30">
+											name="Departamento" value="<%= objeto.Departamento %>" id="Departamento" maxlength="30">
 									</div>
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_direccion" class="bmd-label-floating">Calle o dirección de casa &nbsp; <i
+										<label for="Direccion" class="bmd-label-floating">Calle o dirección de casa &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
 										<input type="text" pattern="[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ().,#\- ]{4,70}" class="form-control"
-											name="cliente_direccion_up" value="35 Calle 11-31 Zona 3" id="cliente_direccion" maxlength="70">
+											name="Direccion" value="<%= objeto.Direccion %>" id="Direccion" maxlength="70">
 									</div>
 								</div>
 							</div>
@@ -149,17 +149,17 @@
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_telefono" class="bmd-label-floating">Teléfono &nbsp; <i
+										<label for="Telefono" class="bmd-label-floating">Teléfono &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="cliente_telefono_up"
-											value="55776154" id="cliente_telefono" maxlength="20">
+										<input type="text" pattern="[0-9()+]{8,20}" class="form-control" name="Telefono"
+											value="<%= objeto.Telefono %>" id="Telefono" maxlength="20">
 									</div>
 								</div>
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
 										<label for="cliente_email" class="bmd-label-floating">Email</label>
-										<input type="email" class="form-control" name="cliente_email_up" value="csdavideduardo@gmail.com"
-											id="cliente_email" maxlength="50">
+										<input type="Email" class="form-control" name="Email" value="<%= objeto.Email %>"
+											id="Email" maxlength="50">
 									</div>
 								</div>
 							</div>
