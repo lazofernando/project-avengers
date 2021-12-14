@@ -123,10 +123,6 @@
               </tbody>
             </table>
           </div>
-          <p class="text-right">
-            Mostrando cajas <strong>1</strong> al <strong>15</strong> de un
-            <strong>total de 106</strong>
-          </p>
         </div>
       </section>
     </main>
@@ -140,23 +136,28 @@
     <script src="/js/bootstrap-material-design.min.js"></script>
     <script>
       $(document).ready(function () {
-        $("#cajas").DataTable();
-      });
-
-      function confirmar(id) {
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Usted ha eliminado una caja",
-          timer: 99999999,
-          showConfirmButton: false,
-        });
-      }
-
-      $(document).ready(function () {
         $("body").bootstrapMaterialDesign();
       });
     </script>
     <script src="js/main.js"></script>
+    <script>
+		$(document).ready(function() {
+			$('#cajas').DataTable({
+				"language": {
+				  "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+				}
+			  });
+		} );
+
+		function confirmar(id) {
+		Swal.fire({
+			position: 'top-end',
+			icon: 'success',
+			title: 'Usted ha eliminado una caja',
+			timer: 99999999,
+			showConfirmButton: false,
+		  })
+		}
+	</script>
   </body>
 </html>
