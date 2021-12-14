@@ -64,7 +64,7 @@
 			<div class="container-fluid">
 				<p class="text-right"><a href="/product-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
-				<form class="form-neon FormularioAjax" action=""
+				<form class="form-neon" action="/updateProducto"
 					method="POST" data-form="update" autocomplete="off">
 					<input type="hidden" name="idProducto" value="<%= objeto.idProducto %>">
 					<h3 class="text-center text-info"><%= objeto.Nombre %></h3>
@@ -188,13 +188,13 @@
 									<div class="form-group bmd-form-group is-filled">
 										<div class="radio">
 											<label>
-												<input type="radio" name="producto_vencimiento_up" value="<%= objeto.Vence %>" <%= objeto.Vence =='Si' ? "checked" :'' %>><span class="bmd-radio"></span>
+												<input type="radio" name="Vence" value="<%= objeto.Vence %>" <%= objeto.Vence =='Si' ? "checked" :'' %>><span class="bmd-radio"></span>
 												<i class="far fa-check-circle fa-fw"></i> &nbsp; Si vence
 											</label>
 										</div>
 										<div class="radio">
 											<label>
-												<input type="radio" name="producto_vencimiento_up" value="<%= objeto.Vence %>" <%= objeto.Vence =='No' ? "checked" :'' %>><span
+												<input type="radio" name="Vence" value="<%= objeto.Vence %>" <%= objeto.Vence =='No' ? "checked" :'' %>><span
 													class="bmd-radio"></span>
 												<i class="far fa-times-circle fa-fw"></i> &nbsp; No vence
 											</label>
@@ -249,9 +249,9 @@
 							<div class="row">
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_proveedor" class="bmd-label-floating">Proveedor &nbsp; <i
+										<label for="idProveedor" class="bmd-label-floating">Proveedor &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_proveedor_up" id="producto_proveedor">
+										<select class="form-control" name="idProveedor" id="idProveedor">
 											<% proveedor.forEach((prov)=> { %>
 											<option <%= objeto.idProveedor == prov.idProveedor ? "selected" :'' %> value="<%= prov.idProveedor %>"><%= prov.idProveedor %> - <%= prov.Nombre %></option>
 											<% }) %>
@@ -260,9 +260,9 @@
 								</div>
 								<div class="col-12 col-md-4">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="producto_categoria" class="bmd-label-floating">Categoría &nbsp; <i
+										<label for="idCategoria" class="bmd-label-floating">Categoría &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="producto_categoria_up" id="producto_categoria">
+										<select class="form-control" name="idCategoria" id="idCategoria">
 											<% categoria.forEach((cat)=> { %>
 											<option <%= objeto.idCategoria == cat.idCategoria ? "selected" :'' %> value="<%= cat.idCategoria %>"><%= cat.idCategoria %> - <%= cat.Nombre %></option>
 											<% }) %>

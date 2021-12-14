@@ -1212,6 +1212,13 @@ router.post("/updateProveedor", (req, res) => {
   });
 });
 
+router.post("/updateProducto", (req, res) => {
+  let producto = { ...req.body };
+  dbsql.actualizarProducto(producto).then((result) => {
+    res.redirect("/product-list");
+  });
+});
+
 router.post("/altaCaja", (req, res) => {
   let caja = { ...req.body };
   dbsql.insertarCaja(caja).then((result) => {

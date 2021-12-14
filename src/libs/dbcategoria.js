@@ -344,6 +344,37 @@ async function actualizarProveedor(proveedor){
     }
 }
 
+//actualizar un PRODUCTO
+async function actualizarProducto(producto){
+    try {
+        let pool = await sql.connect(config);
+        let UpdateProducto = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idProducto',sql.Int, producto.idProducto)
+        .input('SKU',sql.VarChar, producto.SKU)
+        .input('Nombre',sql.VarChar, producto.Nombre)
+        .input('Stock',sql.BigInt, producto.Stock)
+        .input('Stock_minimo',sql.Int, producto.Stock_minimo)
+        .input('PresentacionProducto',sql.VarChar, producto.PresentacionProducto)
+        .input('PrecioCompra',sql.Money, producto.PrecioCompra)
+        .input('Precioventa',sql.Money, producto.Precioventa)
+        .input('PrecioVentaMayoreo',sql.Money, producto.PrecioVentaMayoreo)
+        .input('Descuento',sql.Decimal, producto.Descuento)
+        .input('Marca',sql.VarChar, producto.Marca)
+        .input('Vence',sql.VarChar, producto.Vence)
+        .input('FechaVencimiento',sql.Date, producto.FechaVencimiento)
+        .input('Garantia',sql.Int, producto.Garantia)
+        .input('TiempoGarantia',sql.VarChar, producto.TiempoGarantia)
+        .input('idProveedor',sql.Int, producto.idProveedor)
+        .input('idCategoria',sql.Int, producto.idCategoria)
+        .input('idEstado',sql.Int, producto.idEstado)
+        .execute("UPDATE_PRODUCTO");
+        return UpdateProducto.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //eliminar una categoria
 async function eliminarCategoria(categoria){
     try {
@@ -413,6 +444,7 @@ module.exports ={
     insertarUser:insertarUser,
     insertarProducto:insertarProducto,
     getProductos:getProductos,
+    actualizarProducto:actualizarProducto,
     getCategoriaOption:getCategoriaOption,
     getProveedorOption:getProveedorOption
 }
