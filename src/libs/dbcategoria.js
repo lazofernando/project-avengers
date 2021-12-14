@@ -438,6 +438,21 @@ async function eliminarProveedor(proveedor){
     }
 }
 
+//eliminar ciente
+async function eliminarCliente(cliente){
+    try {
+        let pool = await sql.connect(config);
+        let DeleteCliente= await pool.request()
+        //.input son los parametros del store procedure
+        //.execute es para ejecutar el SP de SQL SERVER
+        .input('idCliente',sql.Int, cliente.idCliente)
+        .execute("DELETE_CLIENTE");
+        return DeleteCliente.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //eliminar producto
 async function eliminarProducto(producto){
     try {
@@ -479,6 +494,7 @@ module.exports ={
     actualizarProveedor:actualizarProveedor,
     eliminarProveedor:eliminarProveedor,
     eliminarProducto:eliminarProducto,
+    eliminarCliente:eliminarCliente,
     insertarUser:insertarUser,
     insertarProducto:insertarProducto,
     getProductos:getProductos,

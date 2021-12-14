@@ -95,10 +95,9 @@
 									</a>
 								</td>
 								<td>
-									<form class="FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/clienteAjax.php"
-										method="POST" data-form="delete" enctype="multipart/form-data" autocomplete="off">
-										<input type="hidden" name="cliente_id_del" value="MHluNkdackFKTURyeis0d3JyV3RaUT09">
-										<input type="hidden" name="modulo_cliente" value="eliminar">
+									<form class="" action="/eliminarCliente"
+										method="POST" data-form="delete" autocomplete="off">
+										<input type="hidden" name="idCliente" value="<%= objeto.idCliente %>">
 										<button type="submit" class="btn btn-warning">
 											<i class="far fa-trash-alt"></i>
 										</button>

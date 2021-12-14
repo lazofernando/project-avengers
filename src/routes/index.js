@@ -1285,4 +1285,12 @@ router.post("/eliminarProducto", (req, res) => {
   });
 });
 
+router.post("/eliminarCliente", (req, res) => {
+  let cliente = { ...req.body };
+  dbsql.eliminarCliente(cliente).then((result) => {
+    res.redirect("/client-list");
+    //console.log(cliente)
+  });
+});
+
 module.exports = router;
