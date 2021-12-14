@@ -643,15 +643,7 @@ router.get("/user-update", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    res.render("user-update", {
-      profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen: req.session.imagenes,
-      },
-    });
+    res.redirect("/actualizar")
   }
 });
 router.get("/actualizar", (req, res) => {
