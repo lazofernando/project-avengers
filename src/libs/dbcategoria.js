@@ -92,6 +92,19 @@ async function getProducto_x_id(prod_id){
     }
 }
 
+//obtener CLIENTE  x id
+async function getCliente_x_id(cliente_id){
+    try {
+        let pool = await sql.connect(config);
+        let cliente = await pool.request()
+        .input('idCliente',sql.Int, cliente_id)
+        .execute("LISTAR_CLIENTE_X_ID");
+        return cliente.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //obtener categoria x nombre
 async function getCategoria_x_Nombre(nombre){
     try {
@@ -366,6 +379,29 @@ async function actualizarProveedor(proveedor){
     }
 }
 
+//actualizar una PROVEEDOR
+async function actualizarCliente(cliente){
+    try {
+        let pool = await sql.connect(config);
+        let UpdateCliente = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idCliente',sql.Int, cliente.idCliente)
+        .input('TipoDocumento',sql.VarChar, cliente.TipoDocumento)
+        .input('DNI',sql.VarChar, cliente.DNI)
+        .input('Nombre',sql.VarChar, cliente.Nombre)
+        .input('Apellidos',sql.VarChar, cliente.Apellidos)
+        .input('País',sql.VarChar, cliente.País)
+        .input('Departamento',sql.VarChar, cliente.Departamento)
+        .input('Direccion',sql.VarChar, cliente.Direccion)
+        .input('Telefono',sql.VarChar, cliente.Telefono)
+        .input('Email',sql.VarChar, cliente.Email)
+        .execute("UPDATE_CLIENTE");
+        return UpdateCliente.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //actualizar un PRODUCTO
 async function actualizarProducto(producto){
     try {
@@ -489,9 +525,11 @@ module.exports ={
     getCaja_x_id:getCaja_x_id,
     getProveedor_x_id:getProveedor_x_id,
     getProducto_x_id:getProducto_x_id,
+    getCliente_x_id:getCliente_x_id,
     eliminarCaja:eliminarCaja,
     insertarProveedor:insertarProveedor,
     actualizarProveedor:actualizarProveedor,
+    actualizarCliente:actualizarCliente,
     eliminarProveedor:eliminarProveedor,
     eliminarProducto:eliminarProducto,
     eliminarCliente:eliminarCliente,

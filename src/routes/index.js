@@ -239,21 +239,21 @@ router.post("/category-list-nombre/nombre", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    const nombre = req.body ; 
+    const nombre = req.body;
     let objeto = {};
     objeto = nombre.nombre;
     dbsql.getCategoria_x_Nombre(objeto).then((results) => {
-      console.log(results[0])
+      console.log(results[0]);
       res.render("category-list-nombre", {
-         data: results[0],
-         profile: {
-           id: req.session.clave,
-           name: req.session.name,
-           email: req.session.email,
-           password: req.session.password,
-           imagen: req.session.imagenes,
-         },
-       });
+        data: results[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -264,21 +264,21 @@ router.post("/cashier-list-nombre/nombre", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    const nombre = req.body ; 
+    const nombre = req.body;
     let objeto = {};
     objeto = nombre.nombre;
     dbsql.getCaja_x_Nombre(objeto).then((results) => {
-      console.log(results[0])
+      console.log(results[0]);
       res.render("cashier-list-nombre", {
-         data: results[0],
-         profile: {
-           id: req.session.clave,
-           name: req.session.name,
-           email: req.session.email,
-           password: req.session.password,
-           imagen: req.session.imagenes,
-         },
-       });
+        data: results[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -289,21 +289,21 @@ router.post("/provider-list-nombre/nombre", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    const nombre = req.body ; 
+    const nombre = req.body;
     let objeto = {};
     objeto = nombre.nombre;
     dbsql.getProveedor_x_Nombre(objeto).then((results) => {
-      console.log(results[0])
+      console.log(results[0]);
       res.render("provider-list-nombre", {
-         data: results[0],
-         profile: {
-           id: req.session.clave,
-           name: req.session.name,
-           email: req.session.email,
-           password: req.session.password,
-           imagen: req.session.imagenes,
-         },
-       });
+        data: results[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -456,7 +456,7 @@ router.get("/provider-update/:id", (req, res) => {
     );
   } else {
     const id = req.params.id;
-    let proveedor = { ...req.body };
+    //let proveedor = { ...req.body };
     let objeto = {};
     dbsql.getProveedor_x_id(id).then((results) => {
       objeto = results[0];
@@ -483,29 +483,31 @@ router.get("/product-update/:id", (req, res) => {
     const id = req.params.id;
     //let proveedor = { ...req.body };
     let objeto = {};
-    let proveedor 
-    dbsql.getProveedorOption().then((results) =>{
+    let proveedor;
+    dbsql.getProveedorOption().then((results) => {
       proveedor = results;
     });
-    let categoria
-    dbsql.getCategoriaOption().then((results) =>{
+    let categoria;
+    dbsql.getCategoriaOption().then((results) => {
       categoria = results;
-    })
+    });
     //console.log(id);
     dbsql.getProducto_x_id(id).then((results) => {
-       objeto = results[0];
-       //console.log(objeto);
-       res.render("product-update", {
-         objeto: objeto[0],proveedor:proveedor[0],categoria:categoria[0],
-         profile: {
-           id: req.session.clave,
-           name: req.session.name,
-           email: req.session.email,
-           password: req.session.password,
-           imagen: req.session.imagenes,
-         },
-       });
-     });
+      objeto = results[0];
+      //console.log(objeto);
+      res.render("product-update", {
+        objeto: objeto[0],
+        proveedor: proveedor[0],
+        categoria: categoria[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
+    });
   }
 });
 
@@ -626,8 +628,7 @@ router.get("/user-update", (req, res) => {
     });
   }
 });
-router.get("/actualizar",(req,res) =>{
-
+router.get("/actualizar", (req, res) => {
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
@@ -643,41 +644,38 @@ router.get("/actualizar",(req,res) =>{
       },
     });
   }
+});
 
-
-})
-
-router.post("/altaUsuario2",(req,res)=>{
- //guardando los datos del formulario
+router.post("/altaUsuario2", (req, res) => {
+  //guardando los datos del formulario
   let nombre = req.body.name_user;
   let email2 = req.body.Usuario;
   let passwork2 = req.body.Password;
   let imagen = req.body.usuario_avatar_reg;
 
   //actualizando informacion de la base de datos
-// el primer parametro de la función updateone nos 
-//permite encontrar el documento que queremos actualizar
-//el segundo parametro contrendra el valor que queremos actualizar
-customModel.updateOne({username:req.session.name},{  username:nombre, email:email2 , password:passwork2 ,img:imagen},
- // req.session.clave
-  function(err,results){
-if(err){
-    console.log(err)
-    res.render('actualizar',{
-        // error: 'no se pudo actualizar'
-    });
-}
+  // el primer parametro de la función updateone nos
+  //permite encontrar el documento que queremos actualizar
+  //el segundo parametro contrendra el valor que queremos actualizar
+  customModel.updateOne(
+    { username: req.session.name },
+    { username: nombre, email: email2, password: passwork2, img: imagen },
+    // req.session.clave
+    function (err, results) {
+      if (err) {
+        console.log(err);
+        res.render("actualizar", {
+          // error: 'no se pudo actualizar'
+        });
+      }
 
-if(err==null){
-  console.log('EXITO: la actualizacion es correcta')
-  res.redirect("/actualizar");
-}
-
-
+      if (err == null) {
+        console.log("EXITO: la actualizacion es correcta");
+        res.redirect("/actualizar");
+      }
+    }
+  );
 });
-})
-
-
 
 //                  cliente
 router.get("/client-new", (req, res) => {
@@ -736,20 +734,26 @@ router.get("/client-search", (req, res) => {
   }
 });
 
-router.get("/client-update", (req, res) => {
+router.get("/client-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(
       '<h3> <a href="/">Debes iniciar seción para ver esta pagina</a></h3>'
     );
   } else {
-    res.render("client-update", {
-      profile: {
-        id: req.session.clave,
-        name: req.session.name,
-        email: req.session.email,
-        password: req.session.password,
-        imagen: req.session.imagenes,
-      },
+    const id = req.params.id;
+    let objeto = {};
+    dbsql.getCliente_x_id(id).then((results) => {
+      objeto = results[0];
+      res.render("client-update", {
+        objeto: objeto[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
     });
   }
 });
@@ -762,12 +766,14 @@ router.get("/product-new", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    let proveedor
-    dbsql.getProveedorOption().then((results) =>{
+    let proveedor;
+    dbsql.getProveedorOption().then((results) => {
       proveedor = results;
     });
     dbsql.getCategoriaOption().then((data) => {
-      res.render("product-new", {data: data[0],proveedor:proveedor[0],
+      res.render("product-new", {
+        data: data[0],
+        proveedor: proveedor[0],
         profile: {
           id: req.session.clave,
           name: req.session.name,
@@ -837,7 +843,6 @@ router.get("/product-sold", (req, res) => {
     });
   }
 });
-
 
 // compras
 
@@ -1219,6 +1224,13 @@ router.post("/updateProducto", (req, res) => {
   });
 });
 
+router.post("/updateCliente", (req, res) => {
+  let cliente = { ...req.body };
+  dbsql.actualizarCliente(cliente).then((result) => {
+    res.redirect("/client-list");
+  });
+});
+
 router.post("/altaCaja", (req, res) => {
   let caja = { ...req.body };
   dbsql.insertarCaja(caja).then((result) => {
@@ -1234,22 +1246,20 @@ router.post("/altaProveedor", (req, res) => {
 });
 
 router.post("/altaProducto", (req, res) => {
-  let producto = { ...req.body};
+  let producto = { ...req.body };
   console.log(producto);
   dbsql.insertarProducto(producto).then((result) => {
     //console.log(result);
     res.redirect("/product-list");
-    
   });
 });
 
 router.post("/altaCliente", (req, res) => {
-  let cliente = { ...req.body};
+  let cliente = { ...req.body };
   console.log(cliente);
   dbsql.insertarCliente(cliente).then((result) => {
     //console.log(result);
     res.redirect("/client-list");
-    
   });
 });
 

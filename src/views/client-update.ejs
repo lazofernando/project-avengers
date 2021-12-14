@@ -7,14 +7,14 @@
 		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Home</title>
 
-	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
-	<script src="js/sweetalert2.min.js"></script>
-	<link rel="stylesheet" tyoe="text/css" href="css/jquery.mCustomScrollbar.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="/css/normalize.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/all.css">
+	<link rel="stylesheet" type="text/css" href="/css/sweetalert2.min.css">
+	<script src="/js/sweetalert2.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/css/jquery.mCustomScrollbar.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
 
 </head>
 
@@ -44,25 +44,25 @@
 			<div class="container-fluid">
 				<ul class="full-box list-unstyled page-nav-tabs text-uppercase">
 					<li>
-						<a href="client-new">
+						<a href="/client-new">
 							<i class="fas fa-child fa-fw"></i> &nbsp; Nuevo cliente
 						</a>
 					</li>
 					<li>
-						<a href="client-list">
+						<a href="/client-list">
 							<i class="fas fa-clipboard-list fa-fw"></i> &nbsp; Lista de clientes
 						</a>
 					</li>
 					<li>
-						<a href="client-search">
+						<a href="/client-search">
 							<i class="fas fa-search fa-fw"></i> &nbsp; Buscar cliente
 						</a>
 					</li>
 				</ul>
 			</div>
-
+			<% if (objeto) { %> 
 			<div class="container-fluid">
-				<p class="text-right"><a href="client-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
+				<p class="text-right"><a href="/client-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
 				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/clienteAjax.php"
 					method="POST" data-form="update" autocomplete="off">
@@ -179,18 +179,19 @@
 					</p>
 				</form>
 			</div>
+			<% } %>
 		</section>
 
 	</main>
 
 
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/bootstrap-material-design.min.js"></script>
+	<script src="/js/jquery-3.4.1.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="/js/bootstrap-material-design.min.js"></script>
 	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
-	<script src="js/main.js"></script>
+	<script src="/js/main.js"></script>
 
 </body>
 
