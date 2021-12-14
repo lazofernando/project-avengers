@@ -57,7 +57,10 @@ a{
 	box-sizing: border-box;
 	width: 100%;
 }
-
+#form_eliminar{
+	margin: 0;
+	padding:0;
+}
 .form-neon{
 	border: 1px solid var(--border-color);
 	background-color: #FFF;

@@ -9,7 +9,9 @@
 
 	<link rel="stylesheet" tyoe="text/css" href="css/normalize.css">
 	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css">
+	<!-- <link rel="stylesheet" tyoe="text/css" href="css/bootstrap-material-design.min.css"> -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" /> -->
+	<link href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
 	<link rel="stylesheet" tyoe="text/css" href="css/all.css">
 	<link rel="stylesheet" tyoe="text/css" href="css/sweetalert2.min.css">
 	<script src="js/sweetalert2.min.js"></script>
@@ -66,11 +68,11 @@
 				</ul>
 			</div>
 
-			<div class="container-fluid" style="background-color: #FFF; padding-bottom: 20px;">
+			<div id="productos" class="container-fluid" style="background-color: #FFF; padding-bottom: 20px;">
 				<ul class="list-unstyled" style="padding: 5px;">
 					<!-- bloque para replicar -->
 					<% data.forEach((objeto)=> { %>
-					<li class="media media-product"><img width="180px" class="mr-3 img-fluid img-product-list"
+					<li class="media media-product border"><img width="180px" class="mr-3 img-fluid img-product-list"
 							src="<%= objeto.Imagen %>" alt="imagen_producto">
 						<div class="media-body product-media-body">
 							<p class="text-uppercase text-center media-product-title"><%= objeto.idProducto %><strong> - <%= objeto.Nombre %></strong></p>
@@ -105,10 +107,9 @@
 									data-content="Actualizar producto" data-original-title="" title="">
 									<i class="fas fa-sync"></i>
 								</a>
-								<form class="FormularioAjax btn form-product"
+								<form class="btn form-product"
 									action="" method="POST" data-form="delete"
-									autocomplete="off">
-									<input type="hidden" name="producto_id_del" value="eWZqd3FkOTh1OGVBUjF3TDRRN2l3QT09">
+									autocomplete="off" id="form_eliminar">
 									<input type="hidden" name="modulo_producto" value="eliminar">
 										<button type="submit" class="btn btn-warning" data-toggle="popover" data-trigger="hover"
 										data-placement="top" data-content="Eliminar producto" data-original-title="" title="">
@@ -152,12 +153,24 @@
 	</main>
 
 
-	<script src="js/jquery-3.4.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-	<script src="js/bootstrap-material-design.min.js"></script>
-	<script>$(document).ready(function () { $('body').bootstrapMaterialDesign(); });</script>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/js/bootstrap-material-design.min.js"></script>
+	
+	<script>
+		$(document).ready(function () {
+		  $("body").bootstrapMaterialDesign();
+		});
+  
+		/*$(document).ready( function () {
+		  $('#productos').DataTable();
+	  } );*/
+	  </script>
 	<script src="js/main.js"></script>
 
 </body>
