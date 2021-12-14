@@ -3,6 +3,5 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.deploySubpath": ".",
-    "appService.defaultWebAppToDeploy": "/subscriptions/46be4cc5-cdaf-48be-a9b9-406a6e9b1045/resourceGroups/avengers-recursos/providers/Microsoft.Web/sites/gruposeiscertus"
+    "appService.deploySubpath": "."
 }
