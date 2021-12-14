@@ -308,6 +308,32 @@ router.post("/provider-list-nombre/nombre", (req, res) => {
   }
 });
 
+router.post("/client-list-nombre/nombre", (req, res) => {
+  if (!req.session.clave) {
+    res.send(
+      '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
+    );
+  } else {
+    const nombre = req.body;
+    let objeto = {};
+    objeto = nombre.nombre;
+    dbsql.getCliente_x_Nombre(objeto).then((results) => {
+      console.log(results[0]);
+      res.render("client-list-nombre", {
+        data: results[0],
+        profile: {
+          id: req.session.clave,
+          name: req.session.name,
+          email: req.session.email,
+          password: req.session.password,
+          imagen: req.session.imagenes,
+        },
+      });
+    });
+  }
+});
+
+
 router.get("/cashier-update/:id", (req, res) => {
   if (!req.session.clave) {
     res.send(

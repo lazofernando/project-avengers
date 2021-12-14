@@ -144,6 +144,19 @@ async function getProveedor_x_Nombre(nombre){
     }
 }
 
+//obtener CLIENTE x nombre
+async function getCliente_x_Nombre(nombre){
+    try {
+        let pool = await sql.connect(config);
+        let cliente = await pool.request()
+        .input('Nombre',sql.VarChar, nombre)
+        .execute("BUSCAR_CLIENTE_POR_NOMBRE");
+        return cliente.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //insertar una categoria
 async function insertarCategoria(categoria){
     try {
@@ -526,6 +539,7 @@ module.exports ={
     getProveedor_x_id:getProveedor_x_id,
     getProducto_x_id:getProducto_x_id,
     getCliente_x_id:getCliente_x_id,
+    getCliente_x_Nombre:getCliente_x_Nombre,
     eliminarCaja:eliminarCaja,
     insertarProveedor:insertarProveedor,
     actualizarProveedor:actualizarProveedor,
