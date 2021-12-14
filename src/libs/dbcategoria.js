@@ -416,6 +416,20 @@ async function eliminarProveedor(proveedor){
     }
 }
 
+//eliminar producto
+async function eliminarProducto(producto){
+    try {
+        let pool = await sql.connect(config);
+        let DeleteProducto = await pool.request()
+        //estos son los parametros del store procedure
+        .input('idProducto',sql.Int, producto.idProducto)
+        .execute("DELETE_PRODUCTO");
+        return DeleteProducto.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 
 
 
@@ -441,6 +455,7 @@ module.exports ={
     insertarProveedor:insertarProveedor,
     actualizarProveedor:actualizarProveedor,
     eliminarProveedor:eliminarProveedor,
+    eliminarProducto:eliminarProducto,
     insertarUser:insertarUser,
     insertarProducto:insertarProducto,
     getProductos:getProductos,

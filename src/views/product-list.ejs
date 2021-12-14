@@ -108,10 +108,10 @@
 									<i class="fas fa-sync"></i>
 								</a>
 								<form class="btn form-product"
-									action="" method="POST" data-form="delete"
-									autocomplete="off" id="form_eliminar">
-									<input type="hidden" name="modulo_producto" value="eliminar">
-										<button type="submit" class="btn btn-warning" data-toggle="popover" data-trigger="hover"
+									action="/eliminarProducto" method="POST" data-form="delete"
+									autocomplete="off" id="idProducto">
+									<input type="hidden" name="idProducto" value="<%= objeto.idProducto %>">
+										<button onclick="confirmar(<%= objeto.idProveedor %>)" type="submit" class="btn btn-warning" data-toggle="popover" data-trigger="hover"
 										data-placement="top" data-content="Eliminar producto" data-original-title="" title="">
 										<i class="far fa-trash-alt"></i>
 									</button>
@@ -166,7 +166,17 @@
 		$(document).ready(function () {
 		  $("body").bootstrapMaterialDesign();
 		});
-  
+		
+
+		function confirmar(id) {
+			Swal.fire({
+			  position: "top-end",
+			  icon: "success",
+			  title: "Usted ha eliminado un producto",
+			  timer: 99999999,
+			  showConfirmButton: false,
+			});
+		  }
 		/*$(document).ready( function () {
 		  $('#productos').DataTable();
 	  } );*/

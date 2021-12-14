@@ -1267,4 +1267,12 @@ router.post("/eliminarProveedor", (req, res) => {
   });
 });
 
+router.post("/eliminarProducto", (req, res) => {
+  let producto = { ...req.body };
+  dbsql.eliminarProducto(producto).then((result) => {
+    res.redirect("/product-list");
+    //console.log(categoria)
+  });
+});
+
 module.exports = router;
