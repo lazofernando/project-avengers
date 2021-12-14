@@ -64,26 +64,22 @@
 			<div class="container-fluid">
 				<p class="text-right"><a href="/client-list" class="btn btn-raised btn-info btn-go-back"><i class="fas fa-reply"></i>
 						&nbsp; Regresar atrás</a></p>
-				<form class="form-neon FormularioAjax" action="http://systems.designlopers.com/SVI/ajax/clienteAjax.php"
+				<form class="form-neon FormularioAjax" action="/updateCliente"
 					method="POST" data-form="update" autocomplete="off">
-					<input type="hidden" name="cliente_id_up" value="MHluNkdackFKTURyeis0d3JyV3RaUT09">
-					<input type="hidden" name="modulo_cliente" value="actualizar">
+					<input type="hidden" name="idCliente" value="<%= objeto.idCliente %>">
 					<fieldset>
 						<legend><i class="far fa-address-card"></i> &nbsp; Información personal</legend>
 						<div class="container-fluid">
 							<div class="row">
 								<div class="col-12 col-md-6">
 									<div class="form-group bmd-form-group is-filled">
-										<label for="cliente_tipo_documento" class="bmd-label-floating">Tipo de documento &nbsp; <i
+										<label for="TipoDocumento" class="bmd-label-floating">Tipo de documento &nbsp; <i
 												class="fab fa-font-awesome-alt"></i> &nbsp;</label>
-										<select class="form-control" name="cliente_tipo_documento_up" id="cliente_tipo_documento">
-											<option value="" selected="">Seleccione una opción</option>
-											<option value="DUI" selected="">1 - DUI (Actual)</option>
-											<option value="DNI">2 - DNI</option>
-											<option value="Cedula">3 - Cedula</option>
-											<option value="Licencia">4 - Licencia</option>
-											<option value="Pasaporte">5 - Pasaporte</option>
-											<option value="Otro">6 - Otro</option>
+										<select class="form-control" name="TipoDocumento" id="TipoDocumento">
+											<option <%= objeto.TipoDocumento =='DNI' ? "selected" :'' %> value="DNI">1 - DNI</option>
+											<option <%= objeto.TipoDocumento =='CE' ? "selected" :'' %> value="CE">2 - Carnet de extranjeria</option>
+											<option <%= objeto.TipoDocumento =='PASAPORTE' ? "selected" :'' %> value="PASAPORTE">3 - PASAPORTE</option>
+											<option <%= objeto.TipoDocumento =='RUC' ? "selected" :'' %> value="RUC">4 - RUC</option>
 										</select>
 									</div>
 								</div>
