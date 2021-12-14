@@ -1243,6 +1243,16 @@ router.post("/altaProducto", (req, res) => {
   });
 });
 
+router.post("/altaCliente", (req, res) => {
+  let cliente = { ...req.body};
+  console.log(cliente);
+  dbsql.insertarCliente(cliente).then((result) => {
+    //console.log(result);
+    res.redirect("/client-list");
+    
+  });
+});
+
 router.post("/eliminarCategoria", (req, res) => {
   let categoria = { ...req.body };
   dbsql.eliminarCategoria(categoria).then((result) => {

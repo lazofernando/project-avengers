@@ -225,6 +225,28 @@ async function insertarProveedor(proveedor){
     }
 }
 
+//insertar un cliente
+async function insertarCliente(cliente){
+    try {
+        let pool = await sql.connect(config);
+        let InsertCliente= await pool.request()
+        //estos son los parametros del store procedure
+        .input('TipoDocumento',sql.VarChar, cliente.TipoDocumento)
+        .input('DNI',sql.VarChar, cliente.DNI)
+        .input('Nombre',sql.VarChar, cliente.Nombre)
+        .input('Apellidos',sql.VarChar, cliente.Apellidos)
+        .input('País',sql.VarChar, cliente.País)
+        .input('Departamento',sql.VarChar, cliente.Departamento)
+        .input('Direccion',sql.VarChar, cliente.Direccion)
+        .input('Telefono',sql.VarChar, cliente.Telefono)
+        .input('Email',sql.VarChar, cliente.Email)
+        .execute("ALTA_CLIENTE");
+        return InsertCliente.recordsets;
+    } catch (error) {
+        console.log(error)
+    }
+}
+
 //insertar un USER
 async function insertarUser(user){
     try {
@@ -445,6 +467,7 @@ module.exports ={
     getProveedor_x_Nombre:getProveedor_x_Nombre,
     insertarCategoria:insertarCategoria,
     insertarCaja:insertarCaja,
+    insertarCliente:insertarCliente,
     actualizarCategoria:actualizarCategoria,
     eliminarCategoria:eliminarCategoria,
     actualizarCaja:actualizarCaja,
