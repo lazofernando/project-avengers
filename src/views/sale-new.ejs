@@ -79,7 +79,7 @@
 												class="fas fa-search"></i> &nbsp; Buscar producto</strong></p>
 									<hr>
 									<p class="mb-0">Puede cambiar esta configuración en los &nbsp; <a
-											href="http://systems.designlopers.com/SVI/user-update/dEpjOG5JVWliYnFkMEdKd0NiK3FVUT09/"><i
+											href=""><i
 												class="fas fa-user-cog"></i>&nbsp; ajustes de su cuenta</a>.</p>
 								</div>
 								<div class="container-fluid">
@@ -328,7 +328,7 @@
 						datos.append("producto_codigo_add", codigo_producto);
 						datos.append("modulo_venta", "agregar_producto");
 
-						fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+						fetch('', {
 							method: 'POST',
 							body: datos
 						})
@@ -374,7 +374,7 @@
 								datos.append("producto_cantidad_up", cantidad);
 								datos.append("modulo_venta", "actualizar_producto");
 
-								fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+								fetch('', {
 									method: 'POST',
 									body: datos
 								})
@@ -407,7 +407,7 @@
 						datos.append("buscar_cliente", input_cliente);
 						datos.append("modulo_venta", "buscar_cliente");
 
-						fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+						fetch('', {
 							method: 'POST',
 							body: datos
 						})
@@ -447,7 +447,7 @@
 							datos.append("cliente_id_add", id);
 							datos.append("modulo_venta", "agregar_cliente");
 
-							fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+							fetch('', {
 								method: 'POST',
 								body: datos
 							})
@@ -497,7 +497,7 @@
 								datos.append("venta_descuento_add", descuento);
 								datos.append("modulo_venta", "aplicar_descuento");
 
-								fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+								fetch('', {
 									method: 'POST',
 									body: datos
 								})
@@ -538,7 +538,7 @@
 								datos.append("venta_descuento_del", descuento);
 								datos.append("modulo_venta", "remover_descuento");
 
-								fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+								fetch('', {
 									method: 'POST',
 									body: datos
 								})
@@ -610,7 +610,7 @@
 						datos.append("buscar_codigo", input_codigo);
 						datos.append("modulo_venta", "buscar_codigo");
 
-						fetch('http://systems.designlopers.com/SVI/ajax/ventaAjax.php', {
+						fetch('', {
 							method: 'POST',
 							body: datos
 						})
