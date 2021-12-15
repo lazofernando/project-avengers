@@ -1322,23 +1322,19 @@ router.post("/eliminarCliente", (req, res) => {
 });
 
 router.post("/eliminarUsuario", (req, res) => {
-  let nombre = req.body.NickName;
+  //let nombre = req.body.NickName;
   let usuario = { ...req.body };
+  let nombre = req.body.NickName;
   //console.log(nombre);
-
-  usuario = usuario.idUsuarios;
   console.log(usuario);
+  console.log(nombre);
   dbsql.eliminarUsuario(usuario).then((result) => {
-    customModel.deleteOne({ username: nombre }).then(function (err) {
-      console.log(err);
-    });
-    res.redirect("/user-list");
     //console.log(cliente)
+    res.redirect("/user-list");
   });
-
-  
-
-  
+  customModel.deleteOne({ username: nombre }).then(function (err) {
+    console.log(err);
+  });
 });
 
 module.exports = router;
