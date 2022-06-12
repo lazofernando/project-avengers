@@ -3,5 +3,6 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.deploySubpath": "."
+    "appService.deploySubpath": ".",
+    "appService.defaultWebAppToDeploy": "/subscriptions/b78f3317-02a9-43bd-8979-2e404425a2fe/microsoft.web/sites/subscriptions/b78f3317-02a9-43bd-8979-2e404425a2fe/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/SistemaInventarioAvengersCertus"
 }
