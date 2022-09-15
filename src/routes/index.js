@@ -173,9 +173,6 @@ router.get("/cashier-list", (req, res) => {
       '<h3> <a href="/">Debes iniciar seción para ver esta paguina</a></h3>'
     );
   } else {
-    for (let i = 0; i < 10000; i++) {
-      
-    }
     dbsql.getCajas().then((data) => {
       res.render("cashier-list", {
         data: data[0],
